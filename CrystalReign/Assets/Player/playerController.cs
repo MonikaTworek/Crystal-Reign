@@ -5,8 +5,8 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 3;
-    public float speedJump = 5;
+    public float speed = 10;
+    public float speedJump = 3;
     bool isGround = false;
     Vector3 currentRotation;
 
@@ -34,23 +34,11 @@ public class playerController : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y") * (-1);
-        //float velocityX = Input.GetAxis("Horizontal") * speed;
+        float help = Input.GetAxis("Horizontal");
+        float velocityX = (help == 0 ? 0 : (help > 0 ? rb.velocity.x + transform.forward.normalized.x * speed * (-1) : rb.velocity.x + transform.forward.normalized.x * speed));//TODO: nie przeleciec przez podloge
         float velocityY = rb.velocity.y + (isGround ? Input.GetAxis("Jump") * speedJump : 0);
-        //float velocityZ = Input.GetAxis("Vertical") * speed;
-        rb.velocity = new Vector3(transform.forward.normalized.z*speed, velocityY, transform.forward.normalized.x);
-        Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
-        currentRotation += rotateValue;
-        Quaternion rotation = Quaternion.Euler(currentRotation);
-        transform.rotation = rotation;
-    }
-
-    void Lol()
-    {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y") * (-1);
-        float velocityX = Input.GetAxis("Horizontal") * speed;
-        float velocityY = rb.velocity.y + (isGround ? Input.GetAxis("Jump") * speedJump : 0);
-        float velocityZ = Input.GetAxis("Vertical") * speed;
+        help = Input.GetAxis("Vertical");
+        float velocityZ = (help == 0 ? 0 : (help > 0 ? rb.velocity.z + transform.forward.normalized.z * speed : transform.forward.normalized.z * speed * (-1)));
         rb.velocity = new Vector3(velocityX, velocityY, velocityZ);
         Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
         currentRotation += rotateValue;
