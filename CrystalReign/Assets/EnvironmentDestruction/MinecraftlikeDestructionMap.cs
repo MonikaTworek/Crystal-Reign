@@ -13,7 +13,7 @@ namespace Assets.EnvironmentDestruction
 
         public GameObject node;
 
-        public Vector3 unit_size = Vector3.zero;
+        public float unit_size = 1;
 
         List<List<List<GameObject>>> map;
 
@@ -33,11 +33,10 @@ namespace Assets.EnvironmentDestruction
                         if (boolMap[i][j][k])
                         {
                             go = Instantiate(node);
-                            go.transform.position = new Vector3(i * unit_size.x, j * unit_size.y, k * unit_size.z);
+                            go.transform.position = new Vector3(i, j, k) * unit_size;
                             go.transform.SetParent(transform);
                             Rigidbody rb = go.GetComponent<Rigidbody>();
                             rb.isKinematic = true;
-                            map[i][j].Add(go);
                         }
                         map[i][j].Add(go);
                     }
@@ -49,25 +48,24 @@ namespace Assets.EnvironmentDestruction
         {
             List<GameObject> res = new List<GameObject>();
 
-            center = new Vector3(Mathf.Round(center.x / unit_size.x), Mathf.Round(center.y / unit_size.y), Mathf.Round(center.z / unit_size.z));
-            radius = Mathf.Round(radius);
-
-            Vector3 box_top_left = center - radius*Vector3.one;
+            center = new Vector3(Mathf.Round(center.x / unit_size), Mathf.Round(center.y / unit_size), Mathf.Round(center.z / unit_size));
+            int iradius = (int)Mathf.Round(radius/unit_size);
+;
             
-            for (int i = 0; i < 2*radius; i++)
+            for (int i = -iradius; i < iradius; i++)
             {
-                for (int j = 0; j < 2 * radius; j++)
+                for (int j = -iradius; j < iradius; j++)
                 {
-                    for (int k = 0; k < 2 * radius; k++)
+                    for (int k = -iradius; k < iradius; k++)
                     {
-                        if (!(box_top_left.x+i < 0 || box_top_left.y + j<0 || box_top_left.z + k < 0 ||
-                            box_top_left.x + i >= map.Count || box_top_left.y + j >= map[0].Count || box_top_left.z + k >= map[0][0].Count))
+                        if (!(center.x+i < 0 || center.y + j<0 || center.z + k < 0 ||
+                            center.x + i >= map.Count || center.y + j >= map[0].Count || center.z + k >= map[0][0].Count))
                         {
-                            GameObject go = map[(int)box_top_left.x + i][(int)box_top_left.y + j][(int)box_top_left.z + k];
+                            GameObject go = map[(int)center.x + i][(int)center.y + j][(int)center.z + k];
                             if (go != null && (go.transform.position - center).magnitude < radius)
                             {
                                 res.Add(go);
-                                map[(int)box_top_left.x + i][(int)box_top_left.y + j][(int)box_top_left.z + k] = null;
+                                map[(int)center.x + i][(int)center.y + j][(int)center.z + k] = null;
                             }
                         }
                     }
