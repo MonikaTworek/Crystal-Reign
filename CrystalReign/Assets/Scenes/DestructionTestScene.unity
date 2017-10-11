@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   booleanMapJson: {fileID: 4900000, guid: 13a0358167d5477448a35896b8d9655a, type: 3}
   node: {fileID: 1295379985468428, guid: 3ce91caae4636844985631892e0b54dd, type: 2}
-  unit_size: {x: 1, y: 1, z: 1}
+  unit_size: 1
 --- !u!4 &644401613
 Transform:
   m_ObjectHideFlags: 0
@@ -165,9 +165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructionMap: {fileID: 644401612}
   sphereRadius: 4
-  forceValue: 300
+  forceValue: 800
+  forceRandomRange: 200
+  forceAngleRandomRange: 180
+  angularVelocityRandomRange: 1
   mat: {fileID: 2100000, guid: 1d349017d7f35f943880fa2710887e04, type: 2}
-  debugDot: {fileID: 1846249879}
 --- !u!1 &1131885158
 GameObject:
   m_ObjectHideFlags: 0
