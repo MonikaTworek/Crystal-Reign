@@ -6,8 +6,8 @@ public class playerController : MonoBehaviour
 {
     Rigidbody rb;
     public float rotate = 5;
-    public float speed = 0.5f;
-    public float speedJump = 30;
+    public float speed = 1;
+    public float speedJump = 3000000;
     bool isGround = false;
     Vector3 currentRotation;
 
@@ -35,9 +35,13 @@ public class playerController : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y") * (-1);
-        Vector3 vector = transform.right * speed * Input.GetAxis("Horizontal") + transform.forward * speed * Input.GetAxis("Vertical");
+        Vector3 vector = transform.right  * Input.GetAxis("Horizontal") + transform.forward  * Input.GetAxis("Vertical");
+        vector.y = 0;
+        rb.AddForce(vector.normalized* speed, ForceMode.VelocityChange);
+        vector.x = 0;
+        vector.z = 0;
         vector.y = (isGround ? Input.GetAxis("Jump") * speedJump : 0);
-        rb.AddForce(vector.normalized, ForceMode.VelocityChange);
+        rb.AddForce(vector, ForceMode.VelocityChange);
         Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
         currentRotation += rotateValue*rotate;
         Quaternion rotation = Quaternion.Euler(currentRotation);
