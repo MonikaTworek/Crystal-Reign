@@ -5,8 +5,8 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 10000000;
-    public float speedJump = 3000000;
+    public float speed = 1;
+    public float speedJump = 2;
     bool isGround = false;
 
     void Start()
@@ -28,18 +28,12 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        //Jak ruszamy mysza trza go przy pojsciu do przodku zrotowac
-        Vector3 vector = transform.right  * Input.GetAxis("Vertical") + transform.forward  * Input.GetAxis("Horizontal")*(-1); 
+        Vector3 vector = transform.right * Input.GetAxis("Horizontal") * (-1) + transform.forward * Input.GetAxis("Vertical") * (-1);
         vector.y = 0;
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-            //rb.velocity = vector * speed;
-            transform.Translate(vector);
-            //rb.AddForce(vector.normalized, ForceMode.VelocityChange);
-        vector.x = 0;
-        vector.z = 0;
-        vector.y = (isGround ? Input.GetAxis("Jump") * speedJump : 0);
-        //rb.AddForce(vector, ForceMode.VelocityChange);
-        //rb.velocity = vector;
         transform.Translate(vector);
+
+        if(isGround && Input.GetAxis("Jump")!=0)
+            rb.AddForce(new Vector3(0, speedJump, 0), ForceMode.Impulse);
+        
     }
 }

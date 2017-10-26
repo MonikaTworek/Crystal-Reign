@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class checkController : MonoBehaviour
 {
-    public float speed = 10000000;
-    public float speedJump = 3000000;
+    Rigidbody rb;
+    public float speed = 1;
+    public float speedJump = 2;
     bool isGround = false;
 
     void Start()
     {
- 
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,16 +26,16 @@ public class checkController : MonoBehaviour
             isGround = false;
     }
 
-
     void Update()
     {
-        Vector3 vector = transform.right * Input.GetAxis("Horizontal") * (-1) + transform.forward * Input.GetAxis("Vertical")*(-1);
+        //Jak ruszamy mysza trza go przy pojsciu do przodku zrotowac
+        Vector3 vector = transform.right * Input.GetAxis("Horizontal") * (-1) + transform.forward * Input.GetAxis("Vertical") * (-1);
         vector.y = 0;
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-            transform.Translate(vector);
-        vector.x = 0;
-        vector.z = 0;
-        vector.y = (isGround ? Input.GetAxis("Jump") * speedJump : 0);
         transform.Translate(vector);
+
+
+        if (isGround && Input.GetAxis("Jump") != 0)
+            rb.AddForce(new Vector3(0, speedJump, 0), ForceMode.Impulse);
+
     }
 }
