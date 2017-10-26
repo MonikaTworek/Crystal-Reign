@@ -5,16 +5,12 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     Rigidbody rb;
-    public float rotate = 5;
-    public float speed = 1;
+    public float speed = 10000000;
     public float speedJump = 3000000;
     bool isGround = false;
-    Vector3 currentRotation;
 
-    // Use this for initialization
     void Start()
     {
-        currentRotation = transform.rotation.eulerAngles;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -30,21 +26,20 @@ public class playerController : MonoBehaviour
             isGround = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y") * (-1);
-        Vector3 vector = transform.right  * Input.GetAxis("Horizontal") + transform.forward  * Input.GetAxis("Vertical");
+        //Jak ruszamy mysza trza go przy pojsciu do przodku zrotowac
+        Vector3 vector = transform.right  * Input.GetAxis("Vertical") + transform.forward  * Input.GetAxis("Horizontal")*(-1); 
         vector.y = 0;
-        rb.AddForce(vector.normalized* speed, ForceMode.VelocityChange);
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            //rb.velocity = vector * speed;
+            transform.Translate(vector);
+            //rb.AddForce(vector.normalized, ForceMode.VelocityChange);
         vector.x = 0;
         vector.z = 0;
         vector.y = (isGround ? Input.GetAxis("Jump") * speedJump : 0);
-        rb.AddForce(vector, ForceMode.VelocityChange);
-        Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
-        currentRotation += rotateValue*rotate;
-        Quaternion rotation = Quaternion.Euler(currentRotation);
-        transform.rotation = rotation;
+        //rb.AddForce(vector, ForceMode.VelocityChange);
+        //rb.velocity = vector;
+        transform.Translate(vector);
     }
 }
