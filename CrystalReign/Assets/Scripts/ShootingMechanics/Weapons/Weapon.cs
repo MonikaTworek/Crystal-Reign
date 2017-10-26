@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class Gun : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
 
     public virtual void Shoot(Vector3 direction)
