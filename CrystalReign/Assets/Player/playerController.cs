@@ -4,36 +4,46 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    Rigidbody rb;
-    public float speed = 1;
-    public float speedJump = 2;
-    bool isGround = false;
+    //Rigidbody rb;
+    public float speed = 10;
+    public float speedJump = 8;
+    //bool isGround = false;
+    public float gravity = 20;
+    private Vector3 moveDirection = Vector3.zero;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("ground"))
-            isGround = true;
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("ground"))
+    //    {
+    //        isGround = true;
+    //    }
+    //}
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.CompareTag("ground"))
-            isGround = false;
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("ground"))
+    //        isGround = false;
+    //}
 
+    
+    
     void Update()
     {
-        Vector3 vector = transform.right * Input.GetAxis("Horizontal") * (-1) + transform.forward * Input.GetAxis("Vertical") * (-1);
-        vector.y = 0;
-        transform.Translate(vector);
-
-        if(isGround && Input.GetAxis("Jump")!=0)
-            rb.AddForce(new Vector3(0, speedJump, 0), ForceMode.Impulse);
-        
+        CharacterController controller = GetComponent<CharacterController>();
+        if (controller.isGrounded)
+        {
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+            if (Input.GetButton("Jump"))
+                moveDirection.y = speedJump;
+        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }

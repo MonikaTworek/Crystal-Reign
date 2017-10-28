@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraController : MonoBehaviour {
-    Vector3 currentRotation;
-    public float rotate = 5;
+    public GameObject target;
+    public float minAngle = -45;
+    public float maxAngle = 45;
+    Vector3 currentRotation; 
+    float rotate = 5;
+    float firstY;
 
     void Start () {
         currentRotation = transform.rotation.eulerAngles;
+        firstY = currentRotation.x;
     }
 	
 	void Update () {
-        //zakres kamery
-        //jak oberwiesz to ucieka kamera
         float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y") * (-1);
+        float mouseY = Input.GetAxis("Mouse Y")*(-1);
+        if (mouseY*rotate+currentRotation.x > firstY + maxAngle || mouseY * rotate + currentRotation.x < firstY + minAngle)
+            mouseY = 0;
+        target.transform.Rotate(0, mouseX * rotate, 0);
         Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
         currentRotation += rotateValue * rotate;
         Quaternion rotation = Quaternion.Euler(currentRotation);
