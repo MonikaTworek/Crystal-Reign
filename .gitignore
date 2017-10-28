@@ -3,3 +3,5 @@ CrystalReign/Library/*
 CrystalReign/Temp/
 
 CrystalReign/\.vs/CrystalReign/v15/\.suo
+
+*.meta

@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Effects;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace ShootingMechanics
+namespace Assets.Scripts.ShootingMechanics
 {
     public class PreciseBullet : Bullet
     {

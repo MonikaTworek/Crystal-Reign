@@ -1,6 +1,9 @@
 ﻿
-public abstract class Effect
+namespace Assets.Scripts.Effects
 {
-    public EffectType effectType { get; protected set; }
+    public abstract class Effect
+    {
+        public EffectType effectType { get; protected set; }
 
+    }
 }

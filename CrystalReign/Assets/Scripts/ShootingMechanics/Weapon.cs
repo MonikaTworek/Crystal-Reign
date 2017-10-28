@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Gun : MonoBehaviour
+namespace Assets.Scripts.ShootingMechanics
 {
-
-    public virtual void Shoot(Vector3 direction)
+    public abstract class Gun : MonoBehaviour
     {
-        Shoot(transform.position, direction);
+
+        public virtual void Shoot(Vector3 direction)
+        {
+            Shoot(transform.position, direction);
+        }
+
+        public abstract void Shoot(Vector3 origin, Vector3 direction);
     }
-    
-    public abstract void Shoot(Vector3 origin, Vector3 direction);
 }

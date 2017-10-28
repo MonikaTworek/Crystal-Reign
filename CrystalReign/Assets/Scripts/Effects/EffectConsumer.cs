@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class EffectConsumer : MonoBehaviour
+namespace Assets.Scripts.Effects
 {
-    public abstract void Apply(Effect effect);
+    public abstract class EffectConsumer : MonoBehaviour
+    {
+        public abstract void Apply(Effect effect);
+    }
 }

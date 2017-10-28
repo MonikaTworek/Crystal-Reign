@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.EnvironmentDestruction
+namespace Assets.Scripts.EnvironmentDestruction
 {
     public class MinecraftlikeDestruction : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.EnvironmentDestruction
+namespace Assets.Scripts.EnvironmentDestruction
 {
     public class MinecraftlikeDestructionMap : MonoBehaviour
     {

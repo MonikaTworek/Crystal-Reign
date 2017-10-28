@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Effects;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace ShootingMechanics
+namespace Assets.Scripts.ShootingMechanics
 {
     public class SphereBullet : Bullet
     {
