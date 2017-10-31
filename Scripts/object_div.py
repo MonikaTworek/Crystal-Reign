@@ -1,153 +1,156 @@
-bl_info = {
-    "name": "Object Cutter",
-    "description": "Cut object into grid",
-    "author": "Creestoph & Bober",
-    "version": (1),
-    "blender": (2, 74, 0),
-    "location": "Properties Editor > Object",
-    "warning": "",
-    "wiki_url": "",
-    "tracker_url": "",
-    "category": "Object"}
 
 import bpy
 import re
-import numpy
+import json
 
-
-
-def round_up(value, step):
-    return step * (1 + (int)(value / step))
+def round_down(value, step):
+    return value - value%step
 
 def cut_new_chunk(source_shape, big_cube):
     new_obj = source_shape.copy()
     new_obj.data = source_shape.data.copy()
+    new_obj.animation_data_clear()
     bpy.context.scene.objects.link(new_obj)
-    bpy.context.scene.update()
 
-    source_shape.select = True
     cut1 = source_shape.modifiers.new(name='Cut1', type='BOOLEAN')
     cut1.object = big_cube
-    cut1.operation = 'DIFFERENCE'
+    cut1.operation= 'DIFFERENCE'
+    cut1.solver = 'CARVE'
     bpy.context.scene.objects.active = source_shape
-    bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Cut1")
+    bpy.ops.object.modifier_apply(apply_as='DATA', modifier = 'Cut1')
 
-    new_obj.select = True
     cut2 = new_obj.modifiers.new(name='Cut2', type='BOOLEAN')
     cut2.object = big_cube
-    cut2.operation = 'INTERSECT'
+    cut2.operation= 'INTERSECT'
+    cut2.solver = 'CARVE'
     bpy.context.scene.objects.active = new_obj
-    bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Cut2")
-
+    bpy.ops.object.modifier_apply(apply_as='DATA', modifier = 'Cut2')
+    
     return new_obj
 
 
-def cut(context):
+step = 0.7
+cube_radius = 100
 
-    step = 0.7
-    cube_radius=100
+# get main object
+obj = bpy.context.scene.objects.active
+bpy.ops.object.transform_apply(rotation=True)
+parent_obj_name = obj.data.name
 
-    # get main object
-    obj = bpy.context.scene.objects.active
-    bpy.ops.object.transform_apply(rotation=True)
+# create mega cube
+center = obj.location
+size_z = obj.dimensions.z
+size_y = obj.dimensions.y
+size_x = obj.dimensions.x
 
-    # create mega cube
-    center = obj.location
-    height = obj.dimensions.z
-    width = obj.dimensions.y
-    depth = obj.dimensions.x
+bpy.ops.mesh.primitive_cube_add(radius=cube_radius)
+cube = bpy.context.scene.objects.active
 
-    bpy.ops.mesh.primitive_cube_add(radius=cube_radius)
-    cube = bpy.context.scene.objects.active
+# chunks array
+chunks = []
 
-    # chunks array
-    chunks = []
+# dividing with z-translation
+z_pos = round_down(center.z + size_z / 2, step) + cube_radius
+cube.location = (center.x, center.y, z_pos)
 
-    # dividing with z-translation
-    z_pos = center.z + cube_radius + height / 2
-    cube.location = (center.x, center.y, round_up(z_pos,step))
+while cube.location.z - cube_radius > center.z - size_z / 2:
+    chunks.append(cut_new_chunk(obj, cube))
+    cube.location.z -= step
 
-    while cube.location.z - cube_radius > center.z - height/2:
-        cube.location.z -= step
-        chunks.append(cut_new_chunk(obj, cube))
+chunks.append(obj)
 
-    chunks.append(obj)
+# dividing with y-translation
+y_pos = round_down(center.y + size_y / 2,step) + cube_radius
+cube.location = (center.x, y_pos, center.z)
 
-    # dividing with y-translation
-    y_pos = center.y + cube_radius + width / 2
-    cube.location = (center.x, round_up(y_pos,step), center.z)
+chunks_number = len(chunks)
+while cube.location.y - cube_radius > center.y - size_y / 2:
+    for k in range(0, chunks_number):
+        chunks.append(cut_new_chunk(chunks[k], cube))
+    cube.location.y -= step
 
-    chunks_number = len(chunks)
-    while cube.location.y - cube_radius > center.y - width/2:
-        cube.location.y -= step
-        for k in range(0, chunks_number):
-            chunks.append(cut_new_chunk(chunks[k], cube))
+# dividing with x-translation
+x_pos = round_down(center.x + size_x / 2,step) + cube_radius
+cube.location = (x_pos, center.y, center.z)
 
-    # dividing with x-translation
-    x_pos = center.x + cube_radius + depth / 2
-    cube.location = (round_up(x_pos,step), center.y, center.z)
+chunks_number = len(chunks)
+while cube.location.x - cube_radius > center.x - size_x / 2:
+    for k in range(0, chunks_number):
+        chunks.append(cut_new_chunk(chunks[k], cube))
+    cube.location.x -= step
 
-    chunks_number = len(chunks)
-    while cube.location.x - cube_radius > center.x - depth/2:
-        cube.location.x -= step
-        for k in range(0, chunks_number):
-            chunks.append(cut_new_chunk(chunks[k], cube))
+new_chunks = []
+bpy.ops.object.select_all(action='DESELECT')
+for chunk in chunks:
+    if len(chunk.data.vertices) <= 3:
+        chunk.select = True
+    else: 
+        new_chunks.append(chunk)
+bpy.ops.object.delete()
 
-    # delete mega cube
+chunks = new_chunks   
+
+# delete mega cube
+bpy.ops.object.select_all(action='DESELECT')
+cube.select = True
+bpy.ops.object.delete()
+
+# output array
+out = [[[
+    "none" for ___ in range(int(size_y / step) + 2)]
+    for __ in range(int(size_z / step) + 2)]
+    for _ in range(int(size_x / step) + 2)]
+
+eps = 0.0001
+origin = {'x': round_down(center.x - size_x / 2,step),
+          'y': round_down(center.z - size_z / 2,step),
+          'z': round_down(center.y - size_y / 2,step)}
+
+for i, chunk in enumerate(chunks):
+    chunk.data.name = chunk.name = parent_obj_name + "_c" + str(i)
     bpy.ops.object.select_all(action='DESELECT')
-    cube.select = True
-    bpy.ops.object.delete()
+    bpy.context.scene.objects.active = chunk
+    chunk.select = True
+    bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
+    bpy.context.scene.cursor_location = (
+        round_down(chunk.location.x,step) + step / 2, round_down(chunk.location.y,step) + step / 2, round_down(chunk.location.z,step) + step / 2)
+    bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+    
+    
+    iscube = True
+    for v in chunk.data.vertices:
+        if abs(v.co.x) < step / 2 - eps and \
+                        abs(v.co.y) < step / 2 - eps and \
+                        abs(v.co.z) < step / 2 - eps:
+            iscube = False
+            break
+    
+    for i in [-1, 1]:
+        for j in [-1, 1]:
+            for k in [-1, 1]:
+                exists = False
+                for v in chunk.data.vertices:
+                    if i*(v.co[0]) >= step/2 - eps and \
+                    j*(v.co[1]) >= step/2 - eps and \
+                    k*(v.co[2]) >= step/2 - eps:
+                        exists = True
+                        break
+                if not exists:
+                    iscube = False;
+        
+    name = "cube"
+    if not iscube:
+        name = chunk.data.name
+    out[int((chunk.location.x - origin['x']) / step)] \
+        [int((chunk.location.z - origin['y']) / step)] \
+        [int((chunk.location.y - origin['z']) / step)] = name
+origin['x'] += step / 2
+origin['y'] += step / 2
+origin['z'] += step / 2
 
-    # output array
-    out = numpy.zeros((int(depth/step)+2, int(width/step)+2, int(height/step)+2))
-    for chunk in chunks:
-       bpy.context.scene.objects.active = chunk
-       chunk.select = True
-       bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
-       out[int((chunk.location.x - (center.x - depth/2))/step), int((chunk.location.y - (center.y - width/2))/step), int((chunk.location.z - (center.z - height/2))/step)] = 1
-    return ""
-
-
-class CutObject(bpy.types.Operator):
-    bl_idname = 'object_cutter.cut'
-    bl_label = 'Cut object'
-
-    def execute(self, context):
-        message = cut(context)
-
-        if message:
-            self.report(message[0], message[1])
-
-        return {'FINISHED'}
-
-
-class ObjectCutterPanel(bpy.types.Panel):
-    bl_label = "Object Cutter"
-    bl_space_type = "PROPERTIES"
-    bl_region_type = "WINDOW"
-    bl_context = "object"
-
-    def draw_main(self, scene, layout):
-        col = layout.column()
-        row = col.row(align=True)
-        row.operator("object_cutter.cut")
-
-    def draw(self, context):
-        scene = context.scene
-        layout = self.layout
-
-        maincol = layout.column()
-
-        self.draw_main(scene, maincol.box())
-
-
-def register():
-    bpy.utils.register_module(__name__)
-
-
-def unregister():
-    bpy.utils.unregister_module(__name__)
-
-
-if __name__ == "__main__":
-    register()
+data = {"origin": origin,
+        "map": out,
+        "unit_size": {"x": step, "y": step, "z": step}}
+file = open("D:\\University\\CrystalReign\\test.json", "w+")
+file.write(json.dumps(data))
+file.close()
