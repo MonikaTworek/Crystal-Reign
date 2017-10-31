@@ -6,9 +6,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.EnvironmentDestruction
 {
-    struct CubeDestructableObjectData
+    public struct CubeDestructableObjectMap
     {
-        string[][][] map;
-        Vector3 origin;
+        public string[][][] map;
+        public Vector3 origin;
+        public Vector3 unit_size;
     }
 }
