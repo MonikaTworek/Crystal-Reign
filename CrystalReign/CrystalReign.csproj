@@ -102,7 +102,6 @@
     <Compile Include="Assets\Scripts\ShootingMechanics\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Libraries\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
     <None Include="Assets\Libraries\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
     <None Include="Assets\Libraries\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
     <None Include="Assets\Libraries\JsonDotNet\link.xml" />
