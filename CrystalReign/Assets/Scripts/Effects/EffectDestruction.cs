@@ -8,7 +8,7 @@ namespace Assets.Scripts.Effects
 {
     class EffectDestruction: Effect
     {
-        public static EffectType _type = EffectType.DESTRUCTION;
+        public const EffectType _type = EffectType.DESTRUCTION;
 
         public Vector3 center;
         public float radius;

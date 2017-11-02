@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Effects;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,11 +8,9 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.EnvironmentDestruction
 {
-    class CubeDestructableObject : EffectConsumer
+    class DestructableObject : EffectConsumer
     {
-        private CubeDestructableObjectMap map;
-
-        private GameObject cubePrefab;
+        private DestructableObjectMap chunks_data;
 
         public string level_name;
 
@@ -39,8 +36,7 @@ namespace Assets.Scripts.EnvironmentDestruction
             }
             else
             {
-                map = JsonConvert.DeserializeObject<CubeDestructableObjectMap>(mapJsonFile.text);
-                cubePrefab = Resources.Load(level_name + '/' + "cube") as GameObject;
+                chunks_data = JsonConvert.DeserializeObject<DestructableObjectMap>(mapJsonFile.text);
             }
         }
 
@@ -51,46 +47,25 @@ namespace Assets.Scripts.EnvironmentDestruction
                 case EffectDestruction._type:
 
                     EffectDestruction effectDestruction = (EffectDestruction)effect;
-                    
+
                     if (spawn_tree)
                     {
                         if (transform.childCount == 0)
                         {
-                            GameObject cubes = Instantiate(Resources.Load(level_name + '/' + gameObject.name + "_d1")) as GameObject;
-                            while (cubes.transform.childCount > 0)
+                            GameObject chunks = Instantiate(Resources.Load(level_name + '/' + gameObject.name)) as GameObject;
+                            while (chunks.transform.childCount > 0)
                             {
-                                cubes.transform.GetChild(0).SetParent(transform);
+                                chunks.transform.GetChild(0).SetParent(transform);
                             }
-                            DestroyObject(cubes);
-                            for (int i = 0; i < map.map.Length; i++)
+                            DestroyObject(chunks);
+                            foreach (Transform chunk in transform)
                             {
-                                for (int j = 0; j < map.map[0].Length; j++)
-                                {
-                                    for (int k = 0; k < map.map[0][0].Length; k++)
-                                    {
-                                        string node = map.map[i][j][k];
-                                        Transform fragment = null;
-                                        switch (node)
-                                        {
-                                            case "cube":
-                                                fragment = Instantiate(cubePrefab).transform;
-                                                fragment.SetParent(transform);
-                                                break;
-                                            default:
-                                                fragment = transform.Find(node);
-                                                break;
-                                        }
-                                        if (fragment != null)
-                                        {
-                                            fragment.position = transform.position + map.origin + new Vector3(i * map.unit_size.x, j * map.unit_size.y, k * map.unit_size.z);
-                                            fragment.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
-                                            CubeDestructableObject fob = fragment.gameObject.AddComponent<CubeDestructableObject>();
-                                            fob.level_name = level_name;
-                                            fob.mat = mat;
-                                            fob.ReloadData();
-                                        }
-                                    }
-                                }
+                                chunk.position = transform.position + chunks_data.chunks.Find(x => x.name == chunk.gameObject.name).position;
+                                chunk.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+                                DestructableObject fob = chunk.gameObject.AddComponent<DestructableObject>();
+                                fob.level_name = level_name;
+                                fob.mat = mat;
+                                fob.ReloadData();
                             }
                             List<EffectConsumer> affected = Physics.OverlapSphere(effectDestruction.center, effectDestruction.radius)
                                                         .Where(x => x.GetComponent<EffectConsumer>() != null)
@@ -145,7 +120,7 @@ namespace Assets.Scripts.EnvironmentDestruction
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out info))
                 {
                     if (info.transform.GetComponent<EffectConsumer>() != null)
-                        info.transform.GetComponent<EffectConsumer>().Apply(new EffectDestruction() { center = info.point, radius = 1f});
+                        info.transform.GetComponent<EffectConsumer>().Apply(new EffectDestruction() { center = info.point, radius = 1f });
                 }
             }
         }

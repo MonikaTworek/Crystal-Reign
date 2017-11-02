@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -93,6 +95,9 @@
     <Compile Include="Assets\Scripts\Effects\EffectType.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\CubeDestructableObject.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\CubeDestructableObjectMap.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObject.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullet.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\PreciseBullet.cs" />
