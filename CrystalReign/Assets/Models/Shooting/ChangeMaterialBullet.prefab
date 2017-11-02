@@ -24,8 +24,9 @@ GameObject:
   - component: {fileID: 23097776977584976}
   - component: {fileID: 54068648996215242}
   - component: {fileID: 114813190080284608}
+  - component: {fileID: 114753522380357760}
   m_Layer: 0
-  m_Name: SphereBullet
+  m_Name: ChangeMaterialBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,6 +99,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114753522380357760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278928818025814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4e84bd89a6f4d53b9fef8c7c610ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114813190080284608
 MonoBehaviour:
   m_ObjectHideFlags: 1

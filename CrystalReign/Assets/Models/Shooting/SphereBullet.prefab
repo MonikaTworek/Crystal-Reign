@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldBeRemoved: 1
-  SphereRadius: 0
+  SphereRadius: 2
 --- !u!136 &136436688683311742
 CapsuleCollider:
   m_ObjectHideFlags: 1
