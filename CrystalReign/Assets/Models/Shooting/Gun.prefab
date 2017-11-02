@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireRate: 0.25
-  WeaponRange: 50
   ShotDuration: 0.7
   GunEnd: {fileID: 4217120630525576}
   SelectedWeapon: {fileID: 1768892068577592}
@@ -129,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SphereRadius: 5
   ForceValue: 1
-  BulletSpeed: 5
+  BulletSpeed: 10
   SphereBullet: {fileID: 1278928818025814, guid: b121e453079e94031a714b00b8c30b42,
     type: 2}
 --- !u!120 &120427732376984380
