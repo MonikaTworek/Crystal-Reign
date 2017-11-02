@@ -3,7 +3,6 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour {
     
-    public Effect effect { get; set; }
     public bool ShouldBeRemoved = true;
     
     private bool isAfterCollision;
@@ -52,6 +51,9 @@ public abstract class Bullet : MonoBehaviour {
 
     private void ApplyEffectOnConsumer(EffectConsumer effectConsumer)
     {
-        effectConsumer.Apply(effect);
+        foreach (Effect effect in gameObject.GetComponents<Effect>())
+        {
+            effectConsumer.Apply(effect);
+        }
     }
 }
