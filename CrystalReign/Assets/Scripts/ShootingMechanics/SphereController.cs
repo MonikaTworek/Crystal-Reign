@@ -16,6 +16,7 @@ public class SphereController : MonoBehaviour {
 		if (timer <= 0)
 		{
 			Destroy(sphere);
+		    Destroy(gameObject);
 		}
 		else
 		{
@@ -37,7 +38,6 @@ public class SphereController : MonoBehaviour {
 		sphere.gameObject.GetComponent<MeshRenderer>().material = Mat;
 		SetColor();
 		Destroy(sphere.GetComponent<Collider>());
-		Destroy(gameObject, ControllerExpirationTime);
 	}
 
 	//TODO: remove after creating proper material
