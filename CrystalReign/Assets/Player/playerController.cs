@@ -6,7 +6,6 @@ public class playerController : MonoBehaviour
 {
     public float speed = 10;
     public float speedJump = 7;
-    public float gravity = 20;
     private Vector3 velocity = Vector3.zero;
     bool isGrounded = false;
     Rigidbody rb;
@@ -16,7 +15,8 @@ public class playerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
+    }
+
 
     void FixedUpdate()
     {

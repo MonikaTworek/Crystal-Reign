@@ -9,8 +9,7 @@ public class cameraController : MonoBehaviour {
     Vector3 currentRotation; 
     float rotate = 5;
     float firstY;
-
-    public LayerMask CamOcclusion;
+    
     float distance;
     public LayerMask layerMask;
 
