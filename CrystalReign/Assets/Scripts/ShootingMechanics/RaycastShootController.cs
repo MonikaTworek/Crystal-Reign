@@ -4,7 +4,6 @@ using UnityEngine;
 public class RaycastShootController : MonoBehaviour {
 
 	public float FireRate = .25f;
-	public float WeaponRange = 50f;
 	public float ShotDuration = 0.7f;
 	public Transform GunEnd;	
 	public GameObject SelectedWeapon;
@@ -31,7 +30,7 @@ public class RaycastShootController : MonoBehaviour {
 		StartCoroutine(EnableRaycastForShotDuration());
 		SetRaycastStart();
 		RaycastHit hit;
-		bool wasHit = Physics.Raycast(GunEnd.position, GunEnd.forward, out hit, WeaponRange);
+		bool wasHit = Physics.Raycast(GunEnd.position, GunEnd.forward, out hit);
 		Vector3 destination = GetBulletDestination(wasHit, hit);
 		SetRaycastEnd(destination);
 		SelectedWeapon.GetComponent<Weapon>().Shoot(GunEnd.position, destination);
@@ -43,7 +42,7 @@ public class RaycastShootController : MonoBehaviour {
 		if (wasHit) {
 			destination = hit.point;
 		} else {
-			destination = GunEnd.position + GunEnd.forward * WeaponRange;
+			destination = GunEnd.position + GunEnd.forward;
 		}
 		return destination;
 	}
