@@ -5,11 +5,16 @@ public abstract class Bullet : MonoBehaviour {
     
     public bool ShouldBeRemoved = true;
     
-    private bool isAfterCollision;
-    private static float maxTimer = 96f;
-    private int timer = (int) maxTimer;
+    protected bool isAfterCollision;
+    protected static float maxTimer = 96f;
+    protected int timer = (int) maxTimer;
     
     void Update()
+    {
+        checkForRemoval();
+    }
+
+    protected void checkForRemoval()
     {
         if (isAfterCollision && ShouldBeRemoved)
         {
