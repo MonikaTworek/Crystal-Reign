@@ -71,12 +71,13 @@ def divide_to_size(obj, pyramid, max_dimension, min_dimension):
 #get main object
 obj = bpy.context.selected_objects[0]
 bpy.context.scene.objects.active = obj
-bpy.ops.object.transform_apply( rotation = True )
+bpy.ops.object.transform_apply( rotation = True, scale = True )
 bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
-center = obj.location
+
+bpy.ops.export_scene.fbx(filepath="D:\\University\\CrystalReign\\CrystalReign\\Assets\\models\\neat_division_output\\fbx\\" + obj.name + "_original.fbx", use_selection = True)
 
 #create cutting shape
-bpy.ops.import_scene.fbx( filepath = "D:/Blender/pyramid.fbx" )
+bpy.ops.import_scene.fbx( filepath = "D:/University/CrystalReign/Scripts/pyramid.fbx" )
 pyramid = [bpy.context.scene.objects['pyramid_1'], bpy.context.scene.objects['pyramid_2'], bpy.context.scene.objects['pyramid_3'],
 bpy.context.scene.objects['pyramid_4']]
     
@@ -87,32 +88,34 @@ min_dimension = 0.05
 while max_dimension*3 < max(obj.dimensions):
     max_dimension *= 3
     min_dimension *= 3
-    
+
+#dividing
 objects_array = [obj]
 while max_dimension >= 1:
-    print("max:", max_dimension)
     new_objects_array = []
     for o in objects_array:
-        print("dividing", o.name)
         basic_name = o.name
+        center = o.location
+        
         chunks = divide_to_size(o, pyramid, max_dimension, min_dimension)
         new_objects_array.extend(chunks)
         bpy.ops.object.select_all(action='DESELECT')
         
         out = []
         for i, chunk in enumerate(chunks):
+            bpy.context.scene.objects.active = chunk
             chunk.select = True
+            bpy.ops.object.transform_apply( rotation = True, scale = True)
             chunk.name = basic_name + "_" + str(i)
-            print("chunk", chunk.name, "(", i, ")")
             rel_pos = chunk.location - center
             out.append({"name": chunk.name, 
                         "relative_position": {'x': -rel_pos.x, 'y': rel_pos.z, 'z': -rel_pos.y}})
         data = {"chunks": out}
-        file = open("D:\\Blender\\neat_division_output\\json\\" + basic_name + "_description.json", "w+")
+        file = open("D:\\University\\CrystalReign\\CrystalReign\\Assets\\models\\neat_division_output\\json\\" + basic_name + "_description.json", "w+")
         file.write(json.dumps(data))
         file.close()
         
-        bpy.ops.export_scene.fbx(filepath="D:\\Blender\\neat_division_output\\fbx\\" + basic_name + "_chunks.fbx", use_selection = True)
+        bpy.ops.export_scene.fbx(filepath="D:\\University\\CrystalReign\\CrystalReign\\Assets\\models\\neat_division_output\\fbx\\" + basic_name + "_chunks.fbx", use_selection = True)
     
     objects_array = new_objects_array
     max_dimension /= 3
