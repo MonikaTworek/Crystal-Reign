@@ -4,46 +4,29 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    //Rigidbody rb;
     public float speed = 10;
-    public float speedJump = 8;
-    //bool isGround = false;
-    public float gravity = 20;
-    private Vector3 moveDirection = Vector3.zero;
+    public float speedJump = 7;
+    private Vector3 velocity = Vector3.zero;
+    bool isGrounded = false;
+    Rigidbody rb;
+    public LayerMask groundRayLayerMask;
+    public float groundMaxDistance;
 
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("ground"))
-    //    {
-    //        isGround = true;
-    //    }
-    //}
 
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("ground"))
-    //        isGround = false;
-    //}
-
-    
-    
-    void Update()
+    void FixedUpdate()
     {
-        CharacterController controller = GetComponent<CharacterController>();
-        if (controller.isGrounded)
-        {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= speed;
-            if (Input.GetButton("Jump"))
-                moveDirection.y = speedJump;
-        }
-        moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
-    }
+        isGrounded = Physics.Raycast(transform.position, -transform.up, groundMaxDistance, groundRayLayerMask);
+        velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        velocity = transform.TransformDirection(velocity).normalized *speed;
+        velocity += Vector3.up * (Input.GetButtonDown("Jump") && isGrounded ? speedJump : rb.velocity.y);
+        rb.velocity = velocity;
+    }   
+    
 }
+
+
