@@ -29,7 +29,7 @@ namespace Assets.Scripts.EnvironmentDestruction
 
         public void ReloadData()
         {
-            TextAsset mapJsonFile = Resources.Load(level_name + '/' + gameObject.name) as TextAsset;
+            TextAsset mapJsonFile = Resources.Load(level_name + '/' + gameObject.name + "_description") as TextAsset;
             if (mapJsonFile == null)
             {
                 spawn_tree = false;
@@ -52,7 +52,7 @@ namespace Assets.Scripts.EnvironmentDestruction
                     {
                         if (transform.childCount == 0)
                         {
-                            GameObject chunks = Instantiate(Resources.Load(level_name + '/' + gameObject.name)) as GameObject;
+                            GameObject chunks = Instantiate(Resources.Load(level_name + '/' + gameObject.name + "_chunks")) as GameObject;
                             while (chunks.transform.childCount > 0)
                             {
                                 chunks.transform.GetChild(0).SetParent(transform);
@@ -60,24 +60,25 @@ namespace Assets.Scripts.EnvironmentDestruction
                             DestroyObject(chunks);
                             foreach (Transform chunk in transform)
                             {
-                                chunk.position = transform.position + chunks_data.chunks.Find(x => x.name == chunk.gameObject.name).position;
+                                chunk.position = transform.position + chunks_data.chunks.Find(x => x.name == chunk.gameObject.name).relative_position;
+                                chunk.gameObject.AddComponent<MeshCollider>();
                                 chunk.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
                                 DestructableObject fob = chunk.gameObject.AddComponent<DestructableObject>();
                                 fob.level_name = level_name;
                                 fob.mat = mat;
                                 fob.ReloadData();
                             }
-                            List<EffectConsumer> affected = Physics.OverlapSphere(effectDestruction.center, effectDestruction.radius)
-                                                        .Where(x => x.GetComponent<EffectConsumer>() != null)
-                                                        .Select(x => x.GetComponent<EffectConsumer>())
-                                                        .ToList();
-                            foreach (EffectConsumer e in affected)
-                            {
-                                if (e.transform.parent == transform)
-                                {
-                                    e.Apply(effectDestruction);
-                                }
-                            }
+                            //List<EffectConsumer> affected = Physics.OverlapSphere(effectDestruction.center, effectDestruction.radius)
+                            //                            .Where(x => x.GetComponent<EffectConsumer>() != null)
+                            //                            .Select(x => x.GetComponent<EffectConsumer>())
+                            //                            .ToList();
+                            //foreach (EffectConsumer e in affected)
+                            //{
+                            //    if (e.transform.parent == transform)
+                            //    {
+                            //        e.Apply(effectDestruction);
+                            //    }
+                            //}
 
                         }
                         Destroy(GetComponent<MeshFilter>());

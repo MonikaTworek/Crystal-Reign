@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 9eaf2fe9d5d0caf4a8ac094d2b25c8db
+timeCreated: 1509660677
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Icosphere_18_0
+    100002: Icosphere_18_1
+    100004: Icosphere_18_10
+    100006: Icosphere_18_11
+    100008: Icosphere_18_12
+    100010: Icosphere_18_13
+    100012: Icosphere_18_14
+    100014: Icosphere_18_15
+    100016: Icosphere_18_16
+    100018: Icosphere_18_17
+    100020: Icosphere_18_18
+    100022: Icosphere_18_2
+    100024: Icosphere_18_3
+    100026: Icosphere_18_4
+    100028: Icosphere_18_5
+    100030: Icosphere_18_6
+    100032: Icosphere_18_7
+    100034: Icosphere_18_8
+    100036: Icosphere_18_9
+    100038: //RootNode
+    400000: Icosphere_18_0
+    400002: Icosphere_18_1
+    400004: Icosphere_18_10
+    400006: Icosphere_18_11
+    400008: Icosphere_18_12
+    400010: Icosphere_18_13
+    400012: Icosphere_18_14
+    400014: Icosphere_18_15
+    400016: Icosphere_18_16
+    400018: Icosphere_18_17
+    400020: Icosphere_18_18
+    400022: Icosphere_18_2
+    400024: Icosphere_18_3
+    400026: Icosphere_18_4
+    400028: Icosphere_18_5
+    400030: Icosphere_18_6
+    400032: Icosphere_18_7
+    400034: Icosphere_18_8
+    400036: Icosphere_18_9
+    400038: //RootNode
+    2300000: Icosphere_18_0
+    2300002: Icosphere_18_1
+    2300004: Icosphere_18_10
+    2300006: Icosphere_18_11
+    2300008: Icosphere_18_12
+    2300010: Icosphere_18_13
+    2300012: Icosphere_18_14
+    2300014: Icosphere_18_15
+    2300016: Icosphere_18_16
+    2300018: Icosphere_18_17
+    2300020: Icosphere_18_18
+    2300022: Icosphere_18_2
+    2300024: Icosphere_18_3
+    2300026: Icosphere_18_4
+    2300028: Icosphere_18_5
+    2300030: Icosphere_18_6
+    2300032: Icosphere_18_7
+    2300034: Icosphere_18_8
+    2300036: Icosphere_18_9
+    3300000: Icosphere_18_0
+    3300002: Icosphere_18_1
+    3300004: Icosphere_18_10
+    3300006: Icosphere_18_11
+    3300008: Icosphere_18_12
+    3300010: Icosphere_18_13
+    3300012: Icosphere_18_14
+    3300014: Icosphere_18_15
+    3300016: Icosphere_18_16
+    3300018: Icosphere_18_17
+    3300020: Icosphere_18_18
+    3300022: Icosphere_18_2
+    3300024: Icosphere_18_3
+    3300026: Icosphere_18_4
+    3300028: Icosphere_18_5
+    3300030: Icosphere_18_6
+    3300032: Icosphere_18_7
+    3300034: Icosphere_18_8
+    3300036: Icosphere_18_9
+    4300000: Icosphere_18_18
+    4300002: Icosphere_18_17
+    4300004: Icosphere_18_16
+    4300006: Icosphere_18_15
+    4300008: Icosphere_18_14
+    4300010: Icosphere_18_13
+    4300012: Icosphere_18_12
+    4300014: Icosphere_18_11
+    4300016: Icosphere_18_10
+    4300018: Icosphere_18_9
+    4300020: Icosphere_18_8
+    4300022: Icosphere_18_7
+    4300024: Icosphere_18_6
+    4300026: Icosphere_18_5
+    4300028: Icosphere_18_4
+    4300030: Icosphere_18_3
+    4300032: Icosphere_18_2
+    4300034: Icosphere_18_1
+    4300036: Icosphere_18_0
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

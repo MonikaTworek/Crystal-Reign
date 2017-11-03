@@ -5,6 +5,6 @@ namespace Assets.Scripts.EnvironmentDestruction
     public class DestructableObjectMapNode
     {
         public string name;
-        public Vector3 position;
+        public Vector3 relative_position;
     }
 }
