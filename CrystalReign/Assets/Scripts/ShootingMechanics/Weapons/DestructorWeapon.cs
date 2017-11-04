@@ -11,6 +11,7 @@ public class DestructorWeapon : Weapon
     {
         GameObject bullet = Instantiate(SphereBullet);
         bullet.transform.position = origin;
+        bullet.transform.LookAt(direction);
         bullet.GetComponent<Rigidbody>().velocity = 
             BulletVelocity(origin, Randomized(direction));
     }

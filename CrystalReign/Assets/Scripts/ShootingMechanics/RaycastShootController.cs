@@ -41,6 +41,7 @@ public class RaycastShootController : MonoBehaviour {
 		Vector3 destination;
 		if (wasHit) {
 			destination = hit.point;
+            Debug.Log(hit.transform.name);
 		} else {
 			destination = GunEnd.position + GunEnd.forward;
 		}

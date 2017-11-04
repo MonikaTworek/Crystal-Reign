@@ -32,9 +32,9 @@ public abstract class Bullet : MonoBehaviour {
 
     private void AddTransparency()
     {
-        Color currentColor = gameObject.GetComponent<MeshRenderer>().material.color;
+        Color currentColor = gameObject.GetComponentInChildren<MeshRenderer>().material.color;
         currentColor.a = 1f - (maxTimer - timer) / maxTimer;
-        gameObject.GetComponent<MeshRenderer>().material.color = currentColor;
+        gameObject.GetComponentInChildren<MeshRenderer>().material.color = currentColor;
     }
 
     private void OnCollisionEnter(Collision other)
