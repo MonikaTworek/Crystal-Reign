@@ -51,9 +51,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CubeGenerator.cs" />
-     <Compile Include="Assets\Player\cameraController.cs" />
-     <Compile Include="Assets\Player\playerController.cs" />
+     <Compile Include="Assets\Scripts\Effects\ChangeMaterialEffect.cs" />
+     <Compile Include="Assets\Scripts\Effects\Effect.cs" />
+     <Compile Include="Assets\Scripts\Effects\EffectConsumer.cs" />
+     <Compile Include="Assets\Scripts\Effects\EffectType.cs" />
+     <Compile Include="Assets\Scripts\Effects\MaterialChangeConsumer.cs" />
+     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
+     <Compile Include="Assets\Scripts\MovementControllers\cameraController.cs" />
+     <Compile Include="Assets\Scripts\MovementControllers\playerController.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\Bullet.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\PreciseBullet.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\SphereBullet.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\SphereCreatingBullet.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\RaycastShootController.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\SphereController.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\DestructorWeapon.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\Weapon.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
