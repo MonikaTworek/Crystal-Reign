@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 136436688683311742}
   - component: {fileID: 23097776977584976}
   - component: {fileID: 54068648996215242}
-  - component: {fileID: 114813190080284608}
+  - component: {fileID: 114565622333683048}
   m_Layer: 0
-  m_Name: SphereBullet
+  m_Name: SphereCreatingBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114813190080284608
+--- !u!114 &114565622333683048
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -106,11 +106,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278928818025814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe69897cfbff41b1a4598869c72c99b, type: 3}
+  m_Script: {fileID: 11500000, guid: 143d9a7d465c4729aad760bce0861f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldBeRemoved: 1
   SphereRadius: 0
+  SphereController: {fileID: 114468197206449360, guid: 65fd25853fc224cffb783111f11b06f6,
+    type: 2}
 --- !u!136 &136436688683311742
 CapsuleCollider:
   m_ObjectHideFlags: 1
