@@ -39,7 +39,7 @@ public abstract class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision other)
     {
-        if (isAfterCollision)
+        if (isAfterCollision || other.transform.CompareTag("Player"))
         {
             return;
         }
