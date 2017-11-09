@@ -19,8 +19,8 @@ public class WeaponChanger : MonoBehaviour
 	
 	public Weapon GetNextWeapon()
 	{
-		CurrentWeaponIndex++;
-		return Weapons.ToArray()[CurrentWeaponIndex % Weapons.Capacity];
+		CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Capacity;
+		return Weapons.ToArray()[CurrentWeaponIndex];
 	}
 	
 }
