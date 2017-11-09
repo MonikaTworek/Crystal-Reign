@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class rotateGun : MonoBehaviour {
+
     public Transform cameraTarget;
     public Transform head;
     public GameObject playerTarget;

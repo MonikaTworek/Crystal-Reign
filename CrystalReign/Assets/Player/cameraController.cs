@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraController : MonoBehaviour {
-    public Transform target;
+    public bool inverted = false;
     public float minAngle = -45;
     public float maxAngle = 45;
     Vector3 currentRotation; 
@@ -30,12 +30,11 @@ public class cameraController : MonoBehaviour {
     void Update () {
         if (camera == null) return;
         float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = -Input.GetAxis("Mouse Y");
+        float mouseY = (inverted? 1 : -1) * Input.GetAxis("Mouse Y");
         if (mouseY * rotate + currentRotation.x > firstY + maxAngle || mouseY * rotate + currentRotation.x < firstY + minAngle)
         {
             mouseY = 0;
         }
-        target.Rotate(0, mouseX * rotate, 0);
         Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
         currentRotation += rotateValue * rotate;
         Quaternion rotation = Quaternion.Euler(currentRotation);

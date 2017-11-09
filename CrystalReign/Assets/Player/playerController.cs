@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     Rigidbody rb;
     public LayerMask groundRayLayerMask;
     public float groundMaxDistance;
+    public Transform camera;
 
     void Start()
     {
@@ -25,6 +26,9 @@ public class playerController : MonoBehaviour
         velocity = transform.TransformDirection(velocity).normalized *speed;
         velocity += Vector3.up * (Input.GetButtonDown("Jump") && isGrounded ? speedJump : rb.velocity.y);
         rb.velocity = velocity;
+        Vector3 camfwd = camera.forward;
+        camfwd.y = 0;
+        transform.forward = camfwd;
     }   
     
 }
