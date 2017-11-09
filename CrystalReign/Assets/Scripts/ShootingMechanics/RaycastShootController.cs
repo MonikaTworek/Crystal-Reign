@@ -4,9 +4,10 @@ using UnityEngine;
 public class RaycastShootController : MonoBehaviour {
 
 	public float ShotDuration = 0.7f;
-	public Transform GunEnd;	
-	public GameObject SelectedWeapon;
-	
+	public Transform GunEnd;
+	public WeaponChanger WeaponChanger;
+
+	private Weapon SelectedWeapon;
 	private WaitForSeconds shotDuration;
 	private LineRenderer laserLine;
 	private float nextFireTime;
@@ -16,6 +17,7 @@ public class RaycastShootController : MonoBehaviour {
 	{
 		laserLine = GetComponentInParent<LineRenderer>();
 		shotDuration = new WaitForSeconds(ShotDuration);
+		SelectedWeapon = WeaponChanger.GetNextWeapon();
 		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 	}
 
