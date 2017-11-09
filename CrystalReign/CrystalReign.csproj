@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Effects\EffectConsumer.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectDestruction.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectType.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentDestruction\ChunksSpawner.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\CubeDestructableObject.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\CubeDestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObject.cs" />
@@ -106,7 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Libraries\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
-    <None Include="Assets\Libraries\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
     <None Include="Assets\Libraries\JsonDotNet\link.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
