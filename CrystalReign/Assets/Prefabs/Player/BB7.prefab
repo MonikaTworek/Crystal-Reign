@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4769674052095374}
   - component: {fileID: 33286519043160978}
   - component: {fileID: 23361659440992574}
-  - component: {fileID: 64782767908021570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +40,7 @@ GameObject:
   - component: {fileID: 124955686861791132}
   - component: {fileID: 92345962382532670}
   - component: {fileID: 81859491452820640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: camera
   m_Icon: {fileID: 0}
@@ -57,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4595101164543644}
   - component: {fileID: 114033848981604334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,8 +73,7 @@ GameObject:
   - component: {fileID: 4834112095982356}
   - component: {fileID: 33302107302266758}
   - component: {fileID: 23599547770032068}
-  - component: {fileID: 64664745901019276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4217224112541588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,9 +105,11 @@ GameObject:
   - component: {fileID: 4609742344754868}
   - component: {fileID: 54818090322597228}
   - component: {fileID: 114714922982751588}
-  m_Layer: 0
+  - component: {fileID: 135193789485335660}
+  - component: {fileID: 135793694904653210}
+  m_Layer: 8
   m_Name: BB7
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 120791035673186512}
   - component: {fileID: 114002068369310898}
   - component: {fileID: 114496269024381182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,34 +400,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &64664745901019276
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1676029553977132}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 57cc1c352d51b53429e472d8d1b5f8dd, type: 3}
---- !u!64 &64782767908021570
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1034864996881752}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: c49ae04b7aae6be418b677052bb652b2, type: 3}
 --- !u!81 &81859491452820640
 AudioListener:
   m_ObjectHideFlags: 1
@@ -490,6 +462,7 @@ MonoBehaviour:
   BulletSpeed: 30
   SphereBullet: {fileID: 1990054351026608, guid: 3dc8fa59332774b458b9aa71e527ce9d,
     type: 2}
+  accurancyRange: 0.5
 --- !u!114 &114714922982751588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  speedJump: 10
+  speedJump: 20
   groundRayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967039
@@ -600,3 +573,27 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1180669632493172}
   m_Enabled: 1
+--- !u!135 &135193789485335660
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718241890467986}
+  m_Material: {fileID: 13400000, guid: b72c9a25263464e46877216936f26d50, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.97, z: 0}
+--- !u!135 &135793694904653210
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718241890467986}
+  m_Material: {fileID: 13400000, guid: b72c9a25263464e46877216936f26d50, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
