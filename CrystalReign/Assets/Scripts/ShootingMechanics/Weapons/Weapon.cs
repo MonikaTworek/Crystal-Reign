@@ -9,4 +9,6 @@ public abstract class Weapon : MonoBehaviour
     }
     
     public abstract void Shoot(Vector3 origin, Vector3 direction);
+
+    public abstract float GetFireRate();
 }

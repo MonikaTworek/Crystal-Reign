@@ -6,6 +6,7 @@ public class DestructorWeapon : Weapon
     public float BulletSpeed = 6f;
     public GameObject SphereBullet;
     public float AccuracyRange = 0.5f;
+    private float FireRate = 0.7f;
 
     public override void Shoot(Vector3 origin, Vector3 direction)
     {
@@ -14,6 +15,11 @@ public class DestructorWeapon : Weapon
         bullet.transform.LookAt(direction);
         bullet.GetComponent<Rigidbody>().velocity = 
             BulletVelocity(origin, Randomized(direction));
+    }
+
+    public override float GetFireRate()
+    {
+        return FireRate;
     }
 
     private Vector3 Randomized(Vector3 direction)
