@@ -5,7 +5,6 @@ namespace Bullets
 {
     public class SphereCreatingBullet : Bullet
     {
-        public float SphereRadius;
         public SphereController SphereController;
 
         protected override List<EffectConsumer> GetHitConsumers(Collision other)
