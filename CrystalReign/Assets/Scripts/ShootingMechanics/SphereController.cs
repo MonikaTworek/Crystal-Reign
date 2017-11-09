@@ -20,6 +20,7 @@ public class SphereController : MonoBehaviour {
 		else
 		{
 			timer--;
+			AddTransparency();
 			sphere.transform.localScale = 
 				new Vector3(MaxSphereSize*(maxTimer-timer)/maxTimer, 
 					MaxSphereSize*(maxTimer-timer)/maxTimer, 
@@ -27,10 +28,17 @@ public class SphereController : MonoBehaviour {
 		}
 	}
 	
+	private void AddTransparency()
+	{
+		Color currentColor = sphere.gameObject.GetComponentInChildren<MeshRenderer>().material.color;
+		currentColor.a = 0.5f - (maxTimer - timer) / maxTimer * 0.6f;
+		sphere.gameObject.GetComponentInChildren<MeshRenderer>().material.color = currentColor;
+	}
+	
 	public void Init(Vector3 point)
 	{
-		maxTimer = ControllerExpirationTime * 24f;
-		timer = ControllerExpirationTime * 24;
+		maxTimer = ControllerExpirationTime * 12f;
+		timer = ControllerExpirationTime * 12;
 		sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		Destroy(sphere.GetComponent<Collider>());
 		sphere.transform.position = point;
