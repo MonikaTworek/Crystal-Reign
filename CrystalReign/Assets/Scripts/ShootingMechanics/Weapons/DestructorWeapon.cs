@@ -4,13 +4,13 @@ public class DestructorWeapon : Weapon
 {
     public float ForceValue = 1f;
     public float BulletSpeed = 6f;
-    public GameObject SphereBullet;
+    public GameObject Bullet;
     public float AccuracyRange = 0.5f;
     public float FireRate = 0.4f;
 
     public override void Shoot(Vector3 origin, Vector3 direction)
     {
-        GameObject bullet = Instantiate(SphereBullet);
+        GameObject bullet = Instantiate(Bullet);
         bullet.transform.position = origin;
         bullet.transform.LookAt(direction);
         bullet.GetComponent<Rigidbody>().velocity = 
