@@ -6,7 +6,7 @@ public class DestructorWeapon : Weapon
     public float BulletSpeed = 6f;
     public GameObject SphereBullet;
     public float AccuracyRange = 0.5f;
-    private float FireRate = 0.7f;
+    public float FireRate = 0.4f;
 
     public override void Shoot(Vector3 origin, Vector3 direction)
     {
