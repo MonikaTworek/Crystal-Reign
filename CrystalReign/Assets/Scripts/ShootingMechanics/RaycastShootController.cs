@@ -16,7 +16,7 @@ public class RaycastShootController : MonoBehaviour {
 	{
 		laserLine = GetComponentInParent<LineRenderer>();
 		shotDuration = new WaitForSeconds(ShotDuration);
-		FireRate = SelectedWeapon.GetComponent<Weapon>().GetFireRate();
+		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 	}
 
 	void Update () {
