@@ -5,7 +5,7 @@ public class DestructorWeapon : Weapon
     public float ForceValue = 1f;
     public float BulletSpeed = 6f;
     public GameObject SphereBullet;
-    public float accurancyRange = 0.5f;
+    public float AccuracyRange = 0.5f;
 
     public override void Shoot(Vector3 origin, Vector3 direction)
     {
@@ -31,6 +31,6 @@ public class DestructorWeapon : Weapon
 
     private float Accuracy
     {
-        get { return Random.Range(-accurancyRange/2, accurancyRange/2); }
+        get { return Random.Range(-AccuracyRange/2, AccuracyRange/2); }
     }
 }
