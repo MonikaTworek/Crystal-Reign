@@ -2,7 +2,6 @@
 
 public class DestructorWeapon : Weapon
 {
-    public float SphereRadius = 5f;
     public float ForceValue = 1f;
     public float BulletSpeed = 6f;
     public GameObject SphereBullet;
