@@ -16,31 +16,38 @@ public class SphereController : MonoBehaviour {
 		if (timer <= 0)
 		{
 			Destroy(sphere);
-		    Destroy(gameObject);
 		}
 		else
 		{
 			timer--;
+			AddTransparency();
+			sphere.transform.localScale = 
+				new Vector3(MaxSphereSize*(maxTimer-timer)/maxTimer, 
+					MaxSphereSize*(maxTimer-timer)/maxTimer, 
+					MaxSphereSize*(maxTimer-timer)/maxTimer);
 		}
-		sphere.transform.localScale = 
-			new Vector3(MaxSphereSize*(maxTimer-timer)/maxTimer, 
-				MaxSphereSize*(maxTimer-timer)/maxTimer, 
-				MaxSphereSize*(maxTimer-timer)/maxTimer);
+	}
+	
+	private void AddTransparency()
+	{
+		Color currentColor = sphere.gameObject.GetComponentInChildren<MeshRenderer>().material.color;
+		currentColor.a = 0.5f - (maxTimer - timer) / maxTimer * 0.6f;
+		sphere.gameObject.GetComponentInChildren<MeshRenderer>().material.color = currentColor;
 	}
 	
 	public void Init(Vector3 point)
 	{
-		maxTimer = ControllerExpirationTime * 24f;
-		timer = ControllerExpirationTime * 24;
+		maxTimer = ControllerExpirationTime * 12f;
+		timer = ControllerExpirationTime * 12;
 		sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		Destroy(sphere.GetComponent<Collider>());
 		sphere.transform.position = point;
 		sphere.transform.localScale = new Vector3(StartingSphereSize, StartingSphereSize, StartingSphereSize);
 		sphere.gameObject.GetComponent<MeshRenderer>().material = Mat;
 		SetColor();
-		Destroy(sphere.GetComponent<Collider>());
 	}
 
-	//TODO: remove after creating proper material
+	// TODO: remove after creating proper material
 	private void SetColor()
 	{
 		Color color = sphere.gameObject.GetComponent<MeshRenderer>().material.color;

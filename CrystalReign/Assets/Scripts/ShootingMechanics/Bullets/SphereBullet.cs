@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ShootingMechanics
+namespace Bullets
 {
     public class SphereBullet : Bullet
     {
