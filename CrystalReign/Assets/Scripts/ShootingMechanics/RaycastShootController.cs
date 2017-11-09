@@ -26,6 +26,7 @@ public class RaycastShootController : MonoBehaviour {
 			UpdateNextFireTime();
 			Shoot();
 		}
+		HandleWeaponChange();
 	}
 
 	private void Shoot()
@@ -37,6 +38,17 @@ public class RaycastShootController : MonoBehaviour {
 		Vector3 destination = GetBulletDestination(wasHit, hit);
 		SetRaycastEnd(destination);
 		SelectedWeapon.GetComponent<Weapon>().Shoot(GunEnd.position, destination);
+	}
+
+	private void HandleWeaponChange()
+	{
+		float mouseScrollChange = Input.GetAxisRaw("Mouse ScrollWheel");
+		if(mouseScrollChange > 0){
+			SelectedWeapon = WeaponChanger.GetNextWeapon();
+		}
+		if(mouseScrollChange < 0){
+			SelectedWeapon = WeaponChanger.GetPreviousWeapon();
+		}   
 	}
 
 	private Vector3 GetBulletDestination(bool wasHit, RaycastHit hit)
