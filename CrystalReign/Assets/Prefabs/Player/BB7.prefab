@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 23673992587136412}
   - component: {fileID: 120791035673186512}
   - component: {fileID: 114002068369310898}
-  - component: {fileID: 114496269024381182}
   m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
@@ -425,10 +424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54271bba0cf249c3adeb2c02bc42a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 0.25
   ShotDuration: 0.7
   GunEnd: {fileID: 4217224112541588}
-  SelectedWeapon: {fileID: 1900919929627146}
+  WeaponChanger: {fileID: 114060174522309234, guid: b2fb8359ff3ab49dd8e0e57a0f4a3bd7,
+    type: 2}
 --- !u!114 &114033848981604334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,23 +445,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967039
---- !u!114 &114496269024381182
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900919929627146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2765f458f06d24b8093c503d728297f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SphereRadius: 5
-  ForceValue: 1
-  BulletSpeed: 30
-  SphereBullet: {fileID: 1990054351026608, guid: 3dc8fa59332774b458b9aa71e527ce9d,
-    type: 2}
-  accurancyRange: 0.5
 --- !u!114 &114714922982751588
 MonoBehaviour:
   m_ObjectHideFlags: 1
