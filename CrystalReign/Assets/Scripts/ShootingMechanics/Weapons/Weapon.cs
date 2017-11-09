@@ -13,7 +13,30 @@ public abstract class Weapon : MonoBehaviour
         Shoot(transform.position, direction);
     }
     
-    public abstract void Shoot(Vector3 origin, Vector3 direction);
+    public void Shoot(Vector3 origin, Vector3 direction)
+    {
+        GameObject bullet = Instantiate(Bullet);
+        bullet.transform.position = origin;
+        bullet.transform.LookAt(direction);
+        bullet.GetComponent<Rigidbody>().velocity = 
+            BulletVelocity(origin, Randomized(direction));
+    }
+    
+    private Vector3 BulletVelocity(Vector3 origin, Vector3 direction)
+    {
+        return (direction - origin).normalized * BulletSpeed;
+    }
 
-    public abstract float GetFireRate();
+    private Vector3 Randomized(Vector3 direction)
+    {
+        return new Vector3(
+            direction.x + Accuracy,
+            direction.y + Accuracy,
+            direction.z + Accuracy);
+    }
+    
+    private float Accuracy
+    {
+        get { return Random.Range(-AccuracyRange/2, AccuracyRange/2); }
+    }
 }
