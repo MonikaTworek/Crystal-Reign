@@ -16,16 +16,15 @@ public class SphereController : MonoBehaviour {
 		if (timer <= 0)
 		{
 			Destroy(sphere);
-		    Destroy(gameObject);
 		}
 		else
 		{
 			timer--;
+			sphere.transform.localScale = 
+				new Vector3(MaxSphereSize*(maxTimer-timer)/maxTimer, 
+					MaxSphereSize*(maxTimer-timer)/maxTimer, 
+					MaxSphereSize*(maxTimer-timer)/maxTimer);
 		}
-		sphere.transform.localScale = 
-			new Vector3(MaxSphereSize*(maxTimer-timer)/maxTimer, 
-				MaxSphereSize*(maxTimer-timer)/maxTimer, 
-				MaxSphereSize*(maxTimer-timer)/maxTimer);
 	}
 	
 	public void Init(Vector3 point)
@@ -33,14 +32,14 @@ public class SphereController : MonoBehaviour {
 		maxTimer = ControllerExpirationTime * 24f;
 		timer = ControllerExpirationTime * 24;
 		sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		Destroy(sphere.GetComponent<Collider>());
 		sphere.transform.position = point;
 		sphere.transform.localScale = new Vector3(StartingSphereSize, StartingSphereSize, StartingSphereSize);
 		sphere.gameObject.GetComponent<MeshRenderer>().material = Mat;
 		SetColor();
-		Destroy(sphere.GetComponent<Collider>());
 	}
 
-	//TODO: remove after creating proper material
+	// TODO: remove after creating proper material
 	private void SetColor()
 	{
 		Color color = sphere.gameObject.GetComponent<MeshRenderer>().material.color;
