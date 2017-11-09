@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ShootingMechanics
+namespace Bullets
 {
     public class PreciseBullet : Bullet
     {

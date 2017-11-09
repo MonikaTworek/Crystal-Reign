@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SphereCreatingBullet : Bullet
+namespace Bullets
 {
-    public float SphereRadius;
-    public SphereController SphereController;
-
-    protected override List<EffectConsumer> GetHitConsumers(Collision other)
+    public class SphereCreatingBullet : Bullet
     {
-        SphereController sphereController = Instantiate(SphereController);
-        sphereController.Init(other.contacts[0].point);
-        return new List<EffectConsumer>{other.gameObject.GetComponent<EffectConsumer>()};
+        public float SphereRadius;
+        public SphereController SphereController;
+
+        protected override List<EffectConsumer> GetHitConsumers(Collision other)
+        {
+            SphereController sphereController = Instantiate(SphereController);
+            sphereController.Init(other.contacts[0].point);
+            return new List<EffectConsumer>{other.gameObject.GetComponent<EffectConsumer>()};
+        }
     }
 }
