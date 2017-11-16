@@ -434,13 +434,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1135483606943876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a36c468fd149fa408ba8f47f591f93c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0eb81ef7af37eb24aa91b6df573963cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 17
+  speed: 6
   jumpSpeed: 8
   gravity: 20
-  camera: {fileID: 4681798990060342}
   rotateSensitivity: 5
 --- !u!114 &114205529293655728
 MonoBehaviour:
@@ -450,16 +449,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1071889023876306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8937d8fce4623146b8cc213005e096d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ff2c4499a28e7140868d118cefc7b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inverted: 0
-  minAngle: -80
-  maxAngle: 80
+  minAngle: -45
+  maxAngle: 45
   rotateSensitivity: 5
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 0
+  delta: 0
 --- !u!114 &114661495752332212
 MonoBehaviour:
   m_ObjectHideFlags: 1

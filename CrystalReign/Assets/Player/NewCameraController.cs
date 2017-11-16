@@ -14,7 +14,7 @@ public class NewCameraController : MonoBehaviour {
     public LayerMask layerMask;
 
     Transform camera = null;
-        
+    public float delta = 0;
 
     void Start () {
         if (transform.childCount != 1)
@@ -46,7 +46,7 @@ public class NewCameraController : MonoBehaviour {
             currentDistance = Vector3.Distance(transform.position, hit.point);
         }
         Vector3 camLocPos = camera.localPosition;
-        camLocPos.z = -currentDistance;
+        camLocPos.z = -currentDistance+delta;
         camera.localPosition = camLocPos;
 
 
