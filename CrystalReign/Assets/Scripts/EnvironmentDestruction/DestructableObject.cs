@@ -77,10 +77,6 @@ namespace Assets.Scripts.EnvironmentDestruction
                                 fob.spawner = spawner;
                                 fob.ReloadData();
                             }
-                            //List<EffectConsumer> affected = Physics.OverlapSphere(effectDestruction.center, effectDestruction.radius)
-                            //                            .Where(x => x.GetComponent<EffectConsumer>() != null)
-                            //                            .Select(x => x.GetComponent<EffectConsumer>())
-                            //                            .ToList();
                             List<EffectConsumer> affected = new List<EffectConsumer>();
                             foreach (Transform child in transform)
                             {
@@ -105,24 +101,23 @@ namespace Assets.Scripts.EnvironmentDestruction
                     }
                     else
                     {
+                        transform.localScale = Vector3.one * 0.8f;
+                        GetComponent<MeshCollider>().convex = true;
+                        Vector3 relative = transform.position - effectDestruction.center;
+                        Vector3 force = relative.normalized * Random.Range(forceValue - forceRandomRange / 2, forceValue + forceRandomRange / 2);
+                        force = Quaternion.Euler(
+                            Random.Range(-forceAngleRandomRange / 2, forceAngleRandomRange / 2),
+                            Random.Range(-forceAngleRandomRange / 2, forceAngleRandomRange / 2),
+                            Random.Range(-forceAngleRandomRange / 2, forceAngleRandomRange / 2)) * force;
+                        force_to_add = force;
+                        dist = Vector3.Distance(transform.position, effectDestruction.center);
 
-                        //Vector3 relative = transform.position - effectDestruction.center;
-                        //Vector3 force = relative.normalized * Random.Range(forceValue - forceRandomRange / 2, forceValue + forceRandomRange / 2);
-                        //force = Quaternion.Euler(
-                        //    Random.Range(-forceAngleRandomRange / 2, forceAngleRandomRange / 2),
-                        //    Random.Range(-forceAngleRandomRange / 2, forceAngleRandomRange / 2),
-                        //    Random.Range(-forceAngleRandomRange / 2, forceAngleRandomRange / 2)) * force;
-                        //force_to_add = force;
-                        //dist = Vector3.Distance(transform.position, effectDestruction.center);
-                        //spawner.chunks.Add(gameObject);
+                        Rigidbody rb = GetComponent<Rigidbody>();
+                        if (rb == null) rb = gameObject.AddComponent<Rigidbody>();
+                        GetComponent<MeshRenderer>().material = mat;
 
-                        //Rigidbody rb = GetComponent<Rigidbody>();
-                        //if (rb == null) rb = gameObject.AddComponent<Rigidbody>();
-                        //Destroy(GetComponent<MeshCollider>());
-                        //GetComponent<MeshRenderer>().material = mat;
-
-                        //rb.isKinematic = false;
-                        //rb.AddForce(force);
+                        rb.isKinematic = false;
+                        rb.AddForce(force);
                     }
 
 
@@ -140,13 +135,13 @@ namespace Assets.Scripts.EnvironmentDestruction
                 RaycastHit info;
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out info))
                 {
-                    List<EffectConsumer> affected = Physics.OverlapSphere(info.point, 1f)
+                    List<EffectConsumer> affected = Physics.OverlapSphere(info.point, 0.5f)
                                                 .Where(x => x.GetComponent<EffectConsumer>() != null)
                                                 .Select(x => x.GetComponent<EffectConsumer>())
                                                 .ToList();
                     foreach (EffectConsumer e in affected)
                     {
-                            e.Apply(new EffectDestruction() { center = info.point, radius = 1.5f });
+                            e.Apply(new EffectDestruction() { center = info.point, radius = 0.5f });
                     }
                 }
             }
