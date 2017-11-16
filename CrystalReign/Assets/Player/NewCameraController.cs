@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraController : MonoBehaviour {
+public class NewCameraController : MonoBehaviour {
     public bool inverted = false;
     public float minAngle = -45;
     public float maxAngle = 45;
