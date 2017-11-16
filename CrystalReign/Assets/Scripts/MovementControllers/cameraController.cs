@@ -13,6 +13,8 @@ public class cameraController : MonoBehaviour
     public float rotateSensitivity = 5;
     float firstY;
 
+    bool isCursorVisible = false;
+
     float distance;
     public LayerMask layerMask;
 
@@ -29,30 +31,43 @@ public class cameraController : MonoBehaviour
         currentRotation = transform.rotation.eulerAngles;
         firstY = currentRotation.x;
         distance = Vector3.Distance(transform.position, camera.position);
+        Cursor.visible = false;
     }
     void Update()
     {
         if (camera == null) return;
+        isCursorVisible = (Input.GetKeyDown(KeyCode.C) ? !isCursorVisible : isCursorVisible);
+        if (!isCursorVisible)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+        }
         float mouseY = (inverted ? 1 : -1) * Input.GetAxis("Mouse Y");
-        if (mouseY * rotateSensitivity + currentRotation.x > firstY + maxAngle || mouseY * rotateSensitivity + currentRotation.x < firstY + minAngle)
-        {
-            mouseY = 0;
-        }
-        Vector3 rotateValue = new Vector3(mouseY, 0, 0);
-        currentRotation += rotateValue * rotateSensitivity;
-        Quaternion rotation = Quaternion.Euler(currentRotation);
-        transform.localRotation = rotation;
+            if (mouseY * rotateSensitivity + currentRotation.x > firstY + maxAngle || mouseY * rotateSensitivity + currentRotation.x < firstY + minAngle)
+            {
+                mouseY = 0;
+            }
+            Vector3 rotateValue = new Vector3(mouseY, 0, 0);
+            currentRotation += rotateValue * rotateSensitivity;
+            Quaternion rotation = Quaternion.Euler(currentRotation);
+            transform.localRotation = rotation;
 
-        RaycastHit hit;
-        float currentDistance = distance;
-        if (Physics.Raycast(transform.position, camera.position - transform.position, out hit, distance, layerMask))
-        {
-            currentDistance = Vector3.Distance(transform.position, hit.point);
-        }
-        Vector3 camLocPos = camera.localPosition;
-        camLocPos.z = -currentDistance;
-        camera.localPosition = camLocPos;
-
+            RaycastHit hit;
+            float currentDistance = distance;
+            if (Physics.Raycast(transform.position, camera.position - transform.position, out hit, distance, layerMask))
+            {
+                currentDistance = Vector3.Distance(transform.position, hit.point);
+            }
+            Vector3 camLocPos = camera.localPosition;
+            camLocPos.z = -currentDistance;
+            camera.localPosition = camLocPos;
+        
+        
 
     }
 }
