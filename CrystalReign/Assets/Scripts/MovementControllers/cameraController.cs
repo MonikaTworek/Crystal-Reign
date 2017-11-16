@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class cameraController : MonoBehaviour
 {
     public bool inverted = false;
     public float minAngle = -45;
     public float maxAngle = 45;
     Vector3 currentRotation;
-    float rotate = 5;
+    public float rotateSensitivity = 5;
     float firstY;
-    bool isC = false;
 
     float distance;
     public LayerMask layerMask;
@@ -20,7 +21,6 @@ public class cameraController : MonoBehaviour
 
     void Start()
     {
-
         if (transform.childCount != 1)
         {
             throw new System.Exception("Missing camera");
@@ -30,40 +30,29 @@ public class cameraController : MonoBehaviour
         firstY = currentRotation.x;
         distance = Vector3.Distance(transform.position, camera.position);
     }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-            isC = !isC;
-        if (!isC)
+        if (camera == null) return;
+        float mouseY = (inverted ? 1 : -1) * Input.GetAxis("Mouse Y");
+        if (mouseY * rotateSensitivity + currentRotation.x > firstY + maxAngle || mouseY * rotateSensitivity + currentRotation.x < firstY + minAngle)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            if (camera == null) return;
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = (inverted ? 1 : -1) * Input.GetAxis("Mouse Y");
-            if (mouseY * rotate + currentRotation.x > firstY + maxAngle || mouseY * rotate + currentRotation.x < firstY + minAngle)
-            {
-                mouseY = 0;
-            }
-            Vector3 rotateValue = new Vector3(mouseY, mouseX, 0);
-            currentRotation += rotateValue * rotate;
-            Quaternion rotation = Quaternion.Euler(currentRotation);
-            transform.rotation = rotation;
+            mouseY = 0;
+        }
+        Vector3 rotateValue = new Vector3(mouseY, 0, 0);
+        currentRotation += rotateValue * rotateSensitivity;
+        Quaternion rotation = Quaternion.Euler(currentRotation);
+        transform.localRotation = rotation;
 
-            RaycastHit hit;
-            float currentDistance = distance;
-            if (Physics.Raycast(transform.position, camera.position - transform.position, out hit, distance, layerMask))
-            {
-                currentDistance = Vector3.Distance(transform.position, hit.point);
-            }
-            Vector3 camLocPos = camera.localPosition;
-            camLocPos.z = -currentDistance;
-            camera.localPosition = camLocPos;
-        }
-        else
+        RaycastHit hit;
+        float currentDistance = distance;
+        if (Physics.Raycast(transform.position, camera.position - transform.position, out hit, distance, layerMask))
         {
-            Cursor.lockState = CursorLockMode.None;
+            currentDistance = Vector3.Distance(transform.position, hit.point);
         }
+        Vector3 camLocPos = camera.localPosition;
+        camLocPos.z = -currentDistance;
+        camera.localPosition = camLocPos;
+
 
     }
 }

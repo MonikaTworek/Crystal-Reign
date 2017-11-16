@@ -1,37 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class playerController : MonoBehaviour
 {
-    public float speed = 10;
-    public float radiusBB7;
-    public float speedJump = 7;
-    private Vector3 velocity = Vector3.zero;
-    bool isGrounded = false;
-    Rigidbody rb;
-    public LayerMask groundRayLayerMask;
-    public float groundMaxDistance;
+    //Variables 
+    public float speed = 6.0F;
+    public float jumpSpeed = 8.0F;
+    public float gravity = 20.0F;
+    private Vector3 moveDirection = Vector3.zero;
     public Transform camera;
+    public float rotateSensitivity = 5;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        radiusBB7 = GetComponents < SphereCollider >()[0].bounds.size.x/2;
-    }
 
     void Update()
     {
-        RaycastHit hitInfo;
-        isGrounded = Physics.SphereCast(transform.position, radiusBB7, - transform.up, out hitInfo, groundMaxDistance, groundRayLayerMask);
-        velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        velocity = transform.TransformDirection(velocity).normalized * speed; 
-        velocity += Vector3.up * (Input.GetButtonDown("Jump") && isGrounded ? speedJump : rb.velocity.y);
-        rb.velocity = velocity;
-        Vector3 camfwd = camera.forward;
-        camfwd.y = 0;
-        transform.forward = camfwd;
+        CharacterController controller = GetComponent<CharacterController>();
+        float old_y = moveDirection.y;
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //Feed moveDirection with input. 
+        moveDirection = transform.TransformDirection(moveDirection);
+        //Multiply it by speed. 
+        moveDirection *= speed;
+        // is the controller on the ground? 
+        if (controller.isGrounded)
+        {
+            //Jumping 
+            if (Input.GetButton("Jump"))
+            {
+                old_y = jumpSpeed;
+            }
+
+        }
+        //Applying gravity to the controller 
+        moveDirection.y = old_y - gravity * Time.deltaTime;
+        //Making the character move 
+        controller.Move(moveDirection * Time.deltaTime);
+
+        float mouseX = Input.GetAxis("Mouse X") * rotateSensitivity;
+        transform.Rotate(new Vector3(0, mouseX, 0));
+
     }
 }
-
-
