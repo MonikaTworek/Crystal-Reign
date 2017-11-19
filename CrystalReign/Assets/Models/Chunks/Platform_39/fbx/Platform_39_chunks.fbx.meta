@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 0f74d6d8f09500545b4278dda3664bee
+timeCreated: 1511014669
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Platform_39_0
+    100002: Platform_39_1
+    100004: Platform_39_10
+    100006: Platform_39_11
+    100008: Platform_39_12
+    100010: Platform_39_13
+    100012: Platform_39_14
+    100014: Platform_39_15
+    100016: Platform_39_2
+    100018: Platform_39_3
+    100020: Platform_39_4
+    100022: Platform_39_5
+    100024: Platform_39_6
+    100026: Platform_39_7
+    100028: Platform_39_8
+    100030: Platform_39_9
+    100032: //RootNode
+    400000: Platform_39_0
+    400002: Platform_39_1
+    400004: Platform_39_10
+    400006: Platform_39_11
+    400008: Platform_39_12
+    400010: Platform_39_13
+    400012: Platform_39_14
+    400014: Platform_39_15
+    400016: Platform_39_2
+    400018: Platform_39_3
+    400020: Platform_39_4
+    400022: Platform_39_5
+    400024: Platform_39_6
+    400026: Platform_39_7
+    400028: Platform_39_8
+    400030: Platform_39_9
+    400032: //RootNode
+    2300000: Platform_39_0
+    2300002: Platform_39_1
+    2300004: Platform_39_10
+    2300006: Platform_39_11
+    2300008: Platform_39_12
+    2300010: Platform_39_13
+    2300012: Platform_39_14
+    2300014: Platform_39_15
+    2300016: Platform_39_2
+    2300018: Platform_39_3
+    2300020: Platform_39_4
+    2300022: Platform_39_5
+    2300024: Platform_39_6
+    2300026: Platform_39_7
+    2300028: Platform_39_8
+    2300030: Platform_39_9
+    3300000: Platform_39_0
+    3300002: Platform_39_1
+    3300004: Platform_39_10
+    3300006: Platform_39_11
+    3300008: Platform_39_12
+    3300010: Platform_39_13
+    3300012: Platform_39_14
+    3300014: Platform_39_15
+    3300016: Platform_39_2
+    3300018: Platform_39_3
+    3300020: Platform_39_4
+    3300022: Platform_39_5
+    3300024: Platform_39_6
+    3300026: Platform_39_7
+    3300028: Platform_39_8
+    3300030: Platform_39_9
+    4300000: Platform_39_15
+    4300002: Platform_39_14
+    4300004: Platform_39_13
+    4300006: Platform_39_12
+    4300008: Platform_39_11
+    4300010: Platform_39_10
+    4300012: Platform_39_9
+    4300014: Platform_39_8
+    4300016: Platform_39_7
+    4300018: Platform_39_6
+    4300020: Platform_39_5
+    4300022: Platform_39_4
+    4300024: Platform_39_3
+    4300026: Platform_39_2
+    4300028: Platform_39_1
+    4300030: Platform_39_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: c8ff4dd23dfc04a489201cdbd5c3c1e2, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

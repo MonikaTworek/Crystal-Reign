@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: d5e1566d1abc5764a8bfe1b1b343a037
+timeCreated: 1511014913
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ExhibitGlass.002_0
+    100002: ExhibitGlass.002_1
+    100004: ExhibitGlass.002_10
+    100006: ExhibitGlass.002_11
+    100008: ExhibitGlass.002_12
+    100010: ExhibitGlass.002_13
+    100012: ExhibitGlass.002_14
+    100014: ExhibitGlass.002_15
+    100016: ExhibitGlass.002_16
+    100018: ExhibitGlass.002_17
+    100020: ExhibitGlass.002_18
+    100022: ExhibitGlass.002_19
+    100024: ExhibitGlass.002_2
+    100026: ExhibitGlass.002_20
+    100028: ExhibitGlass.002_21
+    100030: ExhibitGlass.002_3
+    100032: ExhibitGlass.002_4
+    100034: ExhibitGlass.002_5
+    100036: ExhibitGlass.002_6
+    100038: ExhibitGlass.002_7
+    100040: ExhibitGlass.002_8
+    100042: ExhibitGlass.002_9
+    100044: //RootNode
+    400000: ExhibitGlass.002_0
+    400002: ExhibitGlass.002_1
+    400004: ExhibitGlass.002_10
+    400006: ExhibitGlass.002_11
+    400008: ExhibitGlass.002_12
+    400010: ExhibitGlass.002_13
+    400012: ExhibitGlass.002_14
+    400014: ExhibitGlass.002_15
+    400016: ExhibitGlass.002_16
+    400018: ExhibitGlass.002_17
+    400020: ExhibitGlass.002_18
+    400022: ExhibitGlass.002_19
+    400024: ExhibitGlass.002_2
+    400026: ExhibitGlass.002_20
+    400028: ExhibitGlass.002_21
+    400030: ExhibitGlass.002_3
+    400032: ExhibitGlass.002_4
+    400034: ExhibitGlass.002_5
+    400036: ExhibitGlass.002_6
+    400038: ExhibitGlass.002_7
+    400040: ExhibitGlass.002_8
+    400042: ExhibitGlass.002_9
+    400044: //RootNode
+    2300000: ExhibitGlass.002_0
+    2300002: ExhibitGlass.002_1
+    2300004: ExhibitGlass.002_10
+    2300006: ExhibitGlass.002_11
+    2300008: ExhibitGlass.002_12
+    2300010: ExhibitGlass.002_13
+    2300012: ExhibitGlass.002_14
+    2300014: ExhibitGlass.002_15
+    2300016: ExhibitGlass.002_16
+    2300018: ExhibitGlass.002_17
+    2300020: ExhibitGlass.002_18
+    2300022: ExhibitGlass.002_19
+    2300024: ExhibitGlass.002_2
+    2300026: ExhibitGlass.002_20
+    2300028: ExhibitGlass.002_21
+    2300030: ExhibitGlass.002_3
+    2300032: ExhibitGlass.002_4
+    2300034: ExhibitGlass.002_5
+    2300036: ExhibitGlass.002_6
+    2300038: ExhibitGlass.002_7
+    2300040: ExhibitGlass.002_8
+    2300042: ExhibitGlass.002_9
+    3300000: ExhibitGlass.002_0
+    3300002: ExhibitGlass.002_1
+    3300004: ExhibitGlass.002_10
+    3300006: ExhibitGlass.002_11
+    3300008: ExhibitGlass.002_12
+    3300010: ExhibitGlass.002_13
+    3300012: ExhibitGlass.002_14
+    3300014: ExhibitGlass.002_15
+    3300016: ExhibitGlass.002_16
+    3300018: ExhibitGlass.002_17
+    3300020: ExhibitGlass.002_18
+    3300022: ExhibitGlass.002_19
+    3300024: ExhibitGlass.002_2
+    3300026: ExhibitGlass.002_20
+    3300028: ExhibitGlass.002_21
+    3300030: ExhibitGlass.002_3
+    3300032: ExhibitGlass.002_4
+    3300034: ExhibitGlass.002_5
+    3300036: ExhibitGlass.002_6
+    3300038: ExhibitGlass.002_7
+    3300040: ExhibitGlass.002_8
+    3300042: ExhibitGlass.002_9
+    4300000: ExhibitGlass.002_21
+    4300002: ExhibitGlass.002_20
+    4300004: ExhibitGlass.002_19
+    4300006: ExhibitGlass.002_18
+    4300008: ExhibitGlass.002_17
+    4300010: ExhibitGlass.002_16
+    4300012: ExhibitGlass.002_15
+    4300014: ExhibitGlass.002_14
+    4300016: ExhibitGlass.002_13
+    4300018: ExhibitGlass.002_12
+    4300020: ExhibitGlass.002_11
+    4300022: ExhibitGlass.002_10
+    4300024: ExhibitGlass.002_9
+    4300026: ExhibitGlass.002_8
+    4300028: ExhibitGlass.002_7
+    4300030: ExhibitGlass.002_6
+    4300032: ExhibitGlass.002_5
+    4300034: ExhibitGlass.002_4
+    4300036: ExhibitGlass.002_3
+    4300038: ExhibitGlass.002_2
+    4300040: ExhibitGlass.002_1
+    4300042: ExhibitGlass.002_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: b85fd9ac786d1834ba5a20ff2587a8a2, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

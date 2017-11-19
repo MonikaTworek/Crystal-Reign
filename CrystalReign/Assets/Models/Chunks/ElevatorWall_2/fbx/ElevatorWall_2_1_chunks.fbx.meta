@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: d1269582fdfe4a64c8f672882484bf04
+timeCreated: 1511014909
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ElevatorWall_2_1_0
+    100002: ElevatorWall_2_1_1
+    100004: ElevatorWall_2_1_10
+    100006: ElevatorWall_2_1_11
+    100008: ElevatorWall_2_1_12
+    100010: ElevatorWall_2_1_13
+    100012: ElevatorWall_2_1_14
+    100014: ElevatorWall_2_1_15
+    100016: ElevatorWall_2_1_2
+    100018: ElevatorWall_2_1_3
+    100020: ElevatorWall_2_1_4
+    100022: ElevatorWall_2_1_5
+    100024: ElevatorWall_2_1_6
+    100026: ElevatorWall_2_1_7
+    100028: ElevatorWall_2_1_8
+    100030: ElevatorWall_2_1_9
+    100032: //RootNode
+    400000: ElevatorWall_2_1_0
+    400002: ElevatorWall_2_1_1
+    400004: ElevatorWall_2_1_10
+    400006: ElevatorWall_2_1_11
+    400008: ElevatorWall_2_1_12
+    400010: ElevatorWall_2_1_13
+    400012: ElevatorWall_2_1_14
+    400014: ElevatorWall_2_1_15
+    400016: ElevatorWall_2_1_2
+    400018: ElevatorWall_2_1_3
+    400020: ElevatorWall_2_1_4
+    400022: ElevatorWall_2_1_5
+    400024: ElevatorWall_2_1_6
+    400026: ElevatorWall_2_1_7
+    400028: ElevatorWall_2_1_8
+    400030: ElevatorWall_2_1_9
+    400032: //RootNode
+    2300000: ElevatorWall_2_1_0
+    2300002: ElevatorWall_2_1_1
+    2300004: ElevatorWall_2_1_10
+    2300006: ElevatorWall_2_1_11
+    2300008: ElevatorWall_2_1_12
+    2300010: ElevatorWall_2_1_13
+    2300012: ElevatorWall_2_1_14
+    2300014: ElevatorWall_2_1_15
+    2300016: ElevatorWall_2_1_2
+    2300018: ElevatorWall_2_1_3
+    2300020: ElevatorWall_2_1_4
+    2300022: ElevatorWall_2_1_5
+    2300024: ElevatorWall_2_1_6
+    2300026: ElevatorWall_2_1_7
+    2300028: ElevatorWall_2_1_8
+    2300030: ElevatorWall_2_1_9
+    3300000: ElevatorWall_2_1_0
+    3300002: ElevatorWall_2_1_1
+    3300004: ElevatorWall_2_1_10
+    3300006: ElevatorWall_2_1_11
+    3300008: ElevatorWall_2_1_12
+    3300010: ElevatorWall_2_1_13
+    3300012: ElevatorWall_2_1_14
+    3300014: ElevatorWall_2_1_15
+    3300016: ElevatorWall_2_1_2
+    3300018: ElevatorWall_2_1_3
+    3300020: ElevatorWall_2_1_4
+    3300022: ElevatorWall_2_1_5
+    3300024: ElevatorWall_2_1_6
+    3300026: ElevatorWall_2_1_7
+    3300028: ElevatorWall_2_1_8
+    3300030: ElevatorWall_2_1_9
+    4300000: ElevatorWall_2_1_15
+    4300002: ElevatorWall_2_1_14
+    4300004: ElevatorWall_2_1_13
+    4300006: ElevatorWall_2_1_12
+    4300008: ElevatorWall_2_1_11
+    4300010: ElevatorWall_2_1_10
+    4300012: ElevatorWall_2_1_9
+    4300014: ElevatorWall_2_1_8
+    4300016: ElevatorWall_2_1_7
+    4300018: ElevatorWall_2_1_6
+    4300020: ElevatorWall_2_1_5
+    4300022: ElevatorWall_2_1_4
+    4300024: ElevatorWall_2_1_3
+    4300026: ElevatorWall_2_1_2
+    4300028: ElevatorWall_2_1_1
+    4300030: ElevatorWall_2_1_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PurpleMaterial.001
+    second: {fileID: 2100000, guid: 5337b5ac595e4a34eba099e737f219ca, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

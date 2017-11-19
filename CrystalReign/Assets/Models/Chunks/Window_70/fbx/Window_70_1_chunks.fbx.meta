@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 7b25d59816ef4ec48bf5104a5ce82ad4
+timeCreated: 1511014803
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Window_70_1_0
+    100002: Window_70_1_1
+    100004: Window_70_1_10
+    100006: Window_70_1_11
+    100008: Window_70_1_12
+    100010: Window_70_1_13
+    100012: Window_70_1_14
+    100014: Window_70_1_15
+    100016: Window_70_1_16
+    100018: Window_70_1_17
+    100020: Window_70_1_18
+    100022: Window_70_1_19
+    100024: Window_70_1_2
+    100026: Window_70_1_20
+    100028: Window_70_1_21
+    100030: Window_70_1_22
+    100032: Window_70_1_23
+    100034: Window_70_1_24
+    100036: Window_70_1_3
+    100038: Window_70_1_4
+    100040: Window_70_1_5
+    100042: Window_70_1_6
+    100044: Window_70_1_7
+    100046: Window_70_1_8
+    100048: Window_70_1_9
+    100050: //RootNode
+    400000: Window_70_1_0
+    400002: Window_70_1_1
+    400004: Window_70_1_10
+    400006: Window_70_1_11
+    400008: Window_70_1_12
+    400010: Window_70_1_13
+    400012: Window_70_1_14
+    400014: Window_70_1_15
+    400016: Window_70_1_16
+    400018: Window_70_1_17
+    400020: Window_70_1_18
+    400022: Window_70_1_19
+    400024: Window_70_1_2
+    400026: Window_70_1_20
+    400028: Window_70_1_21
+    400030: Window_70_1_22
+    400032: Window_70_1_23
+    400034: Window_70_1_24
+    400036: Window_70_1_3
+    400038: Window_70_1_4
+    400040: Window_70_1_5
+    400042: Window_70_1_6
+    400044: Window_70_1_7
+    400046: Window_70_1_8
+    400048: Window_70_1_9
+    400050: //RootNode
+    2300000: Window_70_1_0
+    2300002: Window_70_1_1
+    2300004: Window_70_1_10
+    2300006: Window_70_1_11
+    2300008: Window_70_1_12
+    2300010: Window_70_1_13
+    2300012: Window_70_1_14
+    2300014: Window_70_1_15
+    2300016: Window_70_1_16
+    2300018: Window_70_1_17
+    2300020: Window_70_1_18
+    2300022: Window_70_1_19
+    2300024: Window_70_1_2
+    2300026: Window_70_1_20
+    2300028: Window_70_1_21
+    2300030: Window_70_1_22
+    2300032: Window_70_1_23
+    2300034: Window_70_1_24
+    2300036: Window_70_1_3
+    2300038: Window_70_1_4
+    2300040: Window_70_1_5
+    2300042: Window_70_1_6
+    2300044: Window_70_1_7
+    2300046: Window_70_1_8
+    2300048: Window_70_1_9
+    3300000: Window_70_1_0
+    3300002: Window_70_1_1
+    3300004: Window_70_1_10
+    3300006: Window_70_1_11
+    3300008: Window_70_1_12
+    3300010: Window_70_1_13
+    3300012: Window_70_1_14
+    3300014: Window_70_1_15
+    3300016: Window_70_1_16
+    3300018: Window_70_1_17
+    3300020: Window_70_1_18
+    3300022: Window_70_1_19
+    3300024: Window_70_1_2
+    3300026: Window_70_1_20
+    3300028: Window_70_1_21
+    3300030: Window_70_1_22
+    3300032: Window_70_1_23
+    3300034: Window_70_1_24
+    3300036: Window_70_1_3
+    3300038: Window_70_1_4
+    3300040: Window_70_1_5
+    3300042: Window_70_1_6
+    3300044: Window_70_1_7
+    3300046: Window_70_1_8
+    3300048: Window_70_1_9
+    4300000: Window_70_1_24
+    4300002: Window_70_1_23
+    4300004: Window_70_1_22
+    4300006: Window_70_1_21
+    4300008: Window_70_1_20
+    4300010: Window_70_1_19
+    4300012: Window_70_1_18
+    4300014: Window_70_1_17
+    4300016: Window_70_1_16
+    4300018: Window_70_1_15
+    4300020: Window_70_1_14
+    4300022: Window_70_1_13
+    4300024: Window_70_1_12
+    4300026: Window_70_1_11
+    4300028: Window_70_1_10
+    4300030: Window_70_1_9
+    4300032: Window_70_1_8
+    4300034: Window_70_1_7
+    4300036: Window_70_1_6
+    4300038: Window_70_1_5
+    4300040: Window_70_1_4
+    4300042: Window_70_1_3
+    4300044: Window_70_1_2
+    4300046: Window_70_1_1
+    4300048: Window_70_1_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: 1ec8c6e0555293f45be21b6a2cf24022, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

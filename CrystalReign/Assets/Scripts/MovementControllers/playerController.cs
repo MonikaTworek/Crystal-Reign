@@ -7,9 +7,9 @@ public class playerController : MonoBehaviour
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
-    private Vector3 moveDirection = Vector3.zero;
-    public Transform camera;
+    public Transform body;
     public float rotateSensitivity = 5;
+    private Vector3 moveDirection = Vector3.zero;
 
 
     void Update()

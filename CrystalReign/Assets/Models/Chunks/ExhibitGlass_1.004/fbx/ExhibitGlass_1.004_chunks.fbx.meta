@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 133af0294f6ffa84f893085a5f015c69
+timeCreated: 1511014675
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ExhibitGlass_1.004_0
+    100002: ExhibitGlass_1.004_1
+    100004: ExhibitGlass_1.004_2
+    100006: ExhibitGlass_1.004_3
+    100008: ExhibitGlass_1.004_4
+    100010: ExhibitGlass_1.004_5
+    100012: ExhibitGlass_1.004_6
+    100014: ExhibitGlass_1.004_7
+    100016: ExhibitGlass_1.004_8
+    100018: ExhibitGlass_1.004_9
+    100020: //RootNode
+    400000: ExhibitGlass_1.004_0
+    400002: ExhibitGlass_1.004_1
+    400004: ExhibitGlass_1.004_2
+    400006: ExhibitGlass_1.004_3
+    400008: ExhibitGlass_1.004_4
+    400010: ExhibitGlass_1.004_5
+    400012: ExhibitGlass_1.004_6
+    400014: ExhibitGlass_1.004_7
+    400016: ExhibitGlass_1.004_8
+    400018: ExhibitGlass_1.004_9
+    400020: //RootNode
+    2300000: ExhibitGlass_1.004_0
+    2300002: ExhibitGlass_1.004_1
+    2300004: ExhibitGlass_1.004_2
+    2300006: ExhibitGlass_1.004_3
+    2300008: ExhibitGlass_1.004_4
+    2300010: ExhibitGlass_1.004_5
+    2300012: ExhibitGlass_1.004_6
+    2300014: ExhibitGlass_1.004_7
+    2300016: ExhibitGlass_1.004_8
+    2300018: ExhibitGlass_1.004_9
+    3300000: ExhibitGlass_1.004_0
+    3300002: ExhibitGlass_1.004_1
+    3300004: ExhibitGlass_1.004_2
+    3300006: ExhibitGlass_1.004_3
+    3300008: ExhibitGlass_1.004_4
+    3300010: ExhibitGlass_1.004_5
+    3300012: ExhibitGlass_1.004_6
+    3300014: ExhibitGlass_1.004_7
+    3300016: ExhibitGlass_1.004_8
+    3300018: ExhibitGlass_1.004_9
+    4300000: ExhibitGlass_1.004_9
+    4300002: ExhibitGlass_1.004_8
+    4300004: ExhibitGlass_1.004_7
+    4300006: ExhibitGlass_1.004_6
+    4300008: ExhibitGlass_1.004_5
+    4300010: ExhibitGlass_1.004_4
+    4300012: ExhibitGlass_1.004_3
+    4300014: ExhibitGlass_1.004_2
+    4300016: ExhibitGlass_1.004_1
+    4300018: ExhibitGlass_1.004_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: 424270f8b89400140a5a350f5e4c4199, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

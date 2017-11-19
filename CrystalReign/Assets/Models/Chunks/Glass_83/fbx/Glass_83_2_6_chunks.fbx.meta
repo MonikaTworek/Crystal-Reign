@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 33ce7e9dbb8e92b43a02f18bfd05b14a
+timeCreated: 1511014722
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Glass_83_2_6_0
+    100002: Glass_83_2_6_1
+    100004: Glass_83_2_6_10
+    100006: Glass_83_2_6_11
+    100008: Glass_83_2_6_12
+    100010: Glass_83_2_6_13
+    100012: Glass_83_2_6_14
+    100014: Glass_83_2_6_15
+    100016: Glass_83_2_6_2
+    100018: Glass_83_2_6_3
+    100020: Glass_83_2_6_4
+    100022: Glass_83_2_6_5
+    100024: Glass_83_2_6_6
+    100026: Glass_83_2_6_7
+    100028: Glass_83_2_6_8
+    100030: Glass_83_2_6_9
+    100032: //RootNode
+    400000: Glass_83_2_6_0
+    400002: Glass_83_2_6_1
+    400004: Glass_83_2_6_10
+    400006: Glass_83_2_6_11
+    400008: Glass_83_2_6_12
+    400010: Glass_83_2_6_13
+    400012: Glass_83_2_6_14
+    400014: Glass_83_2_6_15
+    400016: Glass_83_2_6_2
+    400018: Glass_83_2_6_3
+    400020: Glass_83_2_6_4
+    400022: Glass_83_2_6_5
+    400024: Glass_83_2_6_6
+    400026: Glass_83_2_6_7
+    400028: Glass_83_2_6_8
+    400030: Glass_83_2_6_9
+    400032: //RootNode
+    2300000: Glass_83_2_6_0
+    2300002: Glass_83_2_6_1
+    2300004: Glass_83_2_6_10
+    2300006: Glass_83_2_6_11
+    2300008: Glass_83_2_6_12
+    2300010: Glass_83_2_6_13
+    2300012: Glass_83_2_6_14
+    2300014: Glass_83_2_6_15
+    2300016: Glass_83_2_6_2
+    2300018: Glass_83_2_6_3
+    2300020: Glass_83_2_6_4
+    2300022: Glass_83_2_6_5
+    2300024: Glass_83_2_6_6
+    2300026: Glass_83_2_6_7
+    2300028: Glass_83_2_6_8
+    2300030: Glass_83_2_6_9
+    3300000: Glass_83_2_6_0
+    3300002: Glass_83_2_6_1
+    3300004: Glass_83_2_6_10
+    3300006: Glass_83_2_6_11
+    3300008: Glass_83_2_6_12
+    3300010: Glass_83_2_6_13
+    3300012: Glass_83_2_6_14
+    3300014: Glass_83_2_6_15
+    3300016: Glass_83_2_6_2
+    3300018: Glass_83_2_6_3
+    3300020: Glass_83_2_6_4
+    3300022: Glass_83_2_6_5
+    3300024: Glass_83_2_6_6
+    3300026: Glass_83_2_6_7
+    3300028: Glass_83_2_6_8
+    3300030: Glass_83_2_6_9
+    4300000: Glass_83_2_6_15
+    4300002: Glass_83_2_6_14
+    4300004: Glass_83_2_6_13
+    4300006: Glass_83_2_6_12
+    4300008: Glass_83_2_6_11
+    4300010: Glass_83_2_6_10
+    4300012: Glass_83_2_6_9
+    4300014: Glass_83_2_6_8
+    4300016: Glass_83_2_6_7
+    4300018: Glass_83_2_6_6
+    4300020: Glass_83_2_6_5
+    4300022: Glass_83_2_6_4
+    4300024: Glass_83_2_6_3
+    4300026: Glass_83_2_6_2
+    4300028: Glass_83_2_6_1
+    4300030: Glass_83_2_6_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: f7210a0aed9630645ab2488b22ffabff, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

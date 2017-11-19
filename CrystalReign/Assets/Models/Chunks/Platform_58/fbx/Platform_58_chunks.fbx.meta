@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: b7100bd830dc07a40951ee8c32a0ac73
+timeCreated: 1511014881
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Platform_58_0
+    100002: Platform_58_1
+    100004: Platform_58_10
+    100006: Platform_58_11
+    100008: Platform_58_12
+    100010: Platform_58_13
+    100012: Platform_58_14
+    100014: Platform_58_15
+    100016: Platform_58_16
+    100018: Platform_58_17
+    100020: Platform_58_18
+    100022: Platform_58_19
+    100024: Platform_58_2
+    100026: Platform_58_20
+    100028: Platform_58_21
+    100030: Platform_58_3
+    100032: Platform_58_4
+    100034: Platform_58_5
+    100036: Platform_58_6
+    100038: Platform_58_7
+    100040: Platform_58_8
+    100042: Platform_58_9
+    100044: //RootNode
+    400000: Platform_58_0
+    400002: Platform_58_1
+    400004: Platform_58_10
+    400006: Platform_58_11
+    400008: Platform_58_12
+    400010: Platform_58_13
+    400012: Platform_58_14
+    400014: Platform_58_15
+    400016: Platform_58_16
+    400018: Platform_58_17
+    400020: Platform_58_18
+    400022: Platform_58_19
+    400024: Platform_58_2
+    400026: Platform_58_20
+    400028: Platform_58_21
+    400030: Platform_58_3
+    400032: Platform_58_4
+    400034: Platform_58_5
+    400036: Platform_58_6
+    400038: Platform_58_7
+    400040: Platform_58_8
+    400042: Platform_58_9
+    400044: //RootNode
+    2300000: Platform_58_0
+    2300002: Platform_58_1
+    2300004: Platform_58_10
+    2300006: Platform_58_11
+    2300008: Platform_58_12
+    2300010: Platform_58_13
+    2300012: Platform_58_14
+    2300014: Platform_58_15
+    2300016: Platform_58_16
+    2300018: Platform_58_17
+    2300020: Platform_58_18
+    2300022: Platform_58_19
+    2300024: Platform_58_2
+    2300026: Platform_58_20
+    2300028: Platform_58_21
+    2300030: Platform_58_3
+    2300032: Platform_58_4
+    2300034: Platform_58_5
+    2300036: Platform_58_6
+    2300038: Platform_58_7
+    2300040: Platform_58_8
+    2300042: Platform_58_9
+    3300000: Platform_58_0
+    3300002: Platform_58_1
+    3300004: Platform_58_10
+    3300006: Platform_58_11
+    3300008: Platform_58_12
+    3300010: Platform_58_13
+    3300012: Platform_58_14
+    3300014: Platform_58_15
+    3300016: Platform_58_16
+    3300018: Platform_58_17
+    3300020: Platform_58_18
+    3300022: Platform_58_19
+    3300024: Platform_58_2
+    3300026: Platform_58_20
+    3300028: Platform_58_21
+    3300030: Platform_58_3
+    3300032: Platform_58_4
+    3300034: Platform_58_5
+    3300036: Platform_58_6
+    3300038: Platform_58_7
+    3300040: Platform_58_8
+    3300042: Platform_58_9
+    4300000: Platform_58_21
+    4300002: Platform_58_20
+    4300004: Platform_58_19
+    4300006: Platform_58_18
+    4300008: Platform_58_17
+    4300010: Platform_58_16
+    4300012: Platform_58_15
+    4300014: Platform_58_14
+    4300016: Platform_58_13
+    4300018: Platform_58_12
+    4300020: Platform_58_11
+    4300022: Platform_58_10
+    4300024: Platform_58_9
+    4300026: Platform_58_8
+    4300028: Platform_58_7
+    4300030: Platform_58_6
+    4300032: Platform_58_5
+    4300034: Platform_58_4
+    4300036: Platform_58_3
+    4300038: Platform_58_2
+    4300040: Platform_58_1
+    4300042: Platform_58_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: 63225a1477a0329468be213ed9a3b7bb, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

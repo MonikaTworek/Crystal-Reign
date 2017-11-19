@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 43d8efb77d9b3a74398c0e4f849b02c0
+timeCreated: 1511014739
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Glass_106_2_0
+    100002: Glass_106_2_1
+    100004: Glass_106_2_10
+    100006: Glass_106_2_11
+    100008: Glass_106_2_12
+    100010: Glass_106_2_13
+    100012: Glass_106_2_14
+    100014: Glass_106_2_15
+    100016: Glass_106_2_16
+    100018: Glass_106_2_17
+    100020: Glass_106_2_18
+    100022: Glass_106_2_19
+    100024: Glass_106_2_2
+    100026: Glass_106_2_20
+    100028: Glass_106_2_21
+    100030: Glass_106_2_22
+    100032: Glass_106_2_23
+    100034: Glass_106_2_24
+    100036: Glass_106_2_25
+    100038: Glass_106_2_26
+    100040: Glass_106_2_27
+    100042: Glass_106_2_28
+    100044: Glass_106_2_29
+    100046: Glass_106_2_3
+    100048: Glass_106_2_30
+    100050: Glass_106_2_31
+    100052: Glass_106_2_32
+    100054: Glass_106_2_33
+    100056: Glass_106_2_4
+    100058: Glass_106_2_5
+    100060: Glass_106_2_6
+    100062: Glass_106_2_7
+    100064: Glass_106_2_8
+    100066: Glass_106_2_9
+    100068: //RootNode
+    400000: Glass_106_2_0
+    400002: Glass_106_2_1
+    400004: Glass_106_2_10
+    400006: Glass_106_2_11
+    400008: Glass_106_2_12
+    400010: Glass_106_2_13
+    400012: Glass_106_2_14
+    400014: Glass_106_2_15
+    400016: Glass_106_2_16
+    400018: Glass_106_2_17
+    400020: Glass_106_2_18
+    400022: Glass_106_2_19
+    400024: Glass_106_2_2
+    400026: Glass_106_2_20
+    400028: Glass_106_2_21
+    400030: Glass_106_2_22
+    400032: Glass_106_2_23
+    400034: Glass_106_2_24
+    400036: Glass_106_2_25
+    400038: Glass_106_2_26
+    400040: Glass_106_2_27
+    400042: Glass_106_2_28
+    400044: Glass_106_2_29
+    400046: Glass_106_2_3
+    400048: Glass_106_2_30
+    400050: Glass_106_2_31
+    400052: Glass_106_2_32
+    400054: Glass_106_2_33
+    400056: Glass_106_2_4
+    400058: Glass_106_2_5
+    400060: Glass_106_2_6
+    400062: Glass_106_2_7
+    400064: Glass_106_2_8
+    400066: Glass_106_2_9
+    400068: //RootNode
+    2300000: Glass_106_2_0
+    2300002: Glass_106_2_1
+    2300004: Glass_106_2_10
+    2300006: Glass_106_2_11
+    2300008: Glass_106_2_12
+    2300010: Glass_106_2_13
+    2300012: Glass_106_2_14
+    2300014: Glass_106_2_15
+    2300016: Glass_106_2_16
+    2300018: Glass_106_2_17
+    2300020: Glass_106_2_18
+    2300022: Glass_106_2_19
+    2300024: Glass_106_2_2
+    2300026: Glass_106_2_20
+    2300028: Glass_106_2_21
+    2300030: Glass_106_2_22
+    2300032: Glass_106_2_23
+    2300034: Glass_106_2_24
+    2300036: Glass_106_2_25
+    2300038: Glass_106_2_26
+    2300040: Glass_106_2_27
+    2300042: Glass_106_2_28
+    2300044: Glass_106_2_29
+    2300046: Glass_106_2_3
+    2300048: Glass_106_2_30
+    2300050: Glass_106_2_31
+    2300052: Glass_106_2_32
+    2300054: Glass_106_2_33
+    2300056: Glass_106_2_4
+    2300058: Glass_106_2_5
+    2300060: Glass_106_2_6
+    2300062: Glass_106_2_7
+    2300064: Glass_106_2_8
+    2300066: Glass_106_2_9
+    3300000: Glass_106_2_0
+    3300002: Glass_106_2_1
+    3300004: Glass_106_2_10
+    3300006: Glass_106_2_11
+    3300008: Glass_106_2_12
+    3300010: Glass_106_2_13
+    3300012: Glass_106_2_14
+    3300014: Glass_106_2_15
+    3300016: Glass_106_2_16
+    3300018: Glass_106_2_17
+    3300020: Glass_106_2_18
+    3300022: Glass_106_2_19
+    3300024: Glass_106_2_2
+    3300026: Glass_106_2_20
+    3300028: Glass_106_2_21
+    3300030: Glass_106_2_22
+    3300032: Glass_106_2_23
+    3300034: Glass_106_2_24
+    3300036: Glass_106_2_25
+    3300038: Glass_106_2_26
+    3300040: Glass_106_2_27
+    3300042: Glass_106_2_28
+    3300044: Glass_106_2_29
+    3300046: Glass_106_2_3
+    3300048: Glass_106_2_30
+    3300050: Glass_106_2_31
+    3300052: Glass_106_2_32
+    3300054: Glass_106_2_33
+    3300056: Glass_106_2_4
+    3300058: Glass_106_2_5
+    3300060: Glass_106_2_6
+    3300062: Glass_106_2_7
+    3300064: Glass_106_2_8
+    3300066: Glass_106_2_9
+    4300000: Glass_106_2_33
+    4300002: Glass_106_2_32
+    4300004: Glass_106_2_31
+    4300006: Glass_106_2_30
+    4300008: Glass_106_2_29
+    4300010: Glass_106_2_28
+    4300012: Glass_106_2_27
+    4300014: Glass_106_2_26
+    4300016: Glass_106_2_25
+    4300018: Glass_106_2_24
+    4300020: Glass_106_2_23
+    4300022: Glass_106_2_22
+    4300024: Glass_106_2_21
+    4300026: Glass_106_2_20
+    4300028: Glass_106_2_19
+    4300030: Glass_106_2_18
+    4300032: Glass_106_2_17
+    4300034: Glass_106_2_16
+    4300036: Glass_106_2_15
+    4300038: Glass_106_2_14
+    4300040: Glass_106_2_13
+    4300042: Glass_106_2_12
+    4300044: Glass_106_2_11
+    4300046: Glass_106_2_10
+    4300048: Glass_106_2_9
+    4300050: Glass_106_2_8
+    4300052: Glass_106_2_7
+    4300054: Glass_106_2_6
+    4300056: Glass_106_2_5
+    4300058: Glass_106_2_4
+    4300060: Glass_106_2_3
+    4300062: Glass_106_2_2
+    4300064: Glass_106_2_1
+    4300066: Glass_106_2_0
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMaterial.000
+    second: {fileID: 2100000, guid: aea3c744a00556b43b95c57219a27625, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
