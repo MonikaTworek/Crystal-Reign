@@ -58,13 +58,16 @@
      <Compile Include="Assets\Scripts\Effects\MaterialChangeConsumer.cs" />
      <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
      <Compile Include="Assets\Scripts\MovementControllers\cameraController.cs" />
+     <Compile Include="Assets\Scripts\MovementControllers\CapRotation.cs" />
      <Compile Include="Assets\Scripts\MovementControllers\playerController.cs" />
+     <Compile Include="Assets\Scripts\MovementControllers\rotateGun.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\Bullet.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\PreciseBullet.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\SphereBullet.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\SphereCreatingBullet.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\RaycastShootController.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\SphereController.cs" />
+     <Compile Include="Assets\Scripts\ShootingMechanics\WeaponChanger.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\DestructorWeapon.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\Weapon.cs" />
  <Reference Include="UnityEngine.UI">
