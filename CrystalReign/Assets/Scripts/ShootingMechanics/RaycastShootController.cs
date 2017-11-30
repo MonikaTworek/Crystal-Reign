@@ -9,13 +9,11 @@ public class RaycastShootController : MonoBehaviour {
 	public WeaponChanger WeaponChanger;
 
 	private Weapon SelectedWeapon;
-	private WaitForSeconds shotDuration;
 	private float nextFireTime;
 	private float FireRate = .25f;
 
 	void Start ()
 	{
-		shotDuration = new WaitForSeconds(ShotDuration);
 		SelectedWeapon = WeaponChanger.GetNextWeapon();
 		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 	}
@@ -67,7 +65,7 @@ public class RaycastShootController : MonoBehaviour {
 
 	private bool WasFireButtonPressed()
 	{
-		return Input.GetButtonDown ("Fire1");
+		return Input.GetButton("Fire1");
 	}
 
 	private void UpdateNextFireTime()
