@@ -31,7 +31,7 @@ public class RaycastShootController : MonoBehaviour {
 	private void Shoot()
 	{
 		RaycastHit hit;
-		bool wasHit = Physics.Raycast(GunEnd.position, Camera.forward, out hit);
+		bool wasHit = Physics.Raycast(Camera.position, Camera.forward, out hit);
 		Vector3 destination = GetBulletDestination(wasHit, hit);
 		SelectedWeapon.GetComponent<Weapon>().Shoot(GunEnd.position, destination);
 	}
