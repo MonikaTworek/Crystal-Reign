@@ -35,9 +35,17 @@ namespace AI
 
 		private Vector3 direction(Vector3 botPosition)
 		{
-			return (player.transform.position - botPosition).normalized;
+			return (RandomizedPlayerPosition() - botPosition).normalized;
 		}
 
+		private Vector3 RandomizedPlayerPosition()
+		{
+			Vector3 playerPosition = player.transform.position;
+			return new Vector3(
+				playerPosition.x + Random.Range(-1.25f, 1.25f),
+				playerPosition.y + Random.Range(-1.25f, 1.25f),
+				playerPosition.z + Random.Range(-1.25f, 1.25f));
+		}
 
 		private bool PlayerWasHit(RaycastHit hit)
 		{
