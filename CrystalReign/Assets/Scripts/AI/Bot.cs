@@ -10,13 +10,6 @@ namespace AI
 		private float nextFireTime;
 		
 		public abstract void move(Vector3 destination);
-
-		void Start()
-		{
-			weapon.transform.position = transform.position +
-			                            transform.forward.normalized 
-			                            + new Vector3(0, 0, 1);
-		}
 		
 		public virtual void shoot(Vector3 direction)
 		{
