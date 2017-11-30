@@ -1,7 +1,5 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-#include "Assets/Shaders/texSample.cginc"
-
+//#include "Assets/Shaders/texSample.cginc"
 struct fragIn {
 	float4 pos : SV_POSITION;
 	float slope : TEXCOORD3;
@@ -10,7 +8,6 @@ struct fragIn {
 	float4 droneSpacePos : TEXCOORD0;
 	float2 uv : TEXCOORD2;
 };
-
 //drone camera data
 uniform float4x4 imagesAreaV;
 uniform float4x4 imagesAreaP;
@@ -18,12 +15,10 @@ uniform sampler2D imagesAreaDepthMap;
 uniform float4 imagesAreaDepthMapInvSize;
 uniform sampler2D imagesAreaTex;
 uniform float4 imagesAreaInvSize;
-
 uniform float4x4 droneV;
 uniform float4x4 droneP;
 uniform sampler2D droneCamDepthMap;
 uniform float4 droneDepthMapInvSize;
-
 uniform int useDirectionalLights;
 uniform float4 lightDir;
 uniform float4 lightDiff;
@@ -32,7 +27,6 @@ uniform int useHighlight;
 uniform int useImagesArea;
 uniform float4 highlightColor;
 uniform float4 footprintColor;
-
 void calcLight(float3 ambient, float4 pos, float3 normal, inout float4 color)
 {
 	float3 lookDir = _WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, pos);
@@ -40,11 +34,14 @@ void calcLight(float3 ambient, float4 pos, float3 normal, inout float4 color)
 	fixed NdotL = max(dot(normalize(normal), normalize(lookDir.xyz)), 0);
 	NdotL /= pow(cos(NdotL), -0.7) * 1.0;
 	NdotL += 0.3;
-	color.xyz = saturate(ambient.xyz + (lightDiff.xyz*lightDiff.w-ambient.xyz) * NdotL * useDirectionalLights);
+	//ambient.xyz = float3(1, 1, 1);
+	//lightDiff.xyzw = float4(1, 1, 1, 1);
+	//color.xyz = saturate(ambient.xyz + (lightDiff.xyz*lightDiff.w - ambient.xyz) * NdotL * useDirectionalLights);
+	color.xyz = float3(NdotL, NdotL, NdotL);
 	color.w = 1;
 }
 //calculate slope and position local to object with V
-void calcSlopeAndLocalSpacePos(float4 pos, float3 normal, float4x4 V, float4x4 P, out float4 droneSpacePos, out float slope)
+/*void calcSlopeAndLocalSpacePos(float4 pos, float3 normal, float4x4 V, float4x4 P, out float4 droneSpacePos, out float slope)
 {
 	droneSpacePos = mul(mul(mul(P, V), unity_ObjectToWorld), pos);
 	slope = 1 - max(dot(mul(mul(V, unity_ObjectToWorld), normal), -mul(mul(V, unity_ObjectToWorld), pos)), 0);
@@ -113,4 +110,4 @@ void calcHighlightAndFootprintColor(float2 uv, float4 droneSpacePos, float slope
 	{
 		color = alphaBlend(color, highlightColor);
 	}
-}
+}*/

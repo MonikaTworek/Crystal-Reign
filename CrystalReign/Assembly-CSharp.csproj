@@ -67,6 +67,9 @@
      <Compile Include="Assets\Scripts\ShootingMechanics\SphereController.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\DestructorWeapon.cs" />
      <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\Weapon.cs" />
+     <None Include="Assets\Shaders\highlightDroneFrustumCommon.cginc" />
+     <None Include="Assets\Shaders\highlightDroneFrustum.shader" />
+     <None Include="Assets\Shaders\NewSurfaceShader.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
