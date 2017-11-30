@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Effects;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Bullets
 {
-    public abstract class Bullet : MonoBehaviour {
-    
+    public abstract class Bullet : MonoBehaviour
+    {
+
         public bool ShouldBeRemoved = true;
-    
+
         protected bool isAfterCollision;
         protected static float maxTimer = 96f;
-        protected int timer = (int) maxTimer;
-    
+        protected int timer = (int)maxTimer;
+
         void Update()
         {
             checkForRemoval();
@@ -48,19 +50,19 @@ namespace Bullets
             isAfterCollision = true;
             foreach (EffectConsumer effectConsumer in GetHitConsumers(other))
             {
-                ApplyEffectOnConsumer(effectConsumer);  
+                ApplyEffectOnConsumer(effectConsumer);
             }
             gameObject.GetComponent<Rigidbody>().useGravity = true;
 
         }
-    
+
         protected abstract List<EffectConsumer> GetHitConsumers(Collision other);
 
         private void ApplyEffectOnConsumer(EffectConsumer effectConsumer)
         {
             foreach (Effect effect in gameObject.GetComponents<Effect>())
             {
-                effectConsumer.Apply(effect);
+                effectConsumer.Apply(effect, transform.position);
             }
         }
     }

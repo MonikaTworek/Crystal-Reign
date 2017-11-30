@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4288830708281110}
   - component: {fileID: 54164865677893918}
   - component: {fileID: 114742749417558988}
-  - component: {fileID: 114915523746403700}
+  - component: {fileID: 114624831454297422}
   m_Layer: 0
   m_Name: SphereBullet
   m_TagString: Untagged
@@ -128,6 +128,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &114624831454297422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006820312882102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f72cad0538d364c8278fc4000160ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
 --- !u!114 &114742749417558988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,17 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShouldBeRemoved: 1
   SphereRadius: 1
---- !u!114 &114915523746403700
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1006820312882102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14dc42de2eef74cacb20d12e881b4583, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136275818895709778
 CapsuleCollider:
   m_ObjectHideFlags: 1

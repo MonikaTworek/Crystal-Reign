@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 
-public class MaterialChangeConsumer : EffectConsumer
+namespace Assets.Scripts.Effects
 {
-
-    public Material mat1;
-    public Material mat2;
-
-    private bool mat1IsCurrentMat;
-    
-    public override void Apply(Effect effect)
+    public class MaterialChangeConsumer : EffectConsumer
     {
-        if (effect.effectType == EffectType.CHANGE_MATERIAL) 
-        {   
-            if (mat1IsCurrentMat)
+
+        public Material mat1;
+        public Material mat2;
+
+        private bool mat1IsCurrentMat;
+
+        public override void Apply(Effect effect, Vector3 origin)
+        {
+            if (effect.effectType == EffectType.CHANGE_MATERIAL)
             {
-                transform.GetComponent<MeshRenderer>().material = mat2;
+                if (mat1IsCurrentMat)
+                {
+                    transform.GetComponent<MeshRenderer>().material = mat2;
+                }
+                else
+                {
+                    transform.GetComponent<MeshRenderer>().material = mat1;
+                }
+                mat1IsCurrentMat = !mat1IsCurrentMat;
             }
-            else
-            {
-                transform.GetComponent<MeshRenderer>().material = mat1;
-            }
-            mat1IsCurrentMat = !mat1IsCurrentMat;
         }
     }
 }

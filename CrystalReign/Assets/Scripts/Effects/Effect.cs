@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-public abstract class Effect : MonoBehaviour
+namespace Assets.Scripts.Effects
 {
-    public EffectType effectType { get; protected set; }
-
+    public abstract class Effect : MonoBehaviour
+    {
+        public EffectType effectType { get; protected set; }
+        
+    }
 }
