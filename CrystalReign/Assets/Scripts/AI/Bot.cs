@@ -5,9 +5,9 @@ namespace AI
 	public abstract class Bot : MonoBehaviour
 	{
 		public Weapon weapon;
+		public float FireRate = .35f;
 		
 		private float nextFireTime;
-		private float FireRate = .25f;
 		
 		public abstract void move(Vector3 destination);
 
