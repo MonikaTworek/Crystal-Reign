@@ -1,8 +1,12 @@
 ﻿
 
-public class ChangeMaterialEffect : Effect {
-    public ChangeMaterialEffect()
+namespace Assets.Scripts.Effects
+{
+    public class ChangeMaterialEffect : Effect
     {
-        effectType = EffectType.CHANGE_MATERIAL;
+        public ChangeMaterialEffect()
+        {
+            effectType = EffectType.CHANGE_MATERIAL;
+        }
     }
 }

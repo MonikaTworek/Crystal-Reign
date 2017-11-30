@@ -1,4 +1,9 @@
-﻿public enum EffectType
+﻿
+namespace Assets.Scripts.Effects
 {
-    CHANGE_MATERIAL
-} 
+    public enum EffectType
+    {
+        CHANGE_MATERIAL,
+        DESTRUCTION
+    }
+}
