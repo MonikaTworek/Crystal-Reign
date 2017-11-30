@@ -8,9 +8,8 @@ namespace AI
 		public List<Bot> bots;
 		public string playerTag = "Player";
 
-		private float nextFireTime;
-		private float FireRate = .25f;
 		private GameObject player;
+		private RaycastHit hit;
 
 		void Start()
 		{
@@ -22,27 +21,23 @@ namespace AI
 			foreach (Bot bot in bots)
 			{
 				bot.rotate(player.gameObject.transform.position);
-				RaycastHit hit;
-				Vector3 botPosition = bot.transform.position;
-				bool wasHit = Physics.Raycast(botPosition,
-					(player.transform.position - botPosition).normalized, out hit);
-				if (CanShoot() && wasHit && PlayerWasHit(hit))
-				{
-					UpdateNextFireTime();
-					bot.shoot(hit.point);
+				if (bot.CanShoot())
+				{	
+					Vector3 botPosition = bot.transform.position;
+					Physics.Raycast(botPosition,direction(botPosition), out hit);
+					if (PlayerWasHit(hit))
+					{
+						bot.shoot(hit.point);
+					}
 				}
 			}
 		}
 
-		private void UpdateNextFireTime()
+		private Vector3 direction(Vector3 botPosition)
 		{
-			nextFireTime = Time.time + FireRate;
+			return (player.transform.position - botPosition).normalized;
 		}
 
-		private bool CanShoot()
-		{
-			return Time.time > nextFireTime;
-		}
 
 		private bool PlayerWasHit(RaycastHit hit)
 		{

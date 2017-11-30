@@ -6,8 +6,10 @@ namespace AI
 	{
 		public Weapon weapon;
 		
+		private float nextFireTime;
+		private float FireRate = .25f;
+		
 		public abstract void move(Vector3 destination);
-
 
 		void Start()
 		{
@@ -18,12 +20,25 @@ namespace AI
 		
 		public virtual void shoot(Vector3 direction)
 		{
+			UpdateNextFireTime();
 			weapon.Shoot(direction);
 		}
+		
+		private void UpdateNextFireTime()
+		{
+			nextFireTime = Time.time + FireRate;
+		}
+
+		public bool CanShoot()
+		{
+			return Time.time > nextFireTime;
+		}
+
 
 		public virtual void rotate(Vector3 direction)
 		{
 			transform.LookAt(direction);
 		}
+		
 	}
 }
