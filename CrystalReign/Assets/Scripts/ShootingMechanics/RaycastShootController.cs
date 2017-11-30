@@ -5,6 +5,7 @@ public class RaycastShootController : MonoBehaviour {
 
 	public float ShotDuration = 0.7f;
 	public Transform GunEnd;
+    public Transform Camera;
 	public WeaponChanger WeaponChanger;
 
 	private Weapon SelectedWeapon;
@@ -34,7 +35,7 @@ public class RaycastShootController : MonoBehaviour {
 		StartCoroutine(EnableRaycastForShotDuration());
 		SetRaycastStart();
 		RaycastHit hit;
-		bool wasHit = Physics.Raycast(GunEnd.position, GunEnd.forward, out hit);
+		bool wasHit = Physics.Raycast(GunEnd.position, Camera.forward, out hit);
 		Vector3 destination = GetBulletDestination(wasHit, hit);
 		SetRaycastEnd(destination);
 		SelectedWeapon.GetComponent<Weapon>().Shoot(GunEnd.position, destination);
