@@ -16,6 +16,7 @@ public class SphereController : MonoBehaviour {
 		if (timer <= 0)
 		{
 			Destroy(sphere);
+			Destroy(gameObject, 3.0f);
 		}
 		else
 		{
