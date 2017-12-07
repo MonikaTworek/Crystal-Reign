@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1670408500734490, guid: f90d79014befa454b9202c189645b2d6, type: 2}
-  BulletSpeed: 30
+  BulletSpeed: 50
   AccuracyRange: 0.5
-  FireRate: 0.4
+  FireRate: 1
   ForceValue: 1

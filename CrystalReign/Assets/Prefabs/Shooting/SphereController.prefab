@@ -55,3 +55,5 @@ MonoBehaviour:
   MaxSphereSize: 5
   Mat: {fileID: 2100000, guid: 598861a23bab28d428880be5c5e60b4d, type: 2}
   ControllerExpirationTime: 10
+  slowdown: 1
+  startTransparency: 0

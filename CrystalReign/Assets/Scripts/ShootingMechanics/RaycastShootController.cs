@@ -4,15 +4,20 @@ using UnityEngine;
 public class RaycastShootController : MonoBehaviour {
 
 	public float ShotDuration = 0.7f;
-	public Transform GunEnd;
+    public Transform GunEnd;
     public Transform Camera;
 	public WeaponChanger WeaponChanger;
 
+<<<<<<< HEAD
 	private Weapon SelectedWeapon;
+=======
+    private Weapon SelectedWeapon;
+	private WaitForSeconds shotDuration;
+>>>>>>> 6c04055bd8df578d707db50233c6dca86e6c7154
 	private float nextFireTime;
-	private float FireRate = .25f;
+    private float FireRate;
 
-	void Start ()
+    void Start ()
 	{
 		SelectedWeapon = WeaponChanger.GetNextWeapon();
 		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
@@ -29,7 +34,7 @@ public class RaycastShootController : MonoBehaviour {
 	private void Shoot()
 	{
 		RaycastHit hit;
-		bool wasHit = Physics.Raycast(GunEnd.position, Camera.forward, out hit);
+		bool wasHit = Physics.Raycast(Camera.position, Camera.forward, out hit);
 		Vector3 destination = GetBulletDestination(wasHit, hit);
 		SelectedWeapon.GetComponent<Weapon>().Shoot(GunEnd.position, destination);
 	}
@@ -39,10 +44,12 @@ public class RaycastShootController : MonoBehaviour {
 		float mouseScrollChange = Input.GetAxisRaw("Mouse ScrollWheel");
 		if(mouseScrollChange > 0){
 			SelectedWeapon = WeaponChanger.GetNextWeapon();
-		}
+            FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
+        }
 		if(mouseScrollChange < 0){
 			SelectedWeapon = WeaponChanger.GetPreviousWeapon();
-		}   
+            FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
+        }   
 	}
 
 	private Vector3 GetBulletDestination(bool wasHit, RaycastHit hit)

@@ -3,7 +3,7 @@ guid: 495520f57d5f71f48855eebc2d469a5c
 timeCreated: 1511014747
 licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 21
   fileIDToRecycleName:
     100000: TheMan_2_0
     100002: TheMan_2_1
@@ -27,17 +27,10 @@ ModelImporter:
     4300002: TheMan_2_2
     4300004: TheMan_2_1
     4300006: TheMan_2_0
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PurpleMaterial.001
-    second: {fileID: 2100000, guid: 0d475bdd6d79b7c45804cd9510a04c60, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -50,7 +43,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
