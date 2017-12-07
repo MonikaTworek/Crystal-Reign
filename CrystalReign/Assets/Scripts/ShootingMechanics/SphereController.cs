@@ -19,11 +19,7 @@ public class SphereController : MonoBehaviour {
 		if (timer <= 0)
 		{
 			Destroy(sphere);
-<<<<<<< HEAD
 			Destroy(gameObject, 3.0f);
-=======
-            Destroy(gameObject, 3.0f);
->>>>>>> 6c04055bd8df578d707db50233c6dca86e6c7154
 		}
 		else
 		{
