@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
+    <Compile Include="Assets\Scripts\Minimap\MinimapRender.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CapRotation.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\PlayerControl.cs" />
@@ -112,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Chunks\TheMan\TheMan_done.txt" />
+    <None Include="Assets\Resources\path_to_chunks.txt" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
