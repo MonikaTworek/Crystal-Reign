@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class RaycastShootController : MonoBehaviour {
+public class ShootController : MonoBehaviour {
 
 	public float ShotDuration = 0.7f;
     public Transform GunEnd;
