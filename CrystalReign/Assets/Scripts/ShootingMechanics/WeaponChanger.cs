@@ -5,7 +5,7 @@ public class WeaponChanger : MonoBehaviour
 {
 	public List<Weapon> Weapons;
 
-	private int CurrentWeaponIndex = -1;
+	private int CurrentWeaponIndex;
 	
 	public Weapon GetPreviousWeapon()
 	{

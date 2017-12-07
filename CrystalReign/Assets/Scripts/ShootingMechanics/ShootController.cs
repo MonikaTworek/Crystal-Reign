@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ShootController : MonoBehaviour {
 
@@ -13,9 +14,9 @@ public class ShootController : MonoBehaviour {
 
     void Start ()
 	{
-		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 		GameOverlord = GameObject.FindGameObjectWithTag("Overlord").GetComponent<GameOverlord>();
-		SelectedWeapon = GameOverlord.selectedWeapon;
+		SelectedWeapon = GameOverlord.SelectedPlayerWeapon;
+		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 	}
 
 	void Update () {
@@ -37,9 +38,12 @@ public class ShootController : MonoBehaviour {
 	private void HandleWeaponChange()
 	{
 		float mouseScrollChange = Input.GetAxisRaw("Mouse ScrollWheel");
-		GameOverlord.processMessage(OverlordMessage.CHANGE_WEAPON, mouseScrollChange);
-		SelectedWeapon = GameOverlord.selectedWeapon;
-        FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;  
+		if (Math.Abs(mouseScrollChange) > 0)
+		{
+			GameOverlord.processMessage(OverlordMessage.CHANGE_WEAPON, mouseScrollChange);
+			SelectedWeapon = GameOverlord.SelectedPlayerWeapon;
+			FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;  
+		}
 	}
 
 	private Vector3 GetBulletDestination(bool wasHit, RaycastHit hit)

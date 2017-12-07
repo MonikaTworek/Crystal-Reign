@@ -3,9 +3,9 @@
 public class GameOverlord : MonoBehaviour
 {
 
-	public double playerHitPoints;
-	public double ammunitionLeft;
-	public Weapon selectedWeapon;
+	public double PlayerHitPoints = 10;
+	public double AmmunitionLeft = 100;
+	public Weapon SelectedPlayerWeapon;
 	public WeaponChanger WeaponChanger;
 	
 	
@@ -15,17 +15,17 @@ public class GameOverlord : MonoBehaviour
 		{
 			case OverlordMessage.CHANGE_PLAYER_HIT_POINTS:
 			{
-				playerHitPoints += value;
+				PlayerHitPoints += value;
 				break;
 			}
 			case OverlordMessage.CHANGE_AMMUNITION:
 			{
-				ammunitionLeft += value;
+				AmmunitionLeft += value;
 				break;
 			}
 			case OverlordMessage.CHANGE_WEAPON:
 			{
-				selectedWeapon = value > 0 ? 
+				SelectedPlayerWeapon = value > 0 ? 
 					WeaponChanger.GetNextWeapon() : 
 					WeaponChanger.GetPreviousWeapon();
 				break;
