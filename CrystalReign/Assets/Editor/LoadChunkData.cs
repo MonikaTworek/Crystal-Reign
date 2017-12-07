@@ -27,7 +27,7 @@ namespace Assets.Editor
             }
             foreach (string dir in dirs)
             {
-                GameObject obj = GameObject.Find(Path.GetDirectoryName(dir));
+                GameObject obj = GameObject.Find(Path.GetFileName(dir));
                 DestructableObject desobj = obj.GetComponent<DestructableObject>();
                 if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
                 desobj.mat = obj.GetComponent<Renderer>().material;
@@ -46,7 +46,7 @@ namespace Assets.Editor
                         {
                             GameObject objAsset = AssetDatabase.LoadAssetAtPath(f, typeof(GameObject)) as GameObject;
                             string prefab_path = Path.Combine("Assets/Resources/Chunks", Path.GetFileName(f)).Replace("\\", "/");
-                            prefab_path = Path.ChangeExtension(prefab_path,".prefab");
+                            prefab_path = Path.ChangeExtension(prefab_path, ".prefab");
                             UnityEngine.Object prefab = PrefabUtility.CreateEmptyPrefab(prefab_path);
                             PrefabUtility.ReplacePrefab(objAsset, prefab, ReplacePrefabOptions.ConnectToPrefab);
 
