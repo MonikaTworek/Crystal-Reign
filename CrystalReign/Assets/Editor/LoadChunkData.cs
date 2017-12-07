@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using Assets.Scripts.EnvironmentDestruction;
 
 namespace Assets.Editor
 {
@@ -26,6 +27,11 @@ namespace Assets.Editor
             }
             foreach (string dir in dirs)
             {
+                GameObject obj = GameObject.Find(Path.GetDirectoryName(dir));
+                DestructableObject desobj = obj.GetComponent<DestructableObject>();
+                if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
+                desobj.mat = obj.GetComponent<Renderer>().material;
+                desobj.level_name = "Chunks";
                 if (Directory.Exists(Path.Combine(dir, "json")) && Directory.Exists(Path.Combine(dir, "fbx")))
                 {
                     string[] jsons = Directory.GetFiles(Path.Combine(dir, "json"));
@@ -43,7 +49,7 @@ namespace Assets.Editor
                             prefab_path = Path.ChangeExtension(prefab_path,".prefab");
                             UnityEngine.Object prefab = PrefabUtility.CreateEmptyPrefab(prefab_path);
                             PrefabUtility.ReplacePrefab(objAsset, prefab, ReplacePrefabOptions.ConnectToPrefab);
-                            //Here try something like INSTANTIATE(objAsset);
+
                         }
                     }
 
