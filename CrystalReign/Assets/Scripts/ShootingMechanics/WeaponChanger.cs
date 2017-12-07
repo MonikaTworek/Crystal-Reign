@@ -14,13 +14,13 @@ public class WeaponChanger : MonoBehaviour
 		{
 			CurrentWeaponIndex = Weapons.Capacity + CurrentWeaponIndex;
 		}
-		return Weapons.ToArray()[CurrentWeaponIndex];
+		return Weapons[CurrentWeaponIndex];
 	}
 	
 	public Weapon GetNextWeapon()
 	{
 		CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Capacity;
-		return Weapons.ToArray()[CurrentWeaponIndex];
+		return Weapons[CurrentWeaponIndex];
 	}
 	
 }
