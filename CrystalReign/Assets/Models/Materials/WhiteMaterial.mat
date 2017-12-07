@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: WhiteMaterial
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 9582a649717ba7443a0abfc90d4ed493, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -71,6 +71,13 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - darkening: 0.5
+    - darkeningEnd: 300
+    - isSectionHighlighted: 0
+    - isSectionSelected: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - ambientColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+    - materialColor: {r: 1, g: 1, b: 1, a: 1}
+    - sectionHighlightColor: {r: 0.8897059, g: 0.8897059, b: 0.8897059, a: 1}

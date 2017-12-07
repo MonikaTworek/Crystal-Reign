@@ -113,6 +113,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -128,6 +129,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -182,9 +184,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingSphereSize: 0.1
-  MaxSphereSize: 7
+  MaxSphereSize: 22
   Mat: {fileID: 2100000, guid: 598861a23bab28d428880be5c5e60b4d, type: 2}
-  ControllerExpirationTime: 8
+  ControllerExpirationTime: 3.5
+  slowdown: 0.01
+  startTransparency: 0.7
 --- !u!114 &114887259656188010
 MonoBehaviour:
   m_ObjectHideFlags: 1
