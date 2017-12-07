@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: e012060dfa2dfd14eb3f0a7244eafa74
+timeCreated: 1511014922
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Arm_1
+    100002: Arm_2
+    100004: Blade
+    100006: //RootNode
+    100008: SoldierGun_1
+    100010: SoldierGun_2
+    100012: SoldierHinge_1
+    100014: SoldierHinge_2
+    100016: SoldierRing_1
+    100018: SoldierRing_2
+    100020: SoldierRing_3
+    100022: SoldierRing_4
+    100024: SoldierRing_5
+    100026: SoldierRing_6
+    100028: SoldierRing_7
+    100030: SoldierSegment_1
+    100032: SoldierSegment_2
+    100034: SoldierSegment_3
+    100036: SoldierSegment_4
+    100038: SoldierSegment_5
+    400000: Arm_1
+    400002: Arm_2
+    400004: Blade
+    400006: //RootNode
+    400008: SoldierGun_1
+    400010: SoldierGun_2
+    400012: SoldierHinge_1
+    400014: SoldierHinge_2
+    400016: SoldierRing_1
+    400018: SoldierRing_2
+    400020: SoldierRing_3
+    400022: SoldierRing_4
+    400024: SoldierRing_5
+    400026: SoldierRing_6
+    400028: SoldierRing_7
+    400030: SoldierSegment_1
+    400032: SoldierSegment_2
+    400034: SoldierSegment_3
+    400036: SoldierSegment_4
+    400038: SoldierSegment_5
+    2300000: Arm_1
+    2300002: Arm_2
+    2300004: Blade
+    2300006: SoldierGun_1
+    2300008: SoldierGun_2
+    2300010: SoldierHinge_1
+    2300012: SoldierHinge_2
+    2300014: SoldierRing_1
+    2300016: SoldierRing_2
+    2300018: SoldierRing_3
+    2300020: SoldierRing_4
+    2300022: SoldierRing_5
+    2300024: SoldierRing_6
+    2300026: SoldierRing_7
+    2300028: SoldierSegment_1
+    2300030: SoldierSegment_2
+    2300032: SoldierSegment_3
+    2300034: SoldierSegment_4
+    2300036: SoldierSegment_5
+    3300000: Arm_1
+    3300002: Arm_2
+    3300004: Blade
+    3300006: SoldierGun_1
+    3300008: SoldierGun_2
+    3300010: SoldierHinge_1
+    3300012: SoldierHinge_2
+    3300014: SoldierRing_1
+    3300016: SoldierRing_2
+    3300018: SoldierRing_3
+    3300020: SoldierRing_4
+    3300022: SoldierRing_5
+    3300024: SoldierRing_6
+    3300026: SoldierRing_7
+    3300028: SoldierSegment_1
+    3300030: SoldierSegment_2
+    3300032: SoldierSegment_3
+    3300034: SoldierSegment_4
+    3300036: SoldierSegment_5
+    4300000: SoldierSegment_1
+    4300002: SoldierRing_6
+    4300004: SoldierRing_5
+    4300006: SoldierRing_4
+    4300008: SoldierRing_7
+    4300010: SoldierHinge_2
+    4300012: Blade
+    4300014: Arm_2
+    4300016: SoldierHinge_1
+    4300018: Arm_1
+    4300020: SoldierGun_2
+    4300022: SoldierGun_1
+    4300024: SoldierSegment_5
+    4300026: SoldierRing_3
+    4300028: SoldierRing_1
+    4300030: SoldierRing_2
+    4300032: SoldierSegment_4
+    4300034: SoldierSegment_3
+    4300036: SoldierSegment_2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bot-black
+    second: {fileID: 2100000, guid: d6145baf93da38244afea518209b96ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bot-glass
+    second: {fileID: 2100000, guid: 06bcc58c19723ea41ad09a4a17099dd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bot-purple
+    second: {fileID: 2100000, guid: 1881407c3a290164e99fb80f2443f01e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bot-white
+    second: {fileID: 2100000, guid: ed32b10a8d898224a86cb955683e4354, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
