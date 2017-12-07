@@ -72,10 +72,6 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 0
-    - darkening: 1
-    - darkeningEnd: 280
     m_Colors:
     - _Color: {r: 0.49828225, g: 0.081049815, b: 1, a: 0.22105265}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - ambientColor: {r: 1, g: 1, b: 1, a: 1}
-    - materialColor: {r: 0.49803922, g: 0.08235294, b: 1, a: 0.388}
