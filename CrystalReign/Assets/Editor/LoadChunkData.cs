@@ -27,7 +27,7 @@ namespace Assets.Editor
             }
             foreach (string dir in dirs)
             {
-                GameObject obj = GameObject.Find(Path.GetDirectoryName(dir));
+                GameObject obj = GameObject.Find(Path.GetFileName(dir));
                 DestructableObject desobj = obj.GetComponent<DestructableObject>();
                 if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
                 desobj.mat = obj.GetComponent<Renderer>().material;

@@ -13,8 +13,8 @@ namespace Assets.Scripts.EnvironmentDestruction
 
         public string level_name;
 
-        public float forceValue = 10f;
-        public float forceRandomRange = 2f;
+        public float forceValue = 900f;
+        public float forceRandomRange = 20f;
         public float forceAngleRandomRange = 30f;
 
         public Material mat;

@@ -154,6 +154,16 @@
     <Compile Include="Assets\Editor\LoadChunkData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Models\Chunks\Band_1\Band_1_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_10\Band_10_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_2\Band_2_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_3\Band_3_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_4\Band_4_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_5\Band_5_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_6\Band_6_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_7\Band_7_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_8\Band_8_done.txt" />
+    <None Include="Assets\Models\Chunks\Band_9\Band_9_done.txt" />
     <None Include="Assets\Models\Chunks\TheMan\TheMan_done.txt" />
     <None Include="Assets\Resources\path_to_chunks.txt" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
