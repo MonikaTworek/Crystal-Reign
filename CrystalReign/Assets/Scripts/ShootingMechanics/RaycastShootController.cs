@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RaycastShootController : MonoBehaviour {
 
@@ -8,12 +7,8 @@ public class RaycastShootController : MonoBehaviour {
     public Transform Camera;
 	public WeaponChanger WeaponChanger;
 
-<<<<<<< HEAD
-	private Weapon SelectedWeapon;
-=======
     private Weapon SelectedWeapon;
 	private WaitForSeconds shotDuration;
->>>>>>> 6c04055bd8df578d707db50233c6dca86e6c7154
 	private float nextFireTime;
     private float FireRate;
 
