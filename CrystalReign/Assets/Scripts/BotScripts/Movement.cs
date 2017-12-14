@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private bool InAir = false;
     private Vector3 moveDirection = Vector3.zero;
     private float timePlayerNotSeen = 0;
+    private double currentJumpTime;
 
     public enum states { chasingPlayer, followingLastTrack, returning };
     public states state;
@@ -15,13 +16,14 @@ public class Movement : MonoBehaviour
     public float gravity = 20.0F;
     public float jumpForce;
     public float botSpeed;
-    public double jumpTime = 0;
+    public double jumpTime;
     public Rigidbody rb;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentJumpTime = jumpTime;
     }
 
     bool CollideFree()
@@ -73,7 +75,7 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "ground" && InAir == true)
+        if (other.gameObject.tag != "Player" && InAir == true)
         {
             InAir = false;
         }
@@ -81,7 +83,7 @@ public class Movement : MonoBehaviour
 
     void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag == "ground" && InAir == true)
+        if (other.gameObject.tag != "Player" && InAir == true)
         {
             InAir = false;
         }
@@ -95,8 +97,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jumpTime > 0)
-            jumpTime -= Time.deltaTime;
+        if (currentJumpTime > 0)
+            currentJumpTime -= Time.deltaTime;
 
         var playerTrans = GameObject.Find("BB7").transform;
 
@@ -121,10 +123,10 @@ public class Movement : MonoBehaviour
         if (!CollideFree() || CollideClose())
         {
             //Debug.Log("not free");
-            if (InAir == false && jumpTime <= 0)
+            if (InAir == false && currentJumpTime <= 0)
             {
                 //Debug.Log("jump");
-                jumpTime = 0.5;
+                currentJumpTime = jumpTime;
                 Vector3 jump = new Vector3(0.0f, 250, 0.0f);
                 GetComponent<Rigidbody>().AddForce(jump * jumpForce);
             }
