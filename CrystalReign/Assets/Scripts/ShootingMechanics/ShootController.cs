@@ -1,22 +1,21 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
-public class RaycastShootController : MonoBehaviour {
+public class ShootController : MonoBehaviour {
 
 	public float ShotDuration = 0.7f;
     public Transform GunEnd;
     public Transform Camera;
-	public WeaponChanger WeaponChanger;
 
     private Weapon SelectedWeapon;
-	private WaitForSeconds shotDuration;
 	private float nextFireTime;
     private float FireRate;
+	private GameOverlord GameOverlord;
 
     void Start ()
 	{
-		shotDuration = new WaitForSeconds(ShotDuration);
-		SelectedWeapon = WeaponChanger.GetNextWeapon();
+		GameOverlord = GameObject.FindGameObjectWithTag("Overlord").GetComponent<GameOverlord>();
+		SelectedWeapon = GameOverlord.SelectedPlayerWeapon;
 		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 	}
 
@@ -39,14 +38,12 @@ public class RaycastShootController : MonoBehaviour {
 	private void HandleWeaponChange()
 	{
 		float mouseScrollChange = Input.GetAxisRaw("Mouse ScrollWheel");
-		if(mouseScrollChange > 0){
-			SelectedWeapon = WeaponChanger.GetNextWeapon();
-            FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
-        }
-		if(mouseScrollChange < 0){
-			SelectedWeapon = WeaponChanger.GetPreviousWeapon();
-            FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
-        }   
+		if (Math.Abs(mouseScrollChange) > 0)
+		{
+			GameOverlord.processMessage(OverlordMessage.CHANGE_WEAPON, mouseScrollChange);
+			SelectedWeapon = GameOverlord.SelectedPlayerWeapon;
+			FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;  
+		}
 	}
 
 	private Vector3 GetBulletDestination(bool wasHit, RaycastHit hit)
