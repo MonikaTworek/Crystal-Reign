@@ -4,6 +4,7 @@ namespace Assets.Scripts.Effects
     public enum EffectType
     {
         CHANGE_MATERIAL,
-        DESTRUCTION
+        DESTRUCTION,
+        REDUCE_HP
     }
 }
