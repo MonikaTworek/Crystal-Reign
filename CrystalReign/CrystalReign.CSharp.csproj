@@ -91,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AgentControl.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\MovementFlier.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\MovementWatcher.cs" />
     <Compile Include="Assets\Scripts\Effects\ChangeMaterialEffect.cs" />
     <Compile Include="Assets\Scripts\Effects\Effect.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectConsumer.cs" />
@@ -101,13 +104,9 @@
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CapRotation.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\MovementFlier.cs" />
-    <Compile Include="Assets\Scripts\MovementPlayer.cs" />
-    <Compile Include="Assets\Scripts\MovementWatcher.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\Bullet.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\PreciseBullet.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\SphereBullet.cs" />
