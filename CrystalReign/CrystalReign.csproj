@@ -87,6 +87,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AI\Bot.cs" />
+    <Compile Include="Assets\Scripts\AI\StaticBot.cs" />
     <Compile Include="Assets\Scripts\Effects\ChangeMaterialEffect.cs" />
     <Compile Include="Assets\Scripts\Effects\Effect.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectConsumer.cs" />

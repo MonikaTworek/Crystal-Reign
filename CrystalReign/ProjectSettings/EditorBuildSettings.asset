@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CrystalReign.unity
     guid: 3ce6110c48ea8bf42bcaa9c6771c128a
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 7bed279d1db32654db74c12efb9329da

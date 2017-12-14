@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2765f458f06d24b8093c503d728297f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1990054351026608, guid: 3dc8fa59332774b458b9aa71e527ce9d, type: 2}
+  Bullet: {fileID: 1471903450405992, guid: 8522c1ef91977b043ac16cdf0e65777f, type: 2}
   BulletSpeed: 100
   AccuracyRange: 0.5
   FireRate: 0.01

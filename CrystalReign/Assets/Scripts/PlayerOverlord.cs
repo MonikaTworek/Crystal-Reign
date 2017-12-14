@@ -2,6 +2,7 @@
 using Assets.Scripts.Effects;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Effects;
 
 public class PlayerOverlord : EffectConsumer
@@ -13,6 +14,7 @@ public class PlayerOverlord : EffectConsumer
     public Weapon SelectedPlayerWeapon;
     public WeaponChanger WeaponChanger;
     public HPBar hpBar;
+    public Animator hpBckAnim;
 
 
     void Start()
@@ -25,8 +27,13 @@ public class PlayerOverlord : EffectConsumer
         {
             case OverlordMessage.CHANGE_PLAYER_HIT_POINTS:
                 {
-                    HP += value;
+                    HP -= value;
                     hpBar.setHP(HP / maxHP);
+                    hpBckAnim.Play("Fadeout");
+                    if (HP <= 0)
+                    {
+                        SceneManager.LoadScene("GameOver");
+                    }
                     break;
                 }
             case OverlordMessage.CHANGE_AMMUNITION:

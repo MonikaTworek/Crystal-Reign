@@ -7,7 +7,7 @@ namespace Bullets
     public abstract class Bullet : MonoBehaviour
     {
 
-        public bool ShouldBeRemoved = true;
+        public bool ShouldBeRemovedImmediately = true;
 
         protected bool isAfterCollision;
         protected static float maxTimer = 96f;
@@ -20,7 +20,7 @@ namespace Bullets
 
         protected void checkForRemoval()
         {
-            if (isAfterCollision && ShouldBeRemoved)
+            if (isAfterCollision)
             {
                 if (timer <= 0)
                 {
@@ -43,7 +43,7 @@ namespace Bullets
 
         private void OnCollisionEnter(Collision other)
         {
-            if (isAfterCollision || other.transform.CompareTag("Player"))
+            if (isAfterCollision)// || other.transform.CompareTag("Player"))
             {
                 return;
             }
@@ -53,7 +53,10 @@ namespace Bullets
                 ApplyEffectOnConsumer(effectConsumer);
             }
             gameObject.GetComponent<Rigidbody>().useGravity = true;
-
+            if(ShouldBeRemovedImmediately)
+            {
+                Destroy(gameObject);
+            }
         }
 
         protected abstract List<EffectConsumer> GetHitConsumers(Collision other);
