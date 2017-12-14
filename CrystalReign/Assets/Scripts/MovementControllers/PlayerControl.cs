@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
     public float rotateSensitivity = 5;
+    public float maxCeilDistance = 4.5f;
     
     private Transform body;
     public float bodyRadius = 1;
@@ -27,6 +28,7 @@ public class PlayerControl : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             CharacterController controller = GetComponent<CharacterController>();
             float old_y = moveDirection.y;
+            float help = old_y;
             Vector3 localDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
             //Multiply it by speed.
@@ -44,9 +46,15 @@ public class PlayerControl : MonoBehaviour
 
             }
             else
+            {
                 //Applying gravity to the controller
                 localDirection.y = old_y - gravity * Time.deltaTime;
-
+            }
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.up, out hit, maxCeilDistance))
+            {
+                localDirection.y = help - maxCeilDistance /2 - gravity * Time.deltaTime * 2;
+            }
             //Feed moveDirection with input.
             moveDirection = transform.TransformDirection(localDirection);
 

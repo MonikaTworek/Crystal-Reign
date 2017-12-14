@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.EnvironmentDestruction
 {
-    class DestructableObject : EffectConsumer
+    public class DestructableObject : EffectConsumer
     {
         private DestructableObjectMap chunks_data;
 
