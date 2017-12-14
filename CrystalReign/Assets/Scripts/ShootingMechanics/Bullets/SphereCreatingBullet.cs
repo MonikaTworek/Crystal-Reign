@@ -12,8 +12,11 @@ namespace Bullets
 
         protected override List<EffectConsumer> GetHitConsumers(Collision other)
         {
-            SphereController sphereController = Instantiate(SphereController);
-            sphereController.Init(other.contacts[0].point);
+            if (SphereController != null)
+            {
+                SphereController sphereController = Instantiate(SphereController);
+                sphereController.Init(other.contacts[0].point);
+            }
             return Physics.OverlapSphere(transform.position, radius).Where(x => x.GetComponent<EffectConsumer>() != null)
                                                         .Select(x => x.GetComponent<EffectConsumer>())
                                                         .ToList(); 
