@@ -29,9 +29,7 @@ public class ShootController : MonoBehaviour {
 
 	private void Shoot()
 	{
-		RaycastHit hit;
-		bool wasHit = Physics.Raycast(Camera.position, Camera.forward, out hit);
-		Vector3 destination = GetBulletDestination(wasHit, hit);
+		Vector3 destination = GetBulletDestination();
 		SelectedWeapon.GetComponent<Weapon>().Shoot(GunEnd.position, destination);
 	}
 
@@ -46,14 +44,17 @@ public class ShootController : MonoBehaviour {
 		}
 	}
 
-	private Vector3 GetBulletDestination(bool wasHit, RaycastHit hit)
+	private Vector3 GetBulletDestination()
 	{
+		Ray ray = new Ray(Camera.position, Camera.forward);
+		RaycastHit hit;
+		bool wasHit = Physics.Raycast(ray, out hit);
 		Vector3 destination;
 		if (wasHit) {
 			destination = hit.point;
             Debug.Log(hit.transform.name);
 		} else {
-			destination = GunEnd.position + GunEnd.forward;
+			destination = ray.GetPoint(100);
 		}
 		return destination;
 	}
