@@ -1,18 +1,18 @@
-﻿using Assets.Scripts.Effects;
+﻿
+using Assets.Scripts.Effects;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
 namespace Assets.Scripts.EnvironmentDestruction
 {
     public class DestructableObject : EffectConsumer
     {
         private DestructableObjectMap chunks_data;
-
-        public string level_name;
-
+        public const string CHUNKS_FOLDER = "Chunks";
         public float forceValue = 10f;
         public float forceRandomRange = 2f;
         public float forceAngleRandomRange = 30f;
@@ -29,7 +29,7 @@ namespace Assets.Scripts.EnvironmentDestruction
 
         public void ReloadData()
         {
-            TextAsset mapJsonFile = Resources.Load(level_name + '/' + gameObject.name + "_description") as TextAsset;
+            TextAsset mapJsonFile = Resources.Load(CHUNKS_FOLDER + '/' + gameObject.name + "_description") as TextAsset;
             if (mapJsonFile == null)
             {
                 spawn_tree = false;
@@ -52,7 +52,7 @@ namespace Assets.Scripts.EnvironmentDestruction
                     {
                         if (transform.childCount == 0)
                         {
-                            GameObject chunks = Instantiate(Resources.Load(level_name + '/' + gameObject.name + "_chunks")) as GameObject;
+                            GameObject chunks = Instantiate(Resources.Load(CHUNKS_FOLDER + '/' + gameObject.name + "_chunks")) as GameObject;
                             while (chunks.transform.childCount > 0)
                             {
                                 chunks.transform.GetChild(0).SetParent(transform);
@@ -64,7 +64,6 @@ namespace Assets.Scripts.EnvironmentDestruction
                                 chunk.gameObject.AddComponent<MeshCollider>();
                                 chunk.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
                                 DestructableObject fob = chunk.gameObject.AddComponent<DestructableObject>();
-                                fob.level_name = level_name;
                                 fob.mat = mat;
                                 fob.forceValue = forceValue;
                                 fob.forceRandomRange = forceRandomRange;

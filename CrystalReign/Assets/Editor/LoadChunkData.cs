@@ -31,7 +31,6 @@ namespace Assets.Editor
                 DestructableObject desobj = obj.GetComponent<DestructableObject>();
                 if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
                 desobj.mat = obj.GetComponent<Renderer>().sharedMaterial;
-                desobj.level_name = "Chunks";
                 if (Directory.Exists(Path.Combine(dir, "json")) && Directory.Exists(Path.Combine(dir, "fbx")))
                 {
                     string[] jsons = Directory.GetFiles(Path.Combine(dir, "json"));
