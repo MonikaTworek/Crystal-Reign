@@ -97,13 +97,14 @@
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObject.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
-    <Compile Include="Assets\Scripts\GameOverlord.cs" />
+    <Compile Include="Assets\Scripts\HUD\HPBar.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
     <Compile Include="Assets\Scripts\Minimap\MinimapRender.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CapRotation.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\PlayerOverlord.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\BotBullets.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\Bullet.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\PreciseBullet.cs" />

@@ -10,12 +10,12 @@ public class ShootController : MonoBehaviour {
     private Weapon SelectedWeapon;
 	private float nextFireTime;
     private float FireRate;
-	private GameOverlord GameOverlord;
+	private PlayerOverlord PlayerOverlord;
 
     void Start ()
 	{
-		GameOverlord = GameObject.FindGameObjectWithTag("Overlord").GetComponent<GameOverlord>();
-		SelectedWeapon = GameOverlord.SelectedPlayerWeapon;
+		PlayerOverlord = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerOverlord>();
+		SelectedWeapon = PlayerOverlord.SelectedPlayerWeapon;
 		FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;
 	}
 
@@ -40,8 +40,8 @@ public class ShootController : MonoBehaviour {
 		float mouseScrollChange = Input.GetAxisRaw("Mouse ScrollWheel");
 		if (Math.Abs(mouseScrollChange) > 0)
 		{
-			GameOverlord.processMessage(OverlordMessage.CHANGE_WEAPON, mouseScrollChange);
-			SelectedWeapon = GameOverlord.SelectedPlayerWeapon;
+			PlayerOverlord.processMessage(OverlordMessage.CHANGE_WEAPON, mouseScrollChange);
+			SelectedWeapon = PlayerOverlord.SelectedPlayerWeapon;
 			FireRate = SelectedWeapon.GetComponent<Weapon>().FireRate;  
 		}
 	}
