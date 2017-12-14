@@ -1,11 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalReign", "Assembly-CSharp.csproj", "{A4549296-5150-BDE2-DB80-4DB3BD51AE66}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalReign", "CrystalReign.csproj", "{BD0B7AEC-F67D-C37B-482E-364DCD6DAA05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalReign", "Assembly-CSharp-Editor-firstpass.csproj", "{2D6349FE-E215-5EBE-0DB1-F3D9A68544C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalReign", "Assembly-CSharp-Editor.csproj", "{16911A37-ED46-761C-501C-D452123B3AAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalReign.Editor", "CrystalReign.Editor.csproj", "{06428266-79EF-3C16-9891-E2AC89C2B210}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,23 +11,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A4549296-5150-BDE2-DB80-4DB3BD51AE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4549296-5150-BDE2-DB80-4DB3BD51AE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4549296-5150-BDE2-DB80-4DB3BD51AE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4549296-5150-BDE2-DB80-4DB3BD51AE66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D6349FE-E215-5EBE-0DB1-F3D9A68544C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D6349FE-E215-5EBE-0DB1-F3D9A68544C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D6349FE-E215-5EBE-0DB1-F3D9A68544C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D6349FE-E215-5EBE-0DB1-F3D9A68544C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16911A37-ED46-761C-501C-D452123B3AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16911A37-ED46-761C-501C-D452123B3AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16911A37-ED46-761C-501C-D452123B3AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16911A37-ED46-761C-501C-D452123B3AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD0B7AEC-F67D-C37B-482E-364DCD6DAA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0B7AEC-F67D-C37B-482E-364DCD6DAA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0B7AEC-F67D-C37B-482E-364DCD6DAA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0B7AEC-F67D-C37B-482E-364DCD6DAA05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06428266-79EF-3C16-9891-E2AC89C2B210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06428266-79EF-3C16-9891-E2AC89C2B210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06428266-79EF-3C16-9891-E2AC89C2B210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06428266-79EF-3C16-9891-E2AC89C2B210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
