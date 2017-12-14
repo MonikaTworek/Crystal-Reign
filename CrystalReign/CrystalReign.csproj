@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObject.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
+    <Compile Include="Assets\Scripts\GameEdge.cs" />
     <Compile Include="Assets\Scripts\HUD\HPBar.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />

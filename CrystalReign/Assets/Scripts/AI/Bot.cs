@@ -16,7 +16,7 @@ namespace AI
 		public float FireRate = .35f;
         public const float maxHP = 100;
 
-        private float hp = maxHP;
+        protected float hp = maxHP;
 		private float nextFireTime;
 
 		public abstract void move(Vector3 destination);
@@ -43,19 +43,6 @@ namespace AI
 			transform.LookAt(direction);
 		}
     
-		public override void Apply(Effect effect, Vector3 origin)
-        {
-            switch (effect.effectType)
-            {
-                case EffectType.REDUCE_HP:
-                    hp -= ((HpReduceEffect)effect).value;
-                    if (hp <= 0)
-                    {
-                        Destroy(gameObject);
-                    }
-                    break;
-            }
-        }
 
         void Start()
         {
