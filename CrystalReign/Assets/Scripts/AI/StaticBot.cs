@@ -6,7 +6,7 @@ using Effects;
 namespace AI
 {
 	public class StaticBot : Bot
-	{
+    {
         public override void Apply(Effect effect, Vector3 origin)
         {
             switch (effect.effectType)
