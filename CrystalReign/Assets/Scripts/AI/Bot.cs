@@ -14,7 +14,7 @@ namespace AI
         public Weapon weapon;
         public Transform gunEnd;
 		public float FireRate = .35f;
-        public const float maxHP = 30;
+        public const float maxHP = 100;
 
         protected float hp = maxHP;
 		private float nextFireTime;

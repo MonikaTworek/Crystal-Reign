@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+
 
 public class SphereController : MonoBehaviour {
 	
@@ -14,8 +17,19 @@ public class SphereController : MonoBehaviour {
 	private GameObject sphere;
     private float timerTick;
 
+    private bool used = false;
+
 	void Update()
-	{         
+	{
+        if (Input.GetKeyDown(KeyCode.E) && !used)
+        {
+            used = true;
+            List<Transform> affected = Physics.OverlapSphere(sphere.transform.position, sphere.transform.localScale.x).Select(x => x.GetComponent<Transform>()).ToList();
+            foreach (Transform a in affected)
+                if (a.GetComponent<Rigidbody>() != null)
+                    Destroy(a.GetComponent<Rigidbody>());
+        }
+
 		if (timer <= 0)
 		{
 			Destroy(sphere);

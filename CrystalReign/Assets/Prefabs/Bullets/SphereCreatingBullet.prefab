@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f72cad0538d364c8278fc4000160ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 5
 --- !u!114 &114017316596348876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingSphereSize: 0.1
-  MaxSphereSize: 22
+  MaxSphereSize: 25
   Mat: {fileID: 2100000, guid: 598861a23bab28d428880be5c5e60b4d, type: 2}
   ControllerExpirationTime: 3.5
   slowdown: 0.01
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0589c811bb177443bb4b18b9041bbaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 10
+  value: 35
 --- !u!114 &114887259656188010
 MonoBehaviour:
   m_ObjectHideFlags: 1

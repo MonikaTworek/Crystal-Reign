@@ -67,7 +67,7 @@ public class ShootController : MonoBehaviour {
 
 	private bool WasFireButtonPressed()
 	{
-		return Input.GetButtonDown ("Fire1");
+		return Input.GetButton ("Fire1");
 	}
 
 	private void UpdateNextFireTime()
