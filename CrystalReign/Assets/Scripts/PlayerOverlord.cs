@@ -51,6 +51,13 @@ public class PlayerOverlord : EffectConsumer
         }
     }
 
+    private void Update()
+    {
+        if (HP < maxHP)
+            HP += 0.004f;
+        hpBar.setHP(HP / maxHP);
+    }
+
     public override void Apply(Effect effect, Vector3 origin)
     {
         switch (effect.effectType)

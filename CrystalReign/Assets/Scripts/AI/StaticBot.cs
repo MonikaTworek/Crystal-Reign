@@ -17,6 +17,7 @@ namespace AI
                     if (hp <= 0)
                     {
                         Destroy(gameObject);
+                        BotSpawner.instance.removeBot(this);
                     }
                     break;
             }

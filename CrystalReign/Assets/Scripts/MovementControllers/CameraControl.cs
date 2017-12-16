@@ -40,19 +40,25 @@ public class CameraControl: MonoBehaviour {
     void Update () {
 #if UNITY_EDITOR
         isCursor = (Input.GetKeyDown(KeyCode.C) ? !isCursor : isCursor);
-
-
 #endif
         actuallyZoom = camera.gameObject.GetComponent<Camera>().fieldOfView;
         help = Input.GetMouseButtonDown(1);
         if (help)
         {
             isRightCursor = true;
+            rotateSensitivity /= 2;
+            transform.parent.GetComponent<PlayerControl>().rotateSensitivity /= 3;
         }
         if (isRightCursor)
         {
-            isRightCursor = Input.GetMouseButtonUp(1) ? false : true;
+            if (Input.GetMouseButtonUp(1))
+            {
+                isRightCursor = false;
+                rotateSensitivity *= 2;
+                transform.parent.GetComponent<PlayerControl>().rotateSensitivity *= 3;
+            }
         }
+
         if (!isCursor)
         {
             if (camera == null) return;

@@ -224,6 +224,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\Bot.cs" />
     <Compile Include="Assets\Scripts\AI\StaticBot.cs" />
+    <Compile Include="Assets\Scripts\BotSpawner.cs" />
     <Compile Include="Assets\Scripts\Effects\ChangeMaterialEffect.cs" />
     <Compile Include="Assets\Scripts\Effects\Effect.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectConsumer.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
     <Compile Include="Assets\Scripts\GameEdge.cs" />
+    <Compile Include="Assets\Scripts\GameStatistics.cs" />
     <Compile Include="Assets\Scripts\HUD\HPBar.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
