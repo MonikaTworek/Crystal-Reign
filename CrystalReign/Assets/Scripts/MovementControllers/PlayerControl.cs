@@ -15,16 +15,12 @@ public class PlayerControl : MonoBehaviour
     public float bodyRadius = 1;
     private bool isCursor = false;
 
-    private Transform head;
-    private bool idle;
-    private float idleTime;
-    private float randomIdleInterval = 0;
-    public float idleInterval;
+    private PlayerOverlord PlayerOverlord;
 
     private void Start()
     {
+        PlayerOverlord = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerOverlord>();
         body = transform.Find("Body");
-        head = transform.Find("HeadPivot");
     }
 
     void Update()
@@ -37,7 +33,8 @@ public class PlayerControl : MonoBehaviour
             float old_y = moveDirection.y;
             float help = old_y;
             Vector3 localDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            idle = localDirection == new Vector3(0, 0, 0);
+            if (localDirection != new Vector3(0, 0, 0))
+                PlayerOverlord.setNotIdle();
 
             //Multiply it by speed.
             localDirection *= speed;
@@ -50,7 +47,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     old_y = jumpSpeed;
                     localDirection.y = old_y;
-                    idle = false;
+                    PlayerOverlord.setNotIdle();
                 }
 
             }
@@ -76,14 +73,6 @@ public class PlayerControl : MonoBehaviour
 
             //Animate body
             rotateBodyBall(localDirection, mouseX);
-
-            //Idle animation
-            if ((idleTime = idle ? idleTime + Time.deltaTime : 0) > idleInterval + randomIdleInterval)
-            {
-                head.GetComponent<Animator>().Play(RandomIdle());
-                idleTime = 0;
-                randomIdleInterval = Random.Range(0.0f, idleInterval);
-            }
         }
         else
         {
@@ -91,11 +80,6 @@ public class PlayerControl : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
 
         }
-    }
-
-    private string RandomIdle()
-    {
-        return "BBIdle" + (Random.Range(1, 4)).ToString();
     }
 
     private void rotateBodyBall(Vector3 localDirection, float rotationY)

@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Scripts.Effects;
+﻿using Assets.Scripts.Effects;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -16,9 +15,15 @@ public class PlayerOverlord : EffectConsumer
     public HPBar hpBar;
     public Animator hpBckAnim;
 
+    private Transform head;
+    private bool idle;
+    private float idleTime;
+    private float randomIdleInterval = 0;
+    public float idleInterval;
 
     void Start()
     {
+        head = transform.Find("HeadPivot");
     }
 
     public void processMessage(OverlordMessage message, float value)
@@ -56,6 +61,25 @@ public class PlayerOverlord : EffectConsumer
         if (HP < maxHP)
             HP += 0.004f;
         hpBar.setHP(HP / maxHP);
+
+        //Idle animation
+        if ((idleTime = (idle ? idleTime + Time.deltaTime : 0)) > idleInterval + randomIdleInterval)
+        {
+            head.GetComponent<Animator>().Play(RandomIdle());
+            idleTime = 0;
+            randomIdleInterval = Random.Range(0.0f, idleInterval);
+        }
+        idle = true;
+    }
+
+    public void setNotIdle()
+    {
+        idle = false;
+    }
+
+    private string RandomIdle()
+    {
+        return "BBIdle" + (Random.Range(1, 4)).ToString();
     }
 
     public override void Apply(Effect effect, Vector3 origin)

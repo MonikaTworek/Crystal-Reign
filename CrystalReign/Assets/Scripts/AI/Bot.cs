@@ -51,35 +51,31 @@ namespace AI
 
         void Start()
         {
-            player = GameObject.FindGameObjectWithTag(playerTag);
+            findPlayer();
             rememberedPlayerVelocities = new List<Vector3>();
+        }
+
+        public void findPlayer()
+        {
+            if (player == null)
+                player = GameObject.FindGameObjectWithTag(playerTag);
         }
 
         void Update()
         {
             rotate(player.gameObject.transform.position);
-            if (CanShoot())
-            {
-                Vector3 botPosition = transform.position;
-                Vector3 whereToShoot = speculatedHit();//Randomized(speculatedHit());// Randomized(player.transform.position);
-                Physics.Raycast(botPosition, player.transform.position - botPosition, out hit);
-                if (PlayerWasHit(hit))
-                {
-                    shoot(whereToShoot);
-                }
-            }
-            updateMemory();
+            if (CanShoot() && CanSeePlayer())
+                shoot(Randomized(SpeculatedHit())); //shoot(Randomized(player.transform.position));
+            UpdateMemory();
         }
 
-        void updateMemory()
+        public bool CanSeePlayer()
         {
-            rememberedPlayerVelocities.Insert(0, (player.transform.position - oldPlayerPosition) / Time.deltaTime);
-            if (rememberedPlayerVelocities.Count == memorySize)
-                rememberedPlayerVelocities.RemoveAt(memorySize - 1);
-            oldPlayerPosition = player.transform.position;
+            Physics.Raycast(transform.position, player.transform.position - transform.position, out hit);
+            return hit.collider.gameObject.tag.Equals(playerTag);
         }
 
-        Vector3 speculatedHit()
+        Vector3 SpeculatedHit()
         {
             Vector3 playerVelocity = new Vector3(0, 0, 0);
             foreach (Vector3 playerV in rememberedPlayerVelocities)
@@ -110,10 +106,13 @@ namespace AI
             return player.transform.position + velocityUnit * x;
         }
 
-        /*private Vector3 direction(Vector3 botPosition)
+        void UpdateMemory()
         {
-            return (RandomizedPlayerPosition() - botPosition).normalized;
-        }*/
+            rememberedPlayerVelocities.Insert(0, (player.transform.position - oldPlayerPosition) / Time.deltaTime);
+            if (rememberedPlayerVelocities.Count == memorySize)
+                rememberedPlayerVelocities.RemoveAt(memorySize - 1);
+            oldPlayerPosition = player.transform.position;
+        }
 
         private Vector3 Randomized(Vector3 vector)
         {
@@ -123,9 +122,14 @@ namespace AI
                 vector.z + Random.Range(-1.25f, 1.25f));
         }
 
-        private bool PlayerWasHit(RaycastHit hit)
+        /*private Vector3 direction(Vector3 botPosition)
         {
-            return hit.collider.gameObject.tag.Equals(playerTag);
-        }
+            return (RandomizedPlayerPosition() - botPosition).normalized;
+        }*/
+
+        /*private bool PlayerWasHit(RaycastHit hit)
+        {
+            
+        }*/
     }
 }

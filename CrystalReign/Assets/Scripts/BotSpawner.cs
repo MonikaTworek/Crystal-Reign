@@ -11,7 +11,7 @@ public class BotSpawner : MonoBehaviour {
 
     private List<StaticBot> staticBots;
     private Vector3 worldStart = new Vector3(-130.0f, -86.0f, -14.0f);
-    private Vector3 worldEnd = new Vector3(121.0f, 116.0f, 208.0f);
+    private Vector3 worldEnd = new Vector3(121.0f, 116.0f, 220.0f);
 
 
     // Use this for initialization
@@ -31,7 +31,7 @@ public class BotSpawner : MonoBehaviour {
     public void removeBot(StaticBot bot)
     {
         staticBots.Remove(bot);
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 3; i++)
             spawnStatic();
         GameStatistics.instance.addPoint();
     }
@@ -39,16 +39,32 @@ public class BotSpawner : MonoBehaviour {
     private void spawnStatic()
     {
         StaticBot newBot = Instantiate(staticBotPrefab);
+        newBot.findPlayer();
         do
         {
             newBot.transform.position = randomValidPosition();
         }
-        while (Physics.OverlapSphere(newBot.transform.position, 4).Select(x => x.GetComponent<Transform>()).ToList().Count > 1);
+        while (Physics.OverlapSphere(newBot.transform.position, 4).Length > 1 || isInsideOtherObject(newBot) || newBot.CanSeePlayer());
         staticBots.Add(newBot);
+    }
+
+    private bool isInsideOtherObject(StaticBot origin)
+    {
+        Vector3 direction = new Vector3(0, 1, 0);
+        int testFrom = Physics.RaycastAll(origin.transform.position, direction).Length;
+        List<Collider> listTemp = Physics.RaycastAll(origin.transform.position + 2000 * direction, -direction, 2000).Select(x => x.collider).ToList();
+        listTemp.Remove(origin.GetComponent<Collider>());
+        int testTo = listTemp.Count;
+        return testFrom != testTo;
     }
 
     private Vector3 randomValidPosition()
     {
-        return new Vector3(Random.Range(worldStart.x, worldEnd.x), Random.Range(worldStart.y, worldEnd.y), Random.Range(worldStart.z, worldEnd.z));
+        Vector3 result;
+        do
+        {
+            result = new Vector3(Random.Range(worldStart.x, worldEnd.x), Random.Range(worldStart.y, worldEnd.y), Random.Range(worldStart.z, worldEnd.z));
+        } while ((result.x > 16 && result.z < 8) || (result.x > 78 && result.z < 96));
+        return result;
     }
 }

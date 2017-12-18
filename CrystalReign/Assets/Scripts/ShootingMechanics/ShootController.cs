@@ -23,6 +23,7 @@ public class ShootController : MonoBehaviour {
 		if (WasFireButtonPressed() && CanShoot()) {
 			UpdateNextFireTime();
 			Shoot();
+            PlayerOverlord.setNotIdle();
 		}
 		HandleWeaponChange();
 	}
