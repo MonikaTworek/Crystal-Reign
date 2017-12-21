@@ -21,7 +21,7 @@ public class SphereController : MonoBehaviour {
 
 	void Update()
 	{
-        if (Input.GetKeyDown(KeyCode.E) && !used)
+        if (Input.GetKeyDown(KeyCode.E) && !used && sphere != null)
         {
             used = true;
             List<Transform> affected = Physics.OverlapSphere(sphere.transform.position, sphere.transform.localScale.x).Select(x => x.GetComponent<Transform>()).ToList();

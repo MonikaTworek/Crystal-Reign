@@ -6,7 +6,7 @@ using System.Linq;
 
 public class BotSpawner : MonoBehaviour {
 
-    public StaticBot staticBotPrefab;
+    public GameObject staticBotPrefab;
     public static BotSpawner instance;
 
     private List<StaticBot> staticBots;
@@ -38,7 +38,7 @@ public class BotSpawner : MonoBehaviour {
 
     private void spawnStatic()
     {
-        StaticBot newBot = Instantiate(staticBotPrefab);
+        StaticBot newBot = Instantiate(staticBotPrefab).GetComponent<StaticBot>();
         newBot.findPlayer();
         do
         {
