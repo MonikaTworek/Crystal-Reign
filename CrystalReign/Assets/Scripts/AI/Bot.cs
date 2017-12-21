@@ -23,6 +23,7 @@ namespace AI
 
         protected float hp = maxHP;
 		private float nextFireTime;
+        public float accurancyRange = 1.25f;
 
 		public abstract void move(Vector3 destination);
 
@@ -117,9 +118,9 @@ namespace AI
         private Vector3 Randomized(Vector3 vector)
         {
             return new Vector3(
-                vector.x + Random.Range(-1.25f, 1.25f),
-                vector.y + Random.Range(-1.25f, 1.25f),
-                vector.z + Random.Range(-1.25f, 1.25f));
+                vector.x + Random.Range(-accurancyRange, accurancyRange),
+                vector.y + Random.Range(-accurancyRange, accurancyRange),
+                vector.z + Random.Range(-accurancyRange, accurancyRange));
         }
 
         /*private Vector3 direction(Vector3 botPosition)

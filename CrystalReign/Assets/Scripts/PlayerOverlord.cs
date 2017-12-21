@@ -15,7 +15,7 @@ public class PlayerOverlord : EffectConsumer
     public HPBar hpBar;
     public Animator hpBckAnim;
 
-    private Transform head;
+    public Animator head;
     private bool idle;
     private float idleTime;
     private float randomIdleInterval = 0;
@@ -23,7 +23,7 @@ public class PlayerOverlord : EffectConsumer
 
     void Start()
     {
-        head = transform.Find("HeadPivot");
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), true);
     }
 
     public void processMessage(OverlordMessage message, float value)
@@ -65,7 +65,7 @@ public class PlayerOverlord : EffectConsumer
         //Idle animation
         if ((idleTime = (idle ? idleTime + Time.deltaTime : 0)) > idleInterval + randomIdleInterval)
         {
-            head.GetComponent<Animator>().Play(RandomIdle());
+            head.Play(RandomIdle());
             idleTime = 0;
             randomIdleInterval = Random.Range(0.0f, idleInterval);
         }
@@ -92,6 +92,17 @@ public class PlayerOverlord : EffectConsumer
                 break;
         }
     }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("GameEdge"))
+        {
+            processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, maxHP);
+        }
+    
+
+    }
+
 }
 
 public enum OverlordMessage

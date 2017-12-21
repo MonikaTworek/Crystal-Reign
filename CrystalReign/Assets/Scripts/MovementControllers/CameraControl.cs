@@ -78,8 +78,7 @@ public class CameraControl: MonoBehaviour {
             {
                 currentDistance = Vector3.Distance(transform.position, hit.point);
             }
-            Vector3 camLocPos = camera.localPosition;
-            camLocPos.z = -currentDistance + delta;
+            Vector3 camLocPos = camera.localPosition.normalized * (currentDistance - delta);
             camera.localPosition = camLocPos;
             if (isRightCursor)
             {
