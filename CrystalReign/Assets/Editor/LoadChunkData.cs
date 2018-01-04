@@ -28,8 +28,9 @@ namespace Assets.Editor
             foreach (string dir in dirs)
             {
                 string obj_name = Path.GetFileName(dir);
+                i++;
+                File.WriteAllText("Assets\\Resources\\progress.txt", (i * 100f / dirs.Length).ToString() + "%");
                 if (done.Contains(obj_name)) continue;
-                Debug.Log("Importing " + obj_name);
                 GameObject obj = GameObject.Find(obj_name);
                 DestructableObject desobj = obj.GetComponent<DestructableObject>();
                 if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
@@ -61,9 +62,9 @@ namespace Assets.Editor
                 {
                     File.WriteAllText("Assets\\Resources\\done.json", JsonConvert.SerializeObject(done));
                 }
-                i++;
             }
             File.WriteAllText("Assets\\Resources\\done.json", JsonConvert.SerializeObject(done));
+            File.WriteAllText("Assets\\Resources\\progress.txt", (i * 100f / dirs.Length).ToString() + "%");
         }
     }
 }
