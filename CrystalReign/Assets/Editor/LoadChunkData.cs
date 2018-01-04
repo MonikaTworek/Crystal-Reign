@@ -6,6 +6,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 using Assets.Scripts.EnvironmentDestruction;
+using Newtonsoft.Json;
 
 namespace Assets.Editor
 {
@@ -15,19 +16,21 @@ namespace Assets.Editor
         [MenuItem("CrystalReign/Load Chunks")]
         static void LoadChunks()
         {
-            string path = "";
-            using (StreamReader sr = new StreamReader("D:\\University\\CrystalReign\\CrystalReign\\Assets\\Resources\\path_to_chunks.txt"))
-            {
-                path = sr.ReadToEnd();
-            }
+            string done_json = File.ReadAllText("Assets\\Resources\\done.json");
+            List<string> done = JsonConvert.DeserializeObject<List<string>>(done_json);
+            string path = File.ReadAllText("Assets\\Resources\\path_to_chunks.txt");
             string[] dirs = Directory.GetDirectories(path);
             if (!Directory.Exists("Assets/Resources/Chunks"))
             {
                 Directory.CreateDirectory("Assets/Resources/Chunks");
             }
+            int i = 0;
             foreach (string dir in dirs)
             {
-                GameObject obj = GameObject.Find(Path.GetFileName(dir));
+                string obj_name = Path.GetFileName(dir);
+                if (done.Contains(obj_name)) continue;
+                Debug.Log("Importing " + obj_name);
+                GameObject obj = GameObject.Find(obj_name);
                 DestructableObject desobj = obj.GetComponent<DestructableObject>();
                 if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
                 desobj.mat = obj.GetComponent<Renderer>().sharedMaterial;
@@ -53,7 +56,14 @@ namespace Assets.Editor
                     }
 
                 }
+                done.Add(obj_name);
+                if (i % 1 == 0)
+                {
+                    File.WriteAllText("Assets\\Resources\\done.json", JsonConvert.SerializeObject(done));
+                }
+                i++;
             }
+            File.WriteAllText("Assets\\Resources\\done.json", JsonConvert.SerializeObject(done));
         }
     }
 }
