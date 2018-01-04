@@ -4,10 +4,17 @@ This is a third person shooter game with bots. Game mechanics allows both player
 
 
 Moving: 
+
 wsad + mouse - moving the player
+
 e - stop process of destroy in sphere
+
 c - show cursor
+
 scroll - change bullet
+
 left mouse button - shot
+
 right mouse button - zoom in
+
 To destroy bot player shot 3 times.
