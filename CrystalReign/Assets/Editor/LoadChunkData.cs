@@ -30,11 +30,11 @@ namespace Assets.Editor
                 string obj_name = Path.GetFileName(dir);
                 i++;
                 File.WriteAllText("Assets\\Resources\\progress.txt", (i * 100f / dirs.Length).ToString() + "%");
-                if (done.Contains(obj_name)) continue;
                 GameObject obj = GameObject.Find(obj_name);
                 DestructableObject desobj = obj.GetComponent<DestructableObject>();
                 if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
                 desobj.mat = obj.GetComponent<Renderer>().sharedMaterial;
+                if (done.Contains(obj_name)) continue;
                 if (Directory.Exists(Path.Combine(dir, "json")) && Directory.Exists(Path.Combine(dir, "fbx")))
                 {
                     string[] jsons = Directory.GetFiles(Path.Combine(dir, "json"));
