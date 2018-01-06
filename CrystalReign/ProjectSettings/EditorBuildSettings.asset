@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 1c8e4fa76a3eb11459e28b4897107025
+  - enabled: 1
+    path: Assets/Scenes/CrystalReign.unity
+    guid: 3ce6110c48ea8bf42bcaa9c6771c128a
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 7bed279d1db32654db74c12efb9329da

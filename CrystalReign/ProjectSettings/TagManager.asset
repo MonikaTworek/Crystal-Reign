@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ground
   - camera
+  - Overlord
+  - GameEdge
   layers:
   - Default
   - TransparentFX
