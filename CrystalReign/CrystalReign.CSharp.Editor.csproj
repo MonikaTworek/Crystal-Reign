@@ -151,8 +151,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CreateNewPrefab.cs" />
+    <Compile Include="Assets\Editor\LoadChunkData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\path_to_chunks.txt" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
