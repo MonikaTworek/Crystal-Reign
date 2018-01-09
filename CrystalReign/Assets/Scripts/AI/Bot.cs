@@ -13,7 +13,7 @@ namespace AI
         private RaycastHit hit;
 
         private Vector3 oldPlayerPosition;
-        private List<Vector3> rememberedPlayerVelocities;
+        protected List<Vector3> rememberedPlayerVelocities;
         private int memorySize = 30;
 
         public Weapon weapon;
@@ -76,7 +76,7 @@ namespace AI
             return hit.collider.gameObject.tag.Equals(playerTag);
         }
 
-        Vector3 SpeculatedHit()
+        protected Vector3 SpeculatedHit()
         {
             Vector3 playerVelocity = new Vector3(0, 0, 0);
             foreach (Vector3 playerV in rememberedPlayerVelocities)
@@ -107,7 +107,7 @@ namespace AI
             return player.transform.position + velocityUnit * x;
         }
 
-        void UpdateMemory()
+        protected void UpdateMemory()
         {
             rememberedPlayerVelocities.Insert(0, (player.transform.position - oldPlayerPosition) / Time.deltaTime);
             if (rememberedPlayerVelocities.Count == memorySize)
@@ -115,7 +115,7 @@ namespace AI
             oldPlayerPosition = player.transform.position;
         }
 
-        private Vector3 Randomized(Vector3 vector)
+        protected Vector3 Randomized(Vector3 vector)
         {
             return new Vector3(
                 vector.x + Random.Range(-accurancyRange, accurancyRange),

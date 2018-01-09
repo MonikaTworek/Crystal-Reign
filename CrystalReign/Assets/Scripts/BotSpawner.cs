@@ -6,10 +6,10 @@ using System.Linq;
 
 public class BotSpawner : MonoBehaviour {
 
-    public GameObject staticBotPrefab;
+    public GameObject BotPrefab;
     public static BotSpawner instance;
 
-    private List<StaticBot> staticBots;
+    private List<Bot> Bots;
     private Vector3 worldStart = new Vector3(-130.0f, -86.0f, -14.0f);
     private Vector3 worldEnd = new Vector3(121.0f, 116.0f, 220.0f);
 
@@ -18,7 +18,7 @@ public class BotSpawner : MonoBehaviour {
     void Start()
     {
         instance = this;
-        staticBots = new List<StaticBot>();
+        Bots = new List<Bot>();
         for (int i = 0; i < 5; i++)
             spawnStatic();
     }
@@ -28,9 +28,9 @@ public class BotSpawner : MonoBehaviour {
 
     }
 
-    public void removeBot(StaticBot bot)
+    public void removeBot(Bot bot)
     {
-        staticBots.Remove(bot);
+        Bots.Remove(bot);
         for(int i = 0; i < 3; i++)
             spawnStatic();
         GameStatistics.instance.addPoint();
@@ -38,17 +38,17 @@ public class BotSpawner : MonoBehaviour {
 
     private void spawnStatic()
     {
-        StaticBot newBot = Instantiate(staticBotPrefab).GetComponent<StaticBot>();
+        Bot newBot = Instantiate(BotPrefab).GetComponent<Bot>();
         newBot.findPlayer();
         do
         {
             newBot.transform.position = randomValidPosition();
         }
         while (Physics.OverlapSphere(newBot.transform.position, 4).Length > 1 || isInsideOtherObject(newBot) || newBot.CanSeePlayer());
-        staticBots.Add(newBot);
+        Bots.Add(newBot);
     }
 
-    private bool isInsideOtherObject(StaticBot origin)
+    private bool isInsideOtherObject(Bot origin)
     {
         Vector3 direction = new Vector3(0, 1, 0);
         int testFrom = Physics.RaycastAll(origin.transform.position, direction).Length;
