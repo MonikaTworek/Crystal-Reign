@@ -136,7 +136,7 @@ public class Movement : Bot
                 if (hp <= 0)
                 {
                     Destroy(gameObject);
-                    BotSpawner.instance.removeBot(this);
+                    ObjectsSpawner.instance.removeBot(this);
                 }
                 break;
         }

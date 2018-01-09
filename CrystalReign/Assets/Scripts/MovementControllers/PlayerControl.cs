@@ -38,6 +38,8 @@ public class PlayerControl : MonoBehaviour
 
             //Multiply it by speed.
             localDirection *= speed;
+            if (Input.GetKey(KeyCode.LeftShift))
+                localDirection *= 2;
 
             // is the controller on the ground?
             if (controller.isGrounded)
