@@ -115,6 +115,7 @@ public class PlayerOverlord : EffectConsumer
             {
                 hit.gameObject.transform.parent.GetComponent<HealthPick>().use();   //without "use" technique one capsule may restore full HP
                 processMessage(OverlordMessage.RESTORE_LIFE, 30);
+                ObjectsSpawner.instance.GetComponent<AudioSource>().Play();
                 Destroy(hit.collider.transform.parent.gameObject);
             }
         }
