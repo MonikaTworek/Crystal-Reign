@@ -87,8 +87,8 @@ public class PlayerOverlord : EffectConsumer
         switch (effect.effectType)
         {
             case EffectType.REDUCE_HP:
-                //HpReduceEffect hpReduceEffect = (HpReduceEffect)effect;
-                //processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, hpReduceEffect.value);
+                HpReduceEffect hpReduceEffect = (HpReduceEffect)effect;
+                processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, hpReduceEffect.value);
                 break;
         }
     }

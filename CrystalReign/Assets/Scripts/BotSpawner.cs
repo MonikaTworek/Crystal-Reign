@@ -9,7 +9,7 @@ public class BotSpawner : MonoBehaviour {
     public GameObject staticBotPrefab;
     public static BotSpawner instance;
 
-    private List<StaticBot> staticBots;
+    private List<Bot> bots;
     private Vector3 worldStart = new Vector3(-130.0f, -86.0f, -14.0f);
     private Vector3 worldEnd = new Vector3(121.0f, 116.0f, 220.0f);
 
@@ -20,7 +20,7 @@ public class BotSpawner : MonoBehaviour {
     void Start()
     {
         instance = this;
-        staticBots = new List<StaticBot>();
+        bots = new List<Bot>();
         for (int i = 0; i < startBotCount; i++)
             spawnStatic();
     }
@@ -30,9 +30,9 @@ public class BotSpawner : MonoBehaviour {
 
     }
 
-    public void removeBot(StaticBot bot)
+    public void removeBot(Bot bot)
     {
-        staticBots.Remove(bot);
+        bots.Remove(bot);
         for(int i = 0; i < 3; i++)
             spawnStatic();
         GameStatistics.instance.addPoint();
@@ -47,7 +47,7 @@ public class BotSpawner : MonoBehaviour {
             newBot.transform.position = randomValidPosition();
         }
         while (Physics.OverlapSphere(newBot.transform.position, 4).Length > 1 || isInsideOtherObject(newBot) || newBot.CanSeePlayer());
-        staticBots.Add(newBot);
+        bots.Add(newBot);
     }
 
     private bool isInsideOtherObject(StaticBot origin)
