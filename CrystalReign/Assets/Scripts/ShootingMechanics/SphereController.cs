@@ -18,8 +18,16 @@ public class SphereController : MonoBehaviour {
     private float timerTick;
 
     private bool used = false;
+    
 
-	void Update()
+    private void Start()
+    {
+        
+        AudioSource sound = GetComponent<AudioSource>();
+        if (sound != null) sound.Play();
+    }
+
+    void Update()
 	{
         if (Input.GetKeyDown(KeyCode.E) && !used && sphere != null)
         {
@@ -61,6 +69,7 @@ public class SphereController : MonoBehaviour {
         timerTick = 1;
 		sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		Destroy(sphere.GetComponent<Collider>());
+        transform.position = point;
 		sphere.transform.position = point;
 		sphere.transform.localScale = new Vector3(StartingSphereSize, StartingSphereSize, StartingSphereSize);
 		sphere.gameObject.GetComponent<MeshRenderer>().material = Mat;

@@ -13,15 +13,15 @@ public class ObjectsSpawner : MonoBehaviour {
     private Vector3 worldStart = new Vector3(-130.0f, -86.0f, -14.0f);
     private Vector3 worldEnd = new Vector3(121.0f, 116.0f, 220.0f);
 
-    //private List<StaticBot> staticBots;
-    //private List<Transform> healthCapsules;
+    public int startBotCount = 5;
+
 
     // Use this for initialization
     void Start()
     {
         instance = this;
         //staticBots = new List<StaticBot>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < startBotCount; i++)
             spawnStatic();
 
         //healthCapsules = new List<Transform>();
@@ -34,7 +34,7 @@ public class ObjectsSpawner : MonoBehaviour {
 
     }
 
-    public void removeBot(StaticBot bot)
+    public void removeBot(Bot bot)
     {
         //staticBots.Remove(bot);
         for(int i = 0; i < 3; i++)

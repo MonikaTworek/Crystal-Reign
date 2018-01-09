@@ -8,6 +8,13 @@ public abstract class Weapon : MonoBehaviour
     public float AccuracyRange = 0.5f;
     public float FireRate = 0.4f;
 
+    private AudioSource sound;
+
+    private void Start()
+    {
+        sound = GetComponent<AudioSource>();
+    }
+
     public virtual void Shoot(Vector3 direction)
     {
         Shoot(transform.position, direction);
@@ -15,6 +22,7 @@ public abstract class Weapon : MonoBehaviour
 
     public void Shoot(Vector3 origin, Vector3 direction)
     {
+        if (sound != null) sound.Play();
         GameObject bullet = Instantiate(Bullet);
         foreach (Transform trans in bullet.GetComponentsInChildren<Transform>(true))
         {
