@@ -30,10 +30,6 @@ namespace Assets.Editor
                 string obj_name = Path.GetFileName(dir);
                 i++;
                 File.WriteAllText("Assets\\Resources\\progress.txt", (i * 100f / dirs.Length).ToString() + "%");
-                GameObject obj = GameObject.Find(obj_name);
-                DestructableObject desobj = obj.GetComponent<DestructableObject>();
-                if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
-                desobj.mat = obj.GetComponent<Renderer>().sharedMaterial;
                 if (done.Contains(obj_name)) continue;
                 if (Directory.Exists(Path.Combine(dir, "json")) && Directory.Exists(Path.Combine(dir, "fbx")))
                 {
@@ -65,6 +61,20 @@ namespace Assets.Editor
             }
             File.WriteAllText("Assets\\Resources\\done.json", JsonConvert.SerializeObject(done));
             File.WriteAllText("Assets\\Resources\\progress.txt", (i * 100f / dirs.Length).ToString() + "%");
+        }
+        [MenuItem("CrystalReign/Assign Scripts")]
+        static void AssignScripts()
+        {
+
+            string done_json = File.ReadAllText("Assets\\Resources\\done.json");
+            List<string> done = JsonConvert.DeserializeObject<List<string>>(done_json);
+            foreach (string obj_name in done)
+            {
+                GameObject obj = GameObject.Find(obj_name);
+                DestructableObject desobj = obj.GetComponent<DestructableObject>();
+                if (desobj == null) desobj = obj.AddComponent<DestructableObject>();
+                desobj.mat = obj.GetComponent<Renderer>().sharedMaterial;
+            }
         }
     }
 }
