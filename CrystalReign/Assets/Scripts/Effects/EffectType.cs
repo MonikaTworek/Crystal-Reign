@@ -5,6 +5,7 @@ namespace Assets.Scripts.Effects
     {
         CHANGE_MATERIAL,
         DESTRUCTION,
-        REDUCE_HP
+        REDUCE_HP,
+        RESTORE_HP
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - camera
   - Overlord
   - GameEdge
+  - Health
   layers:
   - Default
   - TransparentFX

@@ -53,6 +53,12 @@ public class PlayerOverlord : EffectConsumer
                         WeaponChanger.GetPreviousWeapon();
                     break;
                 }
+            case OverlordMessage.RESTORE_LIFE:
+                {
+                    HP = Mathf.Min(HP + value, maxHP);
+                    hpBar.setHP(HP / maxHP);
+                    break;
+                }
         }
     }
 
@@ -90,6 +96,10 @@ public class PlayerOverlord : EffectConsumer
                 HpReduceEffect hpReduceEffect = (HpReduceEffect)effect;
                 processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, hpReduceEffect.value);
                 break;
+            case EffectType.RESTORE_HP:
+                HpRestoreEffect hpRestoreEffect = (HpRestoreEffect)effect;
+                processMessage(OverlordMessage.RESTORE_LIFE, hpRestoreEffect.value);
+                break;
         }
     }
 
@@ -99,7 +109,15 @@ public class PlayerOverlord : EffectConsumer
         {
             processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, maxHP);
         }
-    
+        else if (hit.gameObject.CompareTag("Health"))
+        {
+            if (!hit.gameObject.transform.parent.GetComponent<HealthPick>().wasUsed())
+            {
+                hit.gameObject.transform.parent.GetComponent<HealthPick>().use();   //without "use" technique one capsule may restore full HP
+                processMessage(OverlordMessage.RESTORE_LIFE, 30);
+                Destroy(hit.collider.transform.parent.gameObject);
+            }
+        }
 
     }
 
@@ -109,5 +127,6 @@ public enum OverlordMessage
 {
     CHANGE_PLAYER_HIT_POINTS,
     CHANGE_AMMUNITION,
-    CHANGE_WEAPON
+    CHANGE_WEAPON,
+    RESTORE_LIFE
 }
