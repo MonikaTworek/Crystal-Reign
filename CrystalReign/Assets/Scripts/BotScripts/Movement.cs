@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using AI;
+using Assets.Scripts.Effects;
+using Effects;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : Bot
 {
 
-    private bool InAir = false;
-    private Vector3 moveDirection = Vector3.zero;
+    private bool InAir;
     private float timePlayerNotSeen = 0;
     private double currentJumpTime;
 
@@ -19,9 +20,10 @@ public class Movement : MonoBehaviour
     public double jumpTime;
     public Rigidbody rb;
 
-    // Use this for initialization
     void Start()
     {
+        findPlayer();
+        rememberedPlayerVelocities = new List<Vector3>();
         rb = GetComponent<Rigidbody>();
         currentJumpTime = jumpTime;
     }
@@ -29,12 +31,12 @@ public class Movement : MonoBehaviour
     bool CollideFree()
     {
         var player = GameObject.Find("BB7");
-        var botPos = this.transform.position;
+        var botPos = transform.position;
 
         RaycastHit hit;
-        if (Physics.Raycast(botPos, (player.transform.position - botPos).normalized, out hit, 3) && (hit.collider.gameObject != player))
+        if (Physics.Raycast(botPos, (player.transform.position - botPos).normalized, out hit, 300)
+            && (hit.collider.gameObject != player))
         {
-            //Debug.Log(hit.collider.gameObject);
             return false;
         }
 
@@ -44,38 +46,36 @@ public class Movement : MonoBehaviour
     bool CollideClose()
     {
         var player = GameObject.Find("BB7");
-        var botPos = this.transform.position;
+        var botPos = transform.position;
 
         RaycastHit hit;
-        if (Physics.Raycast(botPos, (Vector3.forward).normalized, out hit, 1) && (hit.collider.gameObject != player))
+        if (Physics.Raycast(botPos, (player.transform.position - botPos).normalized, out hit, 2) 
+            && (hit.collider.gameObject != player))
         {
-            //Debug.Log(hit.collider.gameObject);
+            Debug.Log(hit.collider.gameObject);
             return true;
         }
 
         return false;
     }
 
-    bool CeilingCollideFree()
+    bool isPlayerClose()
     {
-        var botPos = this.transform.position;
-
+        var player = GameObject.Find("BB7");
+        var botPos = transform.position;
+        
         RaycastHit hit;
-        Vector3 movedBotPos = botPos + (this.transform.forward * 3);
-        Vector3 ceilingVector = new Vector3(botPos.x, 99999, botPos.z) + (this.transform.forward * 3);
-        Debug.Log(this.transform.forward + " " + ceilingVector);
-        if (Physics.Raycast(botPos, (this.transform.up - botPos), out hit))
+        if (Physics.Raycast(botPos, (player.transform.position - botPos).normalized, out hit, 25) 
+            && (hit.collider.gameObject == player))
         {
-            Debug.DrawLine(movedBotPos, this.transform.up);
-            Debug.Log(hit.collider.gameObject + "false");
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag != "Player" && InAir == true)
+        if (other.gameObject.tag != "Player" && InAir)
         {
             InAir = false;
         }
@@ -83,53 +83,67 @@ public class Movement : MonoBehaviour
 
     void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag != "Player" && InAir == true)
+        if (other.gameObject.tag != "Player" && InAir)
         {
             InAir = false;
         }
     }
 
-    void OnCollisionExit(Collision other)
-    {
-        InAir = true;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (currentJumpTime > 0)
+        {
             currentJumpTime -= Time.deltaTime;
+        }
+
 
         var playerTrans = GameObject.Find("BB7").transform;
-
-        var botPos = this.transform.position;
-        this.transform.LookAt(playerTrans);
-
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-        this.transform.Translate(Vector3.forward * Time.deltaTime * botSpeed);
-
-        /*CharacterController controller = GetComponent<CharacterController>();
-        float old_y = moveDirection.y;
-        moveDirection = new Vector3(0, 0, rb.transform.forward.z);
-        //Feed moveDirection with input. 
-        moveDirection = transform.TransformDirection(moveDirection);
-        //Multiply it by speed. 
-        moveDirection *= speed;
-        //Applying gravity to the controller 
-        moveDirection.y = old_y - gravity * Time.deltaTime;
-        //Making the character move 
-        controller.Move(moveDirection * Time.deltaTime);*/
-
-        if (!CollideFree() || CollideClose())
+        var toPlayerRotation = playerTrans.position - transform.position;
+        Vector3 rotationAngle = Quaternion.LookRotation(toPlayerRotation).eulerAngles;
+        rotationAngle.x = 0;
+        transform.rotation = Quaternion.Slerp ( transform.rotation, Quaternion.Euler(rotationAngle), Time.deltaTime * 5.5f);
+        
+        
+        if (!isPlayerClose())
         {
-            //Debug.Log("not free");
-            if (InAir == false && currentJumpTime <= 0)
+            transform.Translate(Vector3.forward * Time.deltaTime * botSpeed);    
+            if (!CollideFree() || CollideClose())
             {
-                //Debug.Log("jump");
-                currentJumpTime = jumpTime;
-                Vector3 jump = new Vector3(0.0f, 250, 0.0f);
-                GetComponent<Rigidbody>().AddForce(jump * jumpForce);
+                Debug.Log("not free");
+                if (InAir == false && currentJumpTime <= 0)
+                {
+                    InAir = true;
+                    Debug.Log("jump");
+                    currentJumpTime = jumpTime;
+                    Vector3 jump = new Vector3(1.0f, 250, 1.0f);
+                    GetComponent<Rigidbody>().AddForce(jump * jumpForce);
+                }
             }
         }
+        
+        if (CanShoot() && CanSeePlayer())
+            shoot(Randomized(SpeculatedHit())); //shoot(Randomized(player.transform.position));
+        UpdateMemory();
+    }
+
+    public override void Apply(Effect effect, Vector3 origin)
+    { 
+        switch (effect.effectType)
+        {
+            case EffectType.REDUCE_HP:
+                hp -= ((HpReduceEffect)effect).value;
+//                GetComponent<Animator>().Play("Fadeout");
+                if (hp <= 0)
+                {
+                    Destroy(gameObject);
+                    BotSpawner.instance.removeBot(this);
+                }
+                break;
+        }
+    }
+
+    public override void move(Vector3 destination)
+    {
+        throw new System.NotImplementedException();
     }
 }
