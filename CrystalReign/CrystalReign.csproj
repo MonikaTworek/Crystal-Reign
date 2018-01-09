@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\ShootingMechanics\WeaponChanger.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\DestructorWeapon.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Weapons\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Sounds\RandomSoundPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Chunks\TheMan\TheMan_done.txt" />

@@ -13,13 +13,15 @@ public class BotSpawner : MonoBehaviour {
     private Vector3 worldStart = new Vector3(-130.0f, -86.0f, -14.0f);
     private Vector3 worldEnd = new Vector3(121.0f, 116.0f, 220.0f);
 
+    public int startBotCount = 5;
+
 
     // Use this for initialization
     void Start()
     {
         instance = this;
         staticBots = new List<StaticBot>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < startBotCount; i++)
             spawnStatic();
     }
 

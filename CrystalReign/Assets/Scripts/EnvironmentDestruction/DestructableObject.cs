@@ -20,7 +20,8 @@ namespace Assets.Scripts.EnvironmentDestruction
         public Material mat;
 
         private bool spawn_tree = true;
-        
+
+        private RandomSoundPlayer soundsPlayer;
 
         private void Start()
         {
@@ -29,6 +30,7 @@ namespace Assets.Scripts.EnvironmentDestruction
 
         public void ReloadData()
         {
+            soundsPlayer = GetComponent<RandomSoundPlayer>();
             TextAsset mapJsonFile = Resources.Load(CHUNKS_FOLDER + '/' + gameObject.name + "_description") as TextAsset;
             if (mapJsonFile == null)
             {
@@ -45,6 +47,8 @@ namespace Assets.Scripts.EnvironmentDestruction
             switch (effect.effectType)
             {
                 case EffectDestruction._type:
+
+                    if (soundsPlayer != null) soundsPlayer.Play(true);
 
                     EffectDestruction effectDestruction = (EffectDestruction)effect;
 
@@ -68,6 +72,19 @@ namespace Assets.Scripts.EnvironmentDestruction
                                 fob.forceValue = forceValue;
                                 fob.forceRandomRange = forceRandomRange;
                                 fob.forceAngleRandomRange = forceAngleRandomRange;
+
+                                chunk.gameObject.AddComponent<RandomSoundPlayer>();
+                                foreach (AudioSource audiosrc in GetComponents<AudioSource>())
+                                {
+                                    AudioSource audio = chunk.gameObject.AddComponent<AudioSource>();
+                                    audio.playOnAwake = false;
+                                    audio.clip = audiosrc.clip;
+                                    audio.spatialBlend = audiosrc.spatialBlend;
+                                    audio.maxDistance = audiosrc.maxDistance;
+                                    audio.rolloffMode = AudioRolloffMode.Custom;
+                                    audio.SetCustomCurve(AudioSourceCurveType.CustomRolloff,audiosrc.GetCustomCurve(AudioSourceCurveType.CustomRolloff));
+
+                                }
                                 fob.ReloadData();
                             }
                             List<EffectConsumer> affectedt = Physics.OverlapSphere(origin, effectDestruction.radius)
