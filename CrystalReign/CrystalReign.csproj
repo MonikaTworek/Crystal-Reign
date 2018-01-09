@@ -89,6 +89,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\Bot.cs" />
     <Compile Include="Assets\Scripts\AI\StaticBot.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\MovementFlier.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\MovementWatcher.cs" />
     <Compile Include="Assets\Scripts\BotSpawner.cs" />
     <Compile Include="Assets\Scripts\Effects\ChangeMaterialEffect.cs" />
     <Compile Include="Assets\Scripts\Effects\Effect.cs" />
