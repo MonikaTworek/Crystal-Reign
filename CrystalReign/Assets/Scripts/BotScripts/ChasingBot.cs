@@ -16,6 +16,8 @@ public class ChasingBot : Bot {
     public float groundDistance = 5;
     private Vector3? currentDir = null;
 
+    public float rollAnimationSpeed = 150;
+
     public override void aim(Vector3 direction)
     {
         //throw new NotImplementedException();
@@ -101,5 +103,7 @@ public class ChasingBot : Bot {
             currentDir = playerLastSeenPosition - transform.position;
         }
 
+        //animate
+        transform.GetChild(0).Rotate(new Vector3(0, 0, rollAnimationSpeed*Time.deltaTime));
 	}
 }
