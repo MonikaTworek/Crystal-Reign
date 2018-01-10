@@ -72,7 +72,14 @@ namespace AI
 
         public bool CanSeePlayer()
         {
-            Physics.SphereCast(transform.position, playerSphereCastRadius, player.transform.position - transform.position, out hit);
+            if (playerSphereCastRadius == 0)
+            {
+                Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, float.MaxValue, withoutBullets);
+            }
+            else
+            {
+                Physics.SphereCast(transform.position, playerSphereCastRadius, player.transform.position - transform.position, out hit, float.MaxValue, withoutBullets);
+            }
             return hit.collider.gameObject.tag.Equals(playerTag);
         }
 
