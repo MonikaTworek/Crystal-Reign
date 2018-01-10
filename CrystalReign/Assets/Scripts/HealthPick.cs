@@ -5,15 +5,25 @@ using UnityEngine;
 
 public class HealthPick : MonoBehaviour
 {
-    private bool used = false;
-    public bool wasUsed() { return used; }
-    public void use() { used = true;  }
+    Rigidbody rb;
 
-    /*void OnCollisionStay(Collision other)
+    private void Start()
     {
-        Debug.Log("WESZLO MOCNO");
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
         EffectConsumer consumer = other.transform.GetComponent<EffectConsumer>();
         if (consumer != null)
-            consumer.Apply(new HpRestoreEffect(20), other.contacts[0].point);
-    }	*/
+        {
+            consumer.Apply(new HpRestoreEffect(20), other.transform.position);
+            Destroy(gameObject);
+        }
+    }
+    private void Update()
+    {
+        if (rb.IsSleeping())
+            rb.WakeUp();
+    }
 }

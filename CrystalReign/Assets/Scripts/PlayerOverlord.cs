@@ -32,7 +32,7 @@ public class PlayerOverlord : EffectConsumer
         {
             case OverlordMessage.CHANGE_PLAYER_HIT_POINTS:
                 {
-                    HP -= value;
+                    //HP -= value;
                     hpBar.setHP(HP / maxHP);
                     hpBckAnim.Play("Fadeout");
                     if (HP <= 0)
@@ -99,28 +99,11 @@ public class PlayerOverlord : EffectConsumer
             case EffectType.RESTORE_HP:
                 HpRestoreEffect hpRestoreEffect = (HpRestoreEffect)effect;
                 processMessage(OverlordMessage.RESTORE_LIFE, hpRestoreEffect.value);
+                ObjectsSpawner.instance.GetComponent<AudioSource>().Play();
                 break;
         }
     }
-
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.CompareTag("GameEdge"))
-        {
-            processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, maxHP);
-        }
-        else if (hit.gameObject.CompareTag("Health"))
-        {
-            if (!hit.gameObject.transform.parent.GetComponent<HealthPick>().wasUsed())
-            {
-                hit.gameObject.transform.parent.GetComponent<HealthPick>().use();   //without "use" technique one capsule may restore full HP
-                processMessage(OverlordMessage.RESTORE_LIFE, 30);
-                ObjectsSpawner.instance.GetComponent<AudioSource>().Play();
-                Destroy(hit.collider.transform.parent.gameObject);
-            }
-        }
-
-    }
+    
 
 }
 

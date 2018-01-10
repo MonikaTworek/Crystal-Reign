@@ -16,6 +16,7 @@ public class RandomSoundPlayer : MonoBehaviour {
     public void Play(bool randDelay = false)
     {
         if (sounds == null) sounds = GetComponents<AudioSource>().ToList();
+        if (sounds.Count == 0) return;
         AudioSource src = sounds[random.Next() % sounds.Count];
         if (randDelay)
         {

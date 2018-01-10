@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Effects;
 using System;
+using Effects;
 
 public class ChasingBot : Bot {
 
@@ -14,7 +15,11 @@ public class ChasingBot : Bot {
     public float frontMaxDistance = 5;
     public float raycastSphereRadius = 0.7f;
     public float groundDistance = 5;
-    private Vector3? currentDir = null;
+    private Vector3 currentDir = Vector3.zero;
+    public float moveTime = 5;
+    public float timer = 0;
+    private System.Random random = new System.Random();
+
 
     public override void aim(Vector3 direction)
     {
@@ -26,7 +31,13 @@ public class ChasingBot : Bot {
         switch (effect.effectType)
         {
             case EffectType.REDUCE_HP:
-                //throw new NotImplementedException();
+                hp -= ((HpReduceEffect)effect).value;
+                GetComponent<Animator>().Play("Fadeout");
+                if (hp <= 0)
+                {
+                    Destroy(gameObject);
+                    ObjectsSpawner.instance.removeBot(this);
+                }
                 break;
         }
     }
@@ -35,30 +46,40 @@ public class ChasingBot : Bot {
     {
         if (currentDir != null)
         {
-            Quaternion rotationAngle = Quaternion.LookRotation(currentDir.Value);
+            Quaternion rotationAngle = Quaternion.LookRotation(currentDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotationAngle, Time.deltaTime * 5.5f);
 
         }
         RaycastHit info;
-        if (playerLastSeenPosition == null)
+        if (Physics.SphereCast(transform.position, raycastSphereRadius, transform.forward, out info, frontMaxDistance, withoutBullets.value) && timer <= 0)
+        {
+            timer = moveTime;
+            Vector3 tmp = -transform.TransformVector(transform.forward);
+            tmp.y = 0;
+            currentDir = tmp;
+            playerLastSeenPosition = null;
+        }
+        if (Physics.SphereCast(transform.position, raycastSphereRadius, currentDir, out info, frontMaxDistance, withoutBullets.value))
         {
             rb.velocity = Vector3.zero;
         }
         else if (Vector3.Distance(transform.position, player.transform.position) < 3)
         {
             rb.velocity = Vector3.zero;
-
         }
-        else if (Physics.SphereCast(transform.position, raycastSphereRadius, transform.forward, out info, frontMaxDistance, withoutBullets.value))
+        else if (!playerLastSeenPosition.HasValue && timer <= 0)
         {
-            rb.velocity = Vector3.zero;
+            timer = moveTime;
+            float z = 1f - (float)random.NextDouble() * 2f;
+            float x = 1f - (float)random.NextDouble() * 2f;
+            currentDir = new Vector3(x,0,z).normalized;
 
         }
         else
         {
             rb.velocity = transform.forward * speed;
         }
-
+        timer -= Time.deltaTime;
     }
 
 
@@ -98,7 +119,7 @@ public class ChasingBot : Bot {
         if (CanSeePlayer())
         {
             playerLastSeenPosition = player.transform.position;
-            currentDir = playerLastSeenPosition - transform.position;
+            currentDir = playerLastSeenPosition.Value - transform.position;
         }
 
 	}

@@ -2,16 +2,30 @@
 using UnityEngine;
 
 public class GameEdge : MonoBehaviour {
-    private void OnCollisionEnter(Collision other)
+
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            throw new NotImplementedException();
+            other.GetComponent<PlayerOverlord>().processMessage(OverlordMessage.CHANGE_PLAYER_HIT_POINTS, float.MaxValue);
         }
-        else
+        else if (!other.gameObject.CompareTag(gameObject.tag))
         {
             Destroy(other.gameObject);
         }
         
+    }
+
+    private void Update()
+    {
+        if (rb.IsSleeping())
+            rb.WakeUp();
     }
 }
