@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AI;
 using Assets.Scripts.Effects;
 using Effects;
@@ -120,9 +121,9 @@ public class Movement : Bot
                 }
             }
         }
-        
-        if (CanShoot() && CanSeePlayer())
-            shoot(Randomized(SpeculatedHit())); //shoot(Randomized(player.transform.position));
+
+        if (CanShoot() && CanSeePlayer()) ;
+            //shoot(Randomized(SpeculatedHit())); //shoot(Randomized(player.transform.position));
         UpdateMemory();
     }
 
@@ -142,8 +143,13 @@ public class Movement : Bot
         }
     }
 
-    public override void move(Vector3 destination)
+    public override void move()
     {
         throw new System.NotImplementedException();
+    }
+
+    public override void aim(Vector3 direction)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8536f47f006414c7983a47e50d26d411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShouldBeRemoved: 1
+  ShouldBeRemovedImmediately: 1
   SphereRadius: 1
 --- !u!136 &136275818895709778
 CapsuleCollider:

@@ -1600,10 +1600,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
+  withoutBullets:
+    serializedVersion: 2
+    m_Bits: 4294966783
   weapon: {fileID: 114792370470253616}
   gunEnd: {fileID: 4508398863258214}
   FireRate: 0.35
   accurancyRange: 0
+  playerSphereCastRadius: 1
 --- !u!114 &114792370470253616
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -89,22 +89,24 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\Bot.cs" />
     <Compile Include="Assets\Scripts\AI\StaticBot.cs" />
+    <Compile Include="Assets\Scripts\BotScripts\ChasingBot.cs" />
     <Compile Include="Assets\Scripts\BotScripts\Movement.cs" />
     <Compile Include="Assets\Scripts\BotScripts\MovementFlier.cs" />
     <Compile Include="Assets\Scripts\BotScripts\MovementWatcher.cs" />
-    <Compile Include="Assets\Scripts\BotSpawner.cs" />
     <Compile Include="Assets\Scripts\Effects\ChangeMaterialEffect.cs" />
     <Compile Include="Assets\Scripts\Effects\Effect.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectConsumer.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectDestruction.cs" />
     <Compile Include="Assets\Scripts\Effects\EffectType.cs" />
     <Compile Include="Assets\Scripts\Effects\HpReduceEffect.cs" />
+    <Compile Include="Assets\Scripts\Effects\HpRestoreEffect.cs" />
     <Compile Include="Assets\Scripts\Effects\MaterialChangeConsumer.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObject.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMap.cs" />
     <Compile Include="Assets\Scripts\EnvironmentDestruction\DestructableObjectMapNode.cs" />
     <Compile Include="Assets\Scripts\GameEdge.cs" />
     <Compile Include="Assets\Scripts\GameStatistics.cs" />
+    <Compile Include="Assets\Scripts\HealthPick.cs" />
     <Compile Include="Assets\Scripts\HUD\HPBar.cs" />
     <Compile Include="Assets\Scripts\MapGeneration\CubeGenerator.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
@@ -112,7 +114,9 @@
     <Compile Include="Assets\Scripts\MovementControllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CapRotation.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\ObjectsSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerOverlord.cs" />
+    <Compile Include="Assets\Scripts\ScreenShoot.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\BotBullets.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\Bullet.cs" />
     <Compile Include="Assets\Scripts\ShootingMechanics\Bullets\PreciseBullet.cs" />

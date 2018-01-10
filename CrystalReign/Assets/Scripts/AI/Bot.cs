@@ -9,8 +9,9 @@ namespace AI
 	public abstract class Bot : EffectConsumer
     {
         public string playerTag = "Player";
-        private GameObject player;
+        protected GameObject player;
         private RaycastHit hit;
+        public LayerMask withoutBullets;
 
         private Vector3 oldPlayerPosition;
         protected List<Vector3> rememberedPlayerVelocities;
@@ -24,10 +25,12 @@ namespace AI
         protected float hp = maxHP;
 		private float nextFireTime;
         public float accurancyRange = 1.25f;
+        public float playerSphereCastRadius = 1f;
 
-		public abstract void move(Vector3 destination);
+        public abstract void move();
+        public abstract void aim(Vector3 direction);
 
-		public virtual void shoot(Vector3 direction)
+        public virtual void shoot(Vector3 direction)
 		{
 			UpdateNextFireTime();
 			weapon.Shoot(gunEnd.position, direction);
@@ -40,17 +43,13 @@ namespace AI
 
 		public bool CanShoot()
 		{
-			return Time.time > nextFireTime;
+			return Time.time > nextFireTime && weapon != null && gunEnd != null;
 		}
 
 
-		public virtual void rotate(Vector3 direction)
-		{
-			transform.LookAt(direction);
-		}
     
 
-        void Start()
+        protected void Start()
         {
             findPlayer();
             rememberedPlayerVelocities = new List<Vector3>();
@@ -62,9 +61,10 @@ namespace AI
                 player = GameObject.FindGameObjectWithTag(playerTag);
         }
 
-        void Update()
+        protected void Update()
         {
-            rotate(player.gameObject.transform.position);
+            move();
+            aim(player.gameObject.transform.position);
             if (CanShoot() && CanSeePlayer())
                 shoot(Randomized(SpeculatedHit())); //shoot(Randomized(player.transform.position));
             UpdateMemory();
@@ -72,7 +72,7 @@ namespace AI
 
         public bool CanSeePlayer()
         {
-            Physics.Raycast(transform.position, player.transform.position - transform.position, out hit);
+            Physics.SphereCast(transform.position, playerSphereCastRadius, player.transform.position - transform.position, out hit);
             return hit.collider.gameObject.tag.Equals(playerTag);
         }
 

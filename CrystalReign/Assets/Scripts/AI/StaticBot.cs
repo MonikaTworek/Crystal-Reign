@@ -7,6 +7,11 @@ namespace AI
 {
 	public class StaticBot : Bot
     {
+        public override void aim(Vector3 direction)
+        {
+            transform.LookAt(direction);
+        }
+
         public override void Apply(Effect effect, Vector3 origin)
         {
             switch (effect.effectType)
@@ -23,7 +28,7 @@ namespace AI
             }
         }
 
-        public override void move(Vector3 destination)
+        public override void move()
 		{
 			Debug.Log("no co ty");
 		}
