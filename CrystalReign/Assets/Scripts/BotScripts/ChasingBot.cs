@@ -21,6 +21,8 @@ public class ChasingBot : Bot {
     private System.Random random = new System.Random();
 
 
+    public float rollAnimationSpeed = 150;
+
     public override void aim(Vector3 direction)
     {
         //throw new NotImplementedException();
@@ -122,5 +124,7 @@ public class ChasingBot : Bot {
             currentDir = playerLastSeenPosition.Value - transform.position;
         }
 
+        //animate
+        transform.GetChild(0).Rotate(new Vector3(0, 0, rollAnimationSpeed*Time.deltaTime));
 	}
 }
