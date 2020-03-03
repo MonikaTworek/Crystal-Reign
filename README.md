@@ -1,4 +1,4 @@
-# Crystal-Reign
+# Crystal Reign
 
 ![alt text](https://user-images.githubusercontent.com/23744531/74228774-6bd8f080-4cc1-11ea-84a7-bc9256a21b84.png)
 
