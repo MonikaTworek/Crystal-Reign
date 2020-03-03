@@ -2,27 +2,30 @@
 
 ![alt text](https://user-images.githubusercontent.com/23744531/74228774-6bd8f080-4cc1-11ea-84a7-bc9256a21b84.png)
 
+## Overwiev
 
-This is a third person shooter game with bots. Game mechanics allows player to destroy environment. Player has partial control of this process: in a short time window he can „freeze” falling debris. The goal is to defeat as many bots as possible. Bots can move both on the ground and in the air. Player can move, jump, shoot and stop the process of destruction, as mentioned before. 
-The game is in CrystalReign.zip. To start just run build.exe.
+Crystal Reign is a TPS game based on matches versus AI. Game mechanics allow environment destruction and partial control of the destruction process. When a bullet hits an object made of fragile material, it breaks apart into debris. Shortly after that, player can "freeze" falling debris, i.e. stop their movement and suspend them in the air, which may serve as a shield or platform for climbing.  
 
+## Gameplay
+The goal is to survive and defeat as many bots as possible. Current build includes two kinds of bots (static, soaring) and 
+one scene containing objects applied with one of materials:
+* Indestructible: doesn't interact with bullets
+* Fully destructible: breaks into debris, which may be "freezed"
+* Partly destructible: only a fragment of the object breaks into "freezable" pieces; the rest remains unaffected and doesn't changle the position
 
-Moving: 
-* wsad + mouse - moving the player
-* e - stop process of destruction in sphere
-* c - show cursor
-* scroll - change type of weapon
-* left mouse button - shot
-* right mouse button - zoom in
+There are 2 types of weapons: fast (weaker) and powerful (slower). Powerful bullets destroy appropriate objects and create and expanding sphere, which represents the area possible to freeze. The sphere fades shortly after collision. It doesn't affect player nor bots.
 
+## Download
+The game is in CrystalReign.zip. Extract the archive and run build.exe.
+
+## Controls
+* WASD - move
+* E - freeze debris inside sphere
+* C - show cursor
+* Scroll - change type of weapon
+* LMB - shoot
+* RMB - zoom in
 
 ![alt-text](https://user-images.githubusercontent.com/23744531/74230145-1225f580-4cc4-11ea-8ffd-20a340f1095b.jpg)
 
-<!--
-takie rozdziały (rozdzielone nagłówkami)
-Overview z worda
-Gameplay z worda (z poprawkami w miejscach gdzie są nieścisłości)
-Controls
-Download - dokładne instrukcje do pobrania i odpalenia wraz z linkiem
-Gallery (screeny assetów, różnych lokacji na mapie, żeby wydawało się, że cały projekt jest bogaty i duży)
--->
+<!-- Gallery ? -->
