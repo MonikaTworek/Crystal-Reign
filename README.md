@@ -2,7 +2,7 @@
 
 ![alt text](https://user-images.githubusercontent.com/23744531/74228774-6bd8f080-4cc1-11ea-84a7-bc9256a21b84.png)
 
-## Overwiev
+## Overview
 
 Crystal Reign is a TPS game based on matches versus AI. Game mechanics allow environment destruction and partial control of the destruction process. When a bullet hits an object made of fragile material, it breaks apart into debris. Shortly after that, player can "freeze" falling debris, i.e. stop their movement and suspend them in the air, which may serve as a shield or platform for climbing.  
 
@@ -16,7 +16,7 @@ one scene containing objects applied with one of materials:
 There are 2 types of weapons: fast (weaker) and powerful (slower). Powerful bullets destroy appropriate objects and create and expanding sphere, which represents the area possible to freeze. The sphere fades shortly after collision. It doesn't affect player nor bots.
 
 ## Download
-The game is in CrystalReign.zip. Extract the archive and run build.exe.
+Current release can be downloaded from [CrystalReign.zip](CrystalReign.zip). Extract the archive and run build.exe.
 
 ## Controls
 * WASD - move
